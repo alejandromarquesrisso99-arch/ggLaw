@@ -258,10 +258,10 @@ class TestYears:
 class TestResidenceAndSeatCalendars:
     """Art. 30.6: inhábil en la residencia del interesado o en la sede del órgano.
 
-    TODO(juridico): según los resúmenes consultados, el art. 31.2 excluye el 30.6 en los
-    registros electrónicos, que aplican solo el calendario de su sede electrónica. Quien
-    llame a compute_deadline debe elegir el calendario según el canal de presentación.
-    Fuente: arts. 30.6 y 31.2 Ley 39/2015 (BOE consolidado).
+    El art. 31.3 excluye el 30.6 en los registros electrónicos, que aplican solo el
+    calendario de su sede electrónica (knowledge/ley-39-2015.md). Quien llame a
+    compute_deadline elige el calendario según el canal de presentación.
+    TODO(juridico): ¿el 31.3 rige también el vencimiento (art. 30.5) o solo la presentación?
     """
 
     def test_holiday_in_either_place_is_non_business(self) -> None:
