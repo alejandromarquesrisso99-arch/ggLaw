@@ -14,6 +14,7 @@ párrafos literalmente. Solo usa la biblioteca estándar.
 from __future__ import annotations
 
 import argparse
+import datetime
 import sys
 import urllib.request
 import xml.etree.ElementTree as ET
@@ -51,7 +52,13 @@ def fetch_metadata(norma_id: str) -> dict[str, str]:
     return {child.tag: _text(child) for child in meta}
 
 
-def fetch_block_markdown(norma_id: str, block_id: str) -> str:
+def _select_version(versions: list[ET.Element], on: str) -> ET.Element:
+    """Devuelve la última versión con fecha_vigencia <= on (AAAAMMDD)."""
+    in_force = [v for v in versions if v.get("fecha_vigencia", "") <= on]
+    return in_force[-1] if in_force else versions[0]
+
+
+def fetch_block_markdown(norma_id: str, block_id: str, on: str | None = None) -> str:
     root = _get(API.format(id=norma_id) + f"/texto/bloque/{block_id}")
     bloque = root.find("data/bloque")
     if bloque is None:
@@ -59,7 +66,8 @@ def fetch_block_markdown(norma_id: str, block_id: str) -> str:
     versions = bloque.findall("version")
     if not versions:
         raise ValueError(f"Bloque sin versiones: {block_id}")
-    version = versions[-1]
+    version = _select_version(versions, on or datetime.date.today().strftime("%Y%m%d"))
+    future = versions[versions.index(version) + 1 :]
     lines: list[str] = []
     for p in version:
         text = _text(p)
@@ -80,6 +88,12 @@ def fetch_block_markdown(norma_id: str, block_id: str) -> str:
         f"{version.get('fecha_publicacion')} · vigente desde "
         f"{version.get('fecha_vigencia')} -->"
     )
+    for v in future:
+        header += (
+            f"\n<!-- AVISO: existe una versión posterior aún no vigente "
+            f"(publicada {v.get('fecha_publicacion')}, vigente desde "
+            f"{v.get('fecha_vigencia')}) -->"
+        )
     return header + "\n\n" + "\n\n".join(lines) + "\n"
 
 
