@@ -12,8 +12,7 @@ Fundamento (Ley 39/2015, art. 30; resumen propio, no transcripción):
     inhábil en todo caso.
 Notificaciones electrónicas: art. 43.2 de la Ley 39/2015.
 
-TODO(juridico): contrastar estos resúmenes con la transcripción literal de la versión
-consolidada del BOE en knowledge/ley-39-2015.md (pendiente de acceso a boe.es).
+Texto literal y fuente: knowledge/ley-39-2015.md (BOE consolidado, consultado 2026-09-23).
 
 Los calendarios de estos tests son SINTÉTICOS: sus festivos se eligen para provocar casos
 límite y no son datos oficiales. Los calendarios reales viven en calendars/.
