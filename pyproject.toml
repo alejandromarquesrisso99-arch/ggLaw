@@ -1,0 +1,37 @@
+[project]
+name = "gglaw"
+version = "0.0.0"
+description = "Asistente open source para que cada persona se defienda por sí misma en trámites administrativos en España."
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic>=2.8",
+    "pyyaml>=6.0",
+]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.11",
+    "pytest>=8.3",
+    "ruff>=0.6",
+    "types-pyyaml>=6.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = ["-ra", "--strict-markers", "--import-mode=importlib"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "PT", "RUF"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["core", "interfaces", "llm", "scripts"]
+
+[tool.mypy]
+strict = true
+files = ["core"]
+plugins = ["pydantic.mypy"]
