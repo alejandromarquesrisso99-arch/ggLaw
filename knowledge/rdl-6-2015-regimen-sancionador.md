@@ -4,7 +4,7 @@ articulos: [11, 74, 75, 76, 77, 80, 81, 82, 84, 85, 86, 88, 89, 92, 96, 108, 110
 fuente: https://www.boe.es/buscar/act.php?id=BOE-A-2015-11722
 version_consolidada: 2026-06-26
 consultado: 2026-09-23
-estado: borrador
+estado: revisado
 ---
 
 # RDL 6/2015 (Ley sobre Tráfico): resto del régimen sancionador

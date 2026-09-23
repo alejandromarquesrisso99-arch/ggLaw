@@ -4,7 +4,7 @@ articulos: [14, 16, 21, 24, 25, 32, 35, 40, 41, 42, 44, 47, 48, 53, 64, 66, 68, 
 fuente: https://www.boe.es/buscar/act.php?id=BOE-A-2015-10565
 version_consolidada: 2024-11-06
 consultado: 2026-09-23
-estado: borrador
+estado: revisado
 ---
 
 # Ley 39/2015 (LPACAP): procedimiento, notificaciones, procedimiento sancionador y recursos
