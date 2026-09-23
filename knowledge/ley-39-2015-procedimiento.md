@@ -1,6 +1,6 @@
 ---
 norma: Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas
-articulos: [14, 16, 21, 24, 25, 32, 40, 41, 42, 44, 53, 64, 66, 68, 76, 77, 85, 89, 90, 95, 112, 115, 121, 122, 123, 124]
+articulos: [14, 16, 21, 24, 25, 32, 35, 40, 41, 42, 44, 47, 48, 53, 64, 66, 68, 76, 77, 85, 89, 90, 95, 112, 115, 118, 121, 122, 123, 124]
 fuente: https://www.boe.es/buscar/act.php?id=BOE-A-2015-10565
 version_consolidada: 2024-11-06
 consultado: 2026-09-23
@@ -12,27 +12,55 @@ estado: borrador
 ## Nota sobre la fuente
 
 - Transcripción literal de la versión vigente de cada artículo, obtenida de la API de datos
-  abiertos del BOE (legislación consolidada, BOE-A-2015-10565), consultada el 2026-09-23.
-  Publicada en el BOE núm. 236, de 2 de octubre de 2015; vigente desde el 2 de octubre de 2016.
-- `version_consolidada` es la fecha de actualización más reciente del índice de la versión
-  consolidada. Bajo cada artículo se indican sus versiones en el BOE.
-- En tráfico esta ley se aplica de forma supletoria (DA 1.ª.2.c), así que lo que regule el
-  RDL 6/2015 prevalece (knowledge/rdl-6-2015.md).
-- Los arts. 30, 31 y 43 y la DA 1.ª están en knowledge/ley-39-2015.md (revisado).
+  abiertos del BOE (legislación consolidada), consultada el 2026-09-23. Bajo cada artículo se
+  indican sus versiones y, si las hay, las notas del BOE sobre la norma que lo modificó. Las
+  redacciones anteriores no se copian.
+- `version_consolidada` es la fecha de actualización más reciente del índice del texto
+  consolidado. La `fecha_actualizacion` de los metadatos es la del registro, no la del texto,
+  y puede ser posterior.
+- Los arts. 30, 31 y 43 y la DA 1.ª están en knowledge/ley-39-2015.md.
 
 ## Notas para ggLaw (no forman parte del texto legal)
 
-- Art. 32: el apartado 5 (ampliación de plazos por ciberincidente) lo añadió el Real
-  Decreto-ley 6/2022. core/plazos.py no modela ampliaciones de plazo (art. 32): si la
-  Administración acuerda una, el vencimiento calculado deja de valer.
-- Art. 77: modificado en 2022 (prueba).
+En tráfico esta ley solo se aplica de forma supletoria (DA 1.ª.2.c; art. 83.1 RDL 6/2015).
+Donde el RDL 6/2015 regula algo, prevalece. Varios artículos de aquí quedan desplazados y
+alegarlos en una multa de tráfico sería un motivo que no procede:
+
+- **Caducidad:** en tráfico es de un año desde la iniciación (art. 112.3 RDL 6/2015), no el
+  plazo general de tres meses (arts. 21.3 y 25.1.b de esta ley).
+- **Reducción por pago:** en tráfico es la del 50 % del art. 94 del RDL 6/2015, no las del
+  art. 85 de esta ley.
+- **Contenido de la denuncia y propuesta de resolución:** los regulan los arts. 87 y 95 del
+  RDL 6/2015. TODO(juridico): confirmar si los requisitos de los arts. 64.2 y 89 de esta ley
+  (p. ej. identidad del instructor, traslado de la propuesta) se exigen además en tráfico o si
+  el RDL los desplaza. Fuente: jurisprudencia sobre el art. 95 RDL 6/2015.
+- **Recursos:** la resolución sancionadora de tráfico pone fin a la vía administrativa (art.
+  96.1 RDL 6/2015), así que no cabe recurso de alzada (arts. 121-122). El recurso de reposición
+  es el del art. 96 del RDL (un mes, potestativo); los arts. 123-124 de esta ley son supletorios.
+
+Para qué sirve cada bloque:
+
+- Arts. 14 y 16: canal de presentación (electrónico o no), que decide el calendario de días
+  inhábiles (arts. 30.6 y 31.3, en knowledge/ley-39-2015.md).
+- Arts. 21, 24 y 25: obligación de resolver, silencio y caducidad (supletorios en tráfico).
+- Art. 32: el apartado 5 (ampliación por ciberincidente) lo añadió el Real Decreto-ley 6/2022.
+  core/plazos.py no modela ampliaciones de plazo: si la Administración acuerda una, el
+  vencimiento calculado deja de valer.
+- Art. 35: motivación, base de defectos de la resolución sancionadora.
+- Arts. 40-42 y 44: requisitos y práctica de las notificaciones (defectos de notificación).
+- Arts. 47 y 48: nulidad y anulabilidad, que fundamentan los recursos (art. 112.1).
+- Art. 53: derechos del interesado en el procedimiento.
+- Arts. 64, 76, 77, 85, 89, 90 y 95: procedimiento sancionador general (supletorio).
+- Arts. 66 y 68: contenido mínimo de las solicitudes y subsanación (plantillas de la tarea 6).
+- Arts. 112, 115, 118, 121-124: recursos. El art. 77 tiene un apartado 3 bis añadido por la
+  Ley 15/2022 (ver la nota del BOE bajo el artículo).
 - TODO(juridico): la Ley 40/2015 (principios de la potestad sancionadora, arts. 25-31,
   incluida la prescripción del art. 30) no está transcrita; hará falta para reglas que no
   regule el RDL 6/2015.
 
 ## Artículo 14. Derecho y obligación de relacionarse electrónicamente con las Administraciones Públicas.
 
-_Versión única, vigente desde 2016-10-02._
+_Versión vigente desde 2016-10-02. Versiones en el BOE: 2016-10-02._
 
 1. Las personas físicas podrán elegir en todo momento si se comunican con las Administraciones Públicas para el ejercicio de sus derechos y obligaciones a través de medios electrónicos o no, salvo que estén obligadas a relacionarse a través de medios electrónicos con las Administraciones Públicas. El medio elegido por la persona para comunicarse con las Administraciones Públicas podrá ser modificado por aquella en cualquier momento.
 
@@ -52,7 +80,7 @@ e) Los empleados de las Administraciones Públicas para los trámites y actuacio
 
 ## Artículo 16. Registros.
 
-_Versión única, vigente desde 2016-10-02._
+_Versión vigente desde 2016-10-02. Versiones en el BOE: 2016-10-02._
 
 1. Cada Administración dispondrá de un Registro Electrónico General, en el que se hará el correspondiente asiento de todo documento que sea presentado o que se reciba en cualquier órgano administrativo, Organismo público o Entidad vinculado o dependiente a éstos. También se podrán anotar en el mismo, la salida de los documentos oficiales dirigidos a otros órganos o particulares.
 
@@ -94,7 +122,7 @@ Reglamentariamente, las Administraciones podrán establecer la obligación de pr
 
 ## Artículo 21. Obligación de resolver.
 
-_Versión única, vigente desde 2016-10-02._
+_Versión vigente desde 2016-10-02. Versiones en el BOE: 2016-10-02._
 
 1. La Administración está obligada a dictar resolución expresa y a notificarla en todos los procedimientos cualquiera que sea su forma de iniciación.
 
@@ -124,7 +152,7 @@ El incumplimiento de dicha obligación dará lugar a la exigencia de responsabil
 
 ## Artículo 24. Silencio administrativo en procedimientos iniciados a solicitud del interesado.
 
-_Versión única, vigente desde 2016-10-02._
+_Versión vigente desde 2016-10-02. Versiones en el BOE: 2016-10-02._
 
 1. En los procedimientos iniciados a solicitud del interesado, sin perjuicio de la resolución que la Administración debe dictar en la forma prevista en el apartado 3 de este artículo, el vencimiento del plazo máximo sin haberse notificado resolución expresa, legitima al interesado o interesados para entenderla estimada por silencio administrativo, excepto en los supuestos en los que una norma con rango de ley o una norma de Derecho de la Unión Europea o de Derecho internacional aplicable en España establezcan lo contrario. Cuando el procedimiento tenga por objeto el acceso a actividades o su ejercicio, la ley que disponga el carácter desestimatorio del silencio deberá fundarse en la concurrencia de razones imperiosas de interés general.
 
@@ -144,7 +172,7 @@ b) En los casos de desestimación por silencio administrativo, la resolución ex
 
 ## Artículo 25. Falta de resolución expresa en procedimientos iniciados de oficio.
 
-_Versión única, vigente desde 2016-10-02._
+_Versión vigente desde 2016-10-02. Versiones en el BOE: 2016-10-02._
 
 1. En los procedimientos iniciados de oficio, el vencimiento del plazo máximo establecido sin que se haya dictado y notificado resolución expresa no exime a la Administración del cumplimiento de la obligación legal de resolver, produciendo los siguientes efectos:
 
@@ -157,6 +185,7 @@ b) En los procedimientos en que la Administración ejercite potestades sancionad
 ## Artículo 32. Ampliación.
 
 _Versión vigente desde 2022-03-31. Versiones en el BOE: 2016-10-02, 2022-03-31._
+_Nota del BOE: Se añade el apartado 5 por la disposición final 21 del Real Decreto-ley 6/2022, de 29 de marzo. Ref. BOE-A-2022-4972#df-21_
 
 1. La Administración, salvo precepto en contrario, podrá conceder de oficio o a petición de los interesados, una ampliación de los plazos establecidos, que no exceda de la mitad de los mismos, si las circunstancias lo aconsejan y con ello no se perjudican derechos de tercero. El acuerdo de ampliación deberá ser notificado a los interesados.
 
@@ -168,11 +197,35 @@ _Versión vigente desde 2022-03-31. Versiones en el BOE: 2016-10-02, 2022-03-31.
 
 5. Cuando como consecuencia de un ciberincidente se hayan visto gravemente afectados los servicios y sistemas utilizados para la tramitación de los procedimientos y el ejercicio de los derechos de los interesados que prevé la normativa vigente, la Administración podrá acordar la ampliación general de plazos de los procedimientos administrativos.
 
-Se añade el apartado 5 por la disposición final 21 del Real Decreto-ley 6/2022, de 29 de marzo. Ref. BOE-A-2022-4972#df-21
+## Artículo 35. Motivación.
+
+_Versión vigente desde 2016-10-02. Versiones en el BOE: 2016-10-02._
+
+1. Serán motivados, con sucinta referencia de hechos y fundamentos de derecho:
+
+a) Los actos que limiten derechos subjetivos o intereses legítimos.
+
+b) Los actos que resuelvan procedimientos de revisión de oficio de disposiciones o actos administrativos, recursos administrativos y procedimientos de arbitraje y los que declaren su inadmisión.
+
+c) Los actos que se separen del criterio seguido en actuaciones precedentes o del dictamen de órganos consultivos.
+
+d) Los acuerdos de suspensión de actos, cualquiera que sea el motivo de ésta, así como la adopción de medidas provisionales previstas en el artículo 56.
+
+e) Los acuerdos de aplicación de la tramitación de urgencia, de ampliación de plazos y de realización de actuaciones complementarias.
+
+f) Los actos que rechacen pruebas propuestas por los interesados.
+
+g) Los actos que acuerden la terminación del procedimiento por la imposibilidad material de continuarlo por causas sobrevenidas, así como los que acuerden el desistimiento por la Administración en procedimientos iniciados de oficio.
+
+h) Las propuestas de resolución en los procedimientos de carácter sancionador, así como los actos que resuelvan procedimientos de carácter sancionador o de responsabilidad patrimonial.
+
+i) Los actos que se dicten en el ejercicio de potestades discrecionales, así como los que deban serlo en virtud de disposición legal o reglamentaria expresa.
+
+2. La motivación de los actos que pongan fin a los procedimientos selectivos y de concurrencia competitiva se realizará de conformidad con lo que dispongan las normas que regulen sus convocatorias, debiendo, en todo caso, quedar acreditados en el procedimiento los fundamentos de la resolución que se adopte.
 
 ## Artículo 40. Notificación.
 
-_Versión única, vigente desde 2016-10-02._
+_Versión vigente desde 2016-10-02. Versiones en el BOE: 2016-10-02._
 
 1. El órgano que dicte las resoluciones y actos administrativos los notificará a los interesados cuyos derechos e intereses sean afectados por aquéllos, en los términos previstos en los artículos siguientes.
 
@@ -186,7 +239,7 @@ _Versión única, vigente desde 2016-10-02._
 
 ## Artículo 41. Condiciones generales para la práctica de las notificaciones.
 
-_Versión única, vigente desde 2016-10-02._
+_Versión vigente desde 2016-10-02. Versiones en el BOE: 2016-10-02._
 
 1. Las notificaciones se practicarán preferentemente por medios electrónicos y, en todo caso, cuando el interesado resulte obligado a recibirlas por esta vía.
 
@@ -224,7 +277,7 @@ Cuando no fuera posible realizar la notificación de acuerdo con lo señalado en
 
 ## Artículo 42. Práctica de las notificaciones en papel.
 
-_Versión única, vigente desde 2016-10-02._
+_Versión vigente desde 2016-10-02. Versiones en el BOE: 2016-10-02._
 
 1. Todas las notificaciones que se practiquen en papel deberán ser puestas a disposición del interesado en la sede electrónica de la Administración u Organismo actuante para que pueda acceder al contenido de las mismas de forma voluntaria.
 
@@ -234,7 +287,7 @@ _Versión única, vigente desde 2016-10-02._
 
 ## Artículo 44. Notificación infructuosa.
 
-_Versión única, vigente desde 2016-10-02._
+_Versión vigente desde 2016-10-02. Versiones en el BOE: 2016-10-02._
 
 Cuando los interesados en un procedimiento sean desconocidos, se ignore el lugar de la notificación o bien, intentada ésta, no se hubiese podido practicar, la notificación se hará por medio de un anuncio publicado en el «Boletín Oficial del Estado».
 
@@ -242,9 +295,41 @@ Asimismo, previamente y con carácter facultativo, las Administraciones podrán 
 
 Las Administraciones Públicas podrán establecer otras formas de notificación complementarias a través de los restantes medios de difusión, que no excluirán la obligación de publicar el correspondiente anuncio en el «Boletín Oficial del Estado».
 
+## Artículo 47. Nulidad de pleno derecho.
+
+_Versión vigente desde 2016-10-02. Versiones en el BOE: 2016-10-02._
+
+1. Los actos de las Administraciones Públicas son nulos de pleno derecho en los casos siguientes:
+
+a) Los que lesionen los derechos y libertades susceptibles de amparo constitucional.
+
+b) Los dictados por órgano manifiestamente incompetente por razón de la materia o del territorio.
+
+c) Los que tengan un contenido imposible.
+
+d) Los que sean constitutivos de infracción penal o se dicten como consecuencia de ésta.
+
+e) Los dictados prescindiendo total y absolutamente del procedimiento legalmente establecido o de las normas que contienen las reglas esenciales para la formación de la voluntad de los órganos colegiados.
+
+f) Los actos expresos o presuntos contrarios al ordenamiento jurídico por los que se adquieren facultades o derechos cuando se carezca de los requisitos esenciales para su adquisición.
+
+g) Cualquier otro que se establezca expresamente en una disposición con rango de Ley.
+
+2. También serán nulas de pleno derecho las disposiciones administrativas que vulneren la Constitución, las leyes u otras disposiciones administrativas de rango superior, las que regulen materias reservadas a la Ley, y las que establezcan la retroactividad de disposiciones sancionadoras no favorables o restrictivas de derechos individuales.
+
+## Artículo 48. Anulabilidad.
+
+_Versión vigente desde 2016-10-02. Versiones en el BOE: 2016-10-02._
+
+1. Son anulables los actos de la Administración que incurran en cualquier infracción del ordenamiento jurídico, incluso la desviación de poder.
+
+2. No obstante, el defecto de forma sólo determinará la anulabilidad cuando el acto carezca de los requisitos formales indispensables para alcanzar su fin o dé lugar a la indefensión de los interesados.
+
+3. La realización de actuaciones administrativas fuera del tiempo establecido para ellas sólo implicará la anulabilidad del acto cuando así lo imponga la naturaleza del término o plazo.
+
 ## Artículo 53. Derechos del interesado en el procedimiento administrativo.
 
-_Versión única, vigente desde 2016-10-02._
+_Versión vigente desde 2016-10-02. Versiones en el BOE: 2016-10-02._
 
 1. Además del resto de derechos previstos en esta Ley, los interesados en un procedimiento administrativo, tienen los siguientes derechos:
 
@@ -276,7 +361,7 @@ b) A la presunción de no existencia de responsabilidad administrativa mientras 
 
 ## Artículo 64. Acuerdo de iniciación en los procedimientos de naturaleza sancionadora.
 
-_Versión única, vigente desde 2016-10-02._
+_Versión vigente desde 2016-10-02. Versiones en el BOE: 2016-10-02._
 
 1. El acuerdo de iniciación se comunicará al instructor del procedimiento, con traslado de cuantas actuaciones existan al respecto, y se notificará a los interesados, entendiendo en todo caso por tal al inculpado.
 
@@ -300,7 +385,7 @@ f) Indicación del derecho a formular alegaciones y a la audiencia en el procedi
 
 ## Artículo 66. Solicitudes de iniciación.
 
-_Versión única, vigente desde 2016-10-02._
+_Versión vigente desde 2016-10-02. Versiones en el BOE: 2016-10-02._
 
 1. Las solicitudes que se formulen deberán contener:
 
@@ -332,7 +417,7 @@ Los solicitantes podrán acompañar los elementos que estimen convenientes para 
 
 ## Artículo 68. Subsanación y mejora de la solicitud.
 
-_Versión única, vigente desde 2016-10-02._
+_Versión vigente desde 2016-10-02. Versiones en el BOE: 2016-10-02._
 
 1. Si la solicitud de iniciación no reúne los requisitos que señala el artículo 66, y, en su caso, los que señala el artículo 67 u otros exigidos por la legislación específica aplicable, se requerirá al interesado para que, en un plazo de diez días, subsane la falta o acompañe los documentos preceptivos, con indicación de que, si así no lo hiciera, se le tendrá por desistido de su petición, previa resolución que deberá ser dictada en los términos previstos en el artículo 21.
 
@@ -344,7 +429,7 @@ _Versión única, vigente desde 2016-10-02._
 
 ## Artículo 76. Alegaciones.
 
-_Versión única, vigente desde 2016-10-02._
+_Versión vigente desde 2016-10-02. Versiones en el BOE: 2016-10-02._
 
 1. Los interesados podrán, en cualquier momento del procedimiento anterior al trámite de audiencia, aducir alegaciones y aportar documentos u otros elementos de juicio.
 
@@ -355,6 +440,7 @@ Unos y otros serán tenidos en cuenta por el órgano competente al redactar la c
 ## Artículo 77. Medios y período de prueba.
 
 _Versión vigente desde 2022-07-14. Versiones en el BOE: 2016-10-02, 2022-07-14._
+_Nota del BOE: Se añade el apartado 3 bis por la disposición final 4 de la Ley 15/2022, de 12 de julio. Ref. BOE-A-2022-11589#df-4_
 
 1. Los hechos relevantes para la decisión de un procedimiento podrán acreditarse por cualquier medio de prueba admisible en Derecho, cuya valoración se realizará de acuerdo con los criterios establecidos en la Ley 1/2000, de 7 de enero, de Enjuiciamiento Civil.
 
@@ -374,11 +460,9 @@ A los efectos de lo dispuesto en el párrafo anterior, el órgano administrativo
 
 7. Cuando la valoración de las pruebas practicadas pueda constituir el fundamento básico de la decisión que se adopte en el procedimiento, por ser pieza imprescindible para la correcta evaluación de los hechos, deberá incluirse en la propuesta de resolución.
 
-Se añade el apartado 3 bis por la disposición final 4 de la Ley 15/2022, de 12 de julio. Ref. BOE-A-2022-11589#df-4
-
 ## Artículo 85. Terminación en los procedimientos sancionadores.
 
-_Versión única, vigente desde 2016-10-02._
+_Versión vigente desde 2016-10-02. Versiones en el BOE: 2016-10-02._
 
 1. Iniciado un procedimiento sancionador, si el infractor reconoce su responsabilidad, se podrá resolver el procedimiento con la imposición de la sanción que proceda.
 
@@ -390,7 +474,7 @@ El porcentaje de reducción previsto en este apartado podrá ser incrementado re
 
 ## Artículo 89. Propuesta de resolución en los procedimientos de carácter sancionador.
 
-_Versión única, vigente desde 2016-10-02._
+_Versión vigente desde 2016-10-02. Versiones en el BOE: 2016-10-02._
 
 1. El órgano instructor resolverá la finalización del procedimiento, con archivo de las actuaciones, sin que sea necesaria la formulación de la propuesta de resolución, cuando en la instrucción procedimiento se ponga de manifiesto que concurre alguna de las siguientes circunstancias:
 
@@ -410,7 +494,7 @@ e) Cuando se concluyera, en cualquier momento, que ha prescrito la infracción.
 
 ## Artículo 90. Especialidades de la resolución en los procedimientos sancionadores.
 
-_Versión única, vigente desde 2016-10-02._
+_Versión vigente desde 2016-10-02. Versiones en el BOE: 2016-10-02._
 
 1. En el caso de procedimientos de carácter sancionador, además del contenido previsto en los dos artículos anteriores, la resolución incluirá la valoración de las pruebas practicadas, en especial aquellas que constituyan los fundamentos básicos de la decisión, fijarán los hechos y, en su caso, la persona o personas responsables, la infracción o infracciones cometidas y la sanción o sanciones que se imponen, o bien la declaración de no existencia de infracción o responsabilidad.
 
@@ -432,7 +516,7 @@ b) Habiendo el interesado interpuesto recurso contencioso-administrativo:
 
 ## Artículo 95. Requisitos y efectos.
 
-_Versión única, vigente desde 2016-10-02._
+_Versión vigente desde 2016-10-02. Versiones en el BOE: 2016-10-02._
 
 1. En los procedimientos iniciados a solicitud del interesado, cuando se produzca su paralización por causa imputable al mismo, la Administración le advertirá que, transcurridos tres meses, se producirá la caducidad del procedimiento. Consumido este plazo sin que el particular requerido realice las actividades necesarias para reanudar la tramitación, la Administración acordará el archivo de las actuaciones, notificándoselo al interesado. Contra la resolución que declare la caducidad procederán los recursos pertinentes.
 
@@ -446,7 +530,7 @@ En los casos en los que sea posible la iniciación de un nuevo procedimiento por
 
 ## Artículo 112. Objeto y clases.
 
-_Versión única, vigente desde 2016-10-02._
+_Versión vigente desde 2016-10-02. Versiones en el BOE: 2016-10-02._
 
 1. Contra las resoluciones y los actos de trámite, si estos últimos deciden directa o indirectamente el fondo del asunto, determinan la imposibilidad de continuar el procedimiento, producen indefensión o perjuicio irreparable a derechos e intereses legítimos, podrán interponerse por los interesados los recursos de alzada y potestativo de reposición, que cabrá fundar en cualquiera de los motivos de nulidad o anulabilidad previstos en los artículos 47 y 48 de esta Ley.
 
@@ -466,7 +550,7 @@ Los recursos contra un acto administrativo que se funden únicamente en la nulid
 
 ## Artículo 115. Interposición de recurso.
 
-_Versión única, vigente desde 2016-10-02._
+_Versión vigente desde 2016-10-02. Versiones en el BOE: 2016-10-02._
 
 1. La interposición del recurso deberá expresar:
 
@@ -484,9 +568,21 @@ e) Las demás particularidades exigidas, en su caso, por las disposiciones espec
 
 3. Los vicios y defectos que hagan anulable un acto no podrán ser alegados por quienes los hubieren causado.
 
+## Artículo 118. Audiencia de los interesados.
+
+_Versión vigente desde 2016-10-02. Versiones en el BOE: 2016-10-02._
+
+1. Cuando hayan de tenerse en cuenta nuevos hechos o documentos no recogidos en el expediente originario, se pondrán de manifiesto a los interesados para que, en un plazo no inferior a diez días ni superior a quince, formulen las alegaciones y presenten los documentos y justificantes que estimen procedentes.
+
+No se tendrán en cuenta en la resolución de los recursos, hechos, documentos o alegaciones del recurrente, cuando habiendo podido aportarlos en el trámite de alegaciones no lo haya hecho. Tampoco podrá solicitarse la práctica de pruebas cuando su falta de realización en el procedimiento en el que se dictó la resolución recurrida fuera imputable al interesado.
+
+2. Si hubiera otros interesados se les dará, en todo caso, traslado del recurso para que en el plazo antes citado, aleguen cuanto estimen procedente.
+
+3. El recurso, los informes y las propuestas no tienen el carácter de documentos nuevos a los efectos de este artículo. Tampoco lo tendrán los que los interesados hayan aportado al expediente antes de recaer la resolución impugnada.
+
 ## Artículo 121. Objeto.
 
-_Versión única, vigente desde 2016-10-02._
+_Versión vigente desde 2016-10-02. Versiones en el BOE: 2016-10-02._
 
 1. Las resoluciones y actos a que se refiere el artículo 112.1, cuando no pongan fin a la vía administrativa, podrán ser recurridos en alzada ante el órgano superior jerárquico del que los dictó. A estos efectos, los Tribunales y órganos de selección del personal al servicio de las Administraciones Públicas y cualesquiera otros que, en el seno de éstas, actúen con autonomía funcional, se considerarán dependientes del órgano al que estén adscritos o, en su defecto, del que haya nombrado al presidente de los mismos.
 
@@ -498,7 +594,7 @@ El titular del órgano que dictó el acto recurrido será responsable directo de
 
 ## Artículo 122. Plazos.
 
-_Versión única, vigente desde 2016-10-02._
+_Versión vigente desde 2016-10-02. Versiones en el BOE: 2016-10-02._
 
 1. El plazo para la interposición del recurso de alzada será de un mes, si el acto fuera expreso. Transcurrido dicho plazo sin haberse interpuesto el recurso, la resolución será firme a todos los efectos.
 
@@ -510,7 +606,7 @@ Si el acto no fuera expreso el solicitante y otros posibles interesados podrán 
 
 ## Artículo 123. Objeto y naturaleza.
 
-_Versión única, vigente desde 2016-10-02._
+_Versión vigente desde 2016-10-02. Versiones en el BOE: 2016-10-02._
 
 1. Los actos administrativos que pongan fin a la vía administrativa podrán ser recurridos potestativamente en reposición ante el mismo órgano que los hubiera dictado o ser impugnados directamente ante el orden jurisdiccional contencioso-administrativo.
 
@@ -518,7 +614,7 @@ _Versión única, vigente desde 2016-10-02._
 
 ## Artículo 124. Plazos.
 
-_Versión única, vigente desde 2016-10-02._
+_Versión vigente desde 2016-10-02. Versiones en el BOE: 2016-10-02._
 
 1. El plazo para la interposición del recurso de reposición será de un mes, si el acto fuera expreso. Transcurrido dicho plazo, únicamente podrá interponerse recurso contencioso-administrativo, sin perjuicio, en su caso, de la procedencia del recurso extraordinario de revisión.
 
