@@ -2,7 +2,7 @@
 
 ## Qué es este proyecto
 
-ggLaw es un asistente open source (AGPL-3.0) que ayuda a ciudadanos en España a
+ggLaw es un asistente open source (AGPL-3.0-or-later) que ayuda a ciudadanos en España a
 **defenderse por sí mismos** en trámites administrativos: recurrir multas, entender
 notificaciones, calcular plazos y generar escritos listos para presentar.
 
@@ -36,7 +36,7 @@ notificaciones, calcular plazos y generar escritos listos para presentar.
 - `pydantic` para modelos y validación; `typer` para la CLI
 - `jinja2` para plantillas de escritos
 - `pyyaml` para reglas y calendarios
-- `pytest` para tests; `ruff` para lint y formato; `mypy` en modo estricto en `core/`
+- `pytest` para tests; `ruff` para lint y formato; `mypy` en modo estricto en todo `gglaw/`
 - Adaptador LLM intercambiable: API (Anthropic, OpenAI) o local (Ollama)
 - OCR/extracción de PDF: por decidir (evaluar `pymupdf` + LLM con visión)
 
@@ -47,7 +47,7 @@ uv sync                    # instalar dependencias
 uv run pytest              # tests
 uv run ruff check . --fix  # lint
 uv run ruff format .       # formato
-uv run mypy core/          # tipos
+uv run mypy                # tipos (rutas en pyproject.toml)
 uv run gglaw --help        # CLI
 ```
 
@@ -55,21 +55,28 @@ uv run gglaw --help        # CLI
 
 ```
 ggLaw/
-├── core/               # Lógica determinista (sin dependencias de LLM)
-│   ├── plazos.py       # Cómputo de plazos (días hábiles/naturales/meses)
-│   ├── calendario.py   # Carga de festivos por ámbito
-│   └── expediente.py   # Máquina de estados del expediente
-├── rules/              # Motivos de defensa en YAML (uno por fichero)
-├── knowledge/          # Normativa en Markdown con frontmatter de fuente
-├── templates/          # Plantillas Jinja2 de escritos
-├── calendars/          # Festivos: nacional, autonómico (IB), local (Palma)
-├── llm/                # Adaptadores y prompts (extracción, explicación, redacción)
-├── interfaces/cli/     # CLI (typer)
-├── scripts/            # anonymize.py, utilidades
+├── gglaw/                  # Paquete Python: todo el código
+│   ├── core/               # Lógica determinista (sin dependencias de LLM)
+│   │   ├── plazos.py       # Cómputo de plazos (días hábiles/naturales/meses)
+│   │   ├── calendario.py   # Carga de festivos por ámbito
+│   │   └── expediente.py   # Máquina de estados del expediente
+│   ├── llm/                # Adaptadores y prompts (extracción, explicación, redacción)
+│   ├── interfaces/cli/     # CLI (typer)
+│   └── disclaimer.py       # Aviso legal común (CLI y escritos)
+├── rules/                  # Motivos de defensa en YAML (uno por fichero)
+├── knowledge/              # Normativa en Markdown con frontmatter de fuente
+├── templates/              # Plantillas Jinja2 de escritos
+├── calendars/              # Festivos: nacional, autonómico (IB), local (Palma)
+├── scripts/                # anonymize.py, utilidades
 ├── tests/
-│   └── casos/          # Casos reales ANONIMIZADOS con resultado esperado
-└── .claude/agents/     # Subagentes para Claude Code
+│   └── casos/              # Casos reales ANONIMIZADOS con resultado esperado
+├── .github/workflows/      # CI: ruff, mypy y pytest en cada push y PR
+└── .claude/agents/         # Subagentes para Claude Code
 ```
+
+El código vive dentro del paquete `gglaw/` (`from gglaw.core.plazos import ...`), para
+no instalar paquetes con nombres genéricos como `core`. Los datos (reglas, normativa,
+plantillas, calendarios) quedan en la raíz, fuera del paquete.
 
 Identificadores de código en inglés; contenido jurídico, plantillas y mensajes al
 usuario en español.
@@ -101,7 +108,7 @@ estado: borrador          # borrador | revisado | validado_abogado
 fundamento:
   - norma: RDL 6/2015
     articulo: 112
-condiciones:              # evaluadas por core/, nunca por el LLM
+condiciones:              # evaluadas por gglaw/core/, nunca por el LLM
   - ...
 datos_necesarios: [fecha_hechos, fecha_notificacion_denuncia, gravedad]
 parrafo_tipo: templates/parrafos/prescripcion.md.j2
@@ -125,14 +132,14 @@ notas: ""
   norma sectorial y se definen en datos, no incrustados en código.
 - **Verificar cada plazo contra la versión consolidada del BOE** antes de marcar una
   regla como `revisado`. No fiarse de la memoria del modelo.
-- Cobertura de tests alta en `core/plazos.py`: casos límite de fin de mes, años
+- Cobertura de tests alta en `gglaw/core/plazos.py`: casos límite de fin de mes, años
   bisiestos, festivos encadenados, notificaciones electrónicas.
 
 ## Flujo de un caso
 
 1. Entrada: PDF o foto de la notificación → extracción estructurada (LLM + validación).
 2. Clasificación: procedimiento y fase (denuncia, propuesta, resolución, apremio).
-3. Plazos: `core/plazos.py`.
+3. Plazos: `gglaw/core/plazos.py`.
 4. Reglas: evaluación determinista de `rules/` aplicables.
 5. Redacción: plantilla + párrafos de las reglas aplicables, adaptados por el LLM.
 6. Salida: escrito, resumen en lenguaje llano, pasos de presentación y fechas clave.
@@ -141,7 +148,7 @@ notas: ""
 ## Cómo trabajar en este repo
 
 - Antes de implementar algo no trivial, propón un plan breve y espera confirmación.
-- Tests primero en `core/` y `rules/`.
+- Tests primero en `gglaw/core/` y `rules/`.
 - Cambios pequeños y commits atómicos (Conventional Commits en español:
   `feat(plazos): ...`, `fix(reglas): ...`, `docs(normativa): ...`).
 - Todo contenido jurídico nuevo entra con `estado: borrador`. Solo Alex (o un abogado
@@ -153,9 +160,9 @@ notas: ""
 ## Primeras tareas
 
 1. Esqueleto del proyecto: `pyproject.toml`, estructura de carpetas, ruff/mypy/pytest,
-   LICENSE (AGPL-3.0), README con aviso legal.
-2. `core/calendario.py` + `calendars/` con festivos nacionales, Illes Balears y Palma.
-3. `core/plazos.py` con tests exhaustivos.
+   LICENSE (AGPL-3.0-or-later), README con aviso legal, CI. **Hecha.**
+2. `gglaw/core/calendario.py` + `calendars/` con festivos nacionales, Illes Balears y Palma.
+3. `gglaw/core/plazos.py` con tests exhaustivos.
 4. `knowledge/`: Ley 39/2015 (arts. clave) y RDL 6/2015 (procedimiento sancionador).
 5. Primeras reglas de tráfico: prescripción, caducidad del procedimiento, defectos de
    notificación, identificación del conductor, verificación metrológica del cinemómetro.
