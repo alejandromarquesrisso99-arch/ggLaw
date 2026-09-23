@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+build/
+dist/
+*.egg-info/
+
+# Herramientas
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Editores y sistema operativo
+.idea/
+.vscode/
+.DS_Store
+.claude/settings.local.json
+
+# Secretos (claves de API de los adaptadores LLM)
+.env
+.env.*
+
+# Datos personales: NUNCA al repo (principio 5 de CLAUDE.md).
+# Guarda tus expedientes reales en mis_casos/.
+mis_casos/
+# Notificaciones escaneadas y fotos. Si un caso de prueba YA ANONIMIZADO
+# necesita uno de estos ficheros, añádelo a propósito con `git add -f`.
+*.pdf
+*.jpg
+*.jpeg
+*.png
+*.heic
+*.tif
+*.tiff
