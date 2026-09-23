@@ -45,8 +45,8 @@ vehículo); anexos (incluido el anexo IV, cuadro de sanciones por velocidad).
 ## Índice temático (elaboración propia)
 
 Los plazos se transcriben literalmente, con el tipo de día **tal como lo dice el texto**.
-Cuando el artículo no dice el tipo de día o el día inicial, se indica «no lo dice» y hay
-una duda abierta al final. Ningún plazo de esta tabla debe usarse en `core/plazos.py`
+Cuando el artículo no dice el tipo de día o el día inicial, se indica **No dice** o
+**No fija** y hay una duda abierta al final. Ningún plazo de esta tabla debe usarse en `core/plazos.py`
 sin revisar las dudas abiertas.
 
 ### Denuncia, iniciación y notificación
@@ -97,7 +97,7 @@ sin revisar las dudas abiertas.
 |---|---|---|---|
 | Prescripción de la infracción | 112.1 | «tres meses para las infracciones leves y de seis meses para las infracciones graves y muy graves» | «comenzará a contar a partir del mismo día en que los hechos se hubieran cometido» (ojo: el mismo día, no el siguiente) |
 | Interrupción de la prescripción | 112.2 | Cualquier actuación administrativa conocida por el denunciado o dirigida a averiguar su identidad o domicilio; notificación según arts. 89, 90 y 91 | Se reanuda «si el procedimiento se paraliza durante más de un mes por causa no imputable al denunciado» |
-| Caducidad del procedimiento | 112.3 | «Si no se hubiera producido la resolución sancionadora transcurrido un año desde la iniciación del procedimiento» | Suspensión si conoce la jurisdicción penal. «Iniciación»: ver duda |
+| Caducidad del procedimiento | 112.3 | «Si no se hubiera producido la resolución sancionadora transcurrido un año desde la iniciación del procedimiento» | Suspensión si conoce la jurisdicción penal. Qué es la «iniciación»: ver duda |
 | Prescripción de la sanción | 112.4 | Multa: «cuatro años»; suspensión del art. 80: «un año» | «computados desde el día siguiente a aquel en que adquiera firmeza la sanción en vía administrativa»; apremio: normativa tributaria |
 | Firmeza tras pago reducido | 94.f | «La firmeza de la sanción en la vía administrativa desde el momento del pago, produciendo plenos efectos desde el día siguiente» | — |
 | Ejecución | 108 | «Una vez firme la sanción en vía administrativa» | — |
@@ -809,8 +809,8 @@ consultar. Ninguna tiene respuesta en este fichero y no deben resolverse de memo
     Fuente: Ley 39/2015 arts. 25 y 40.4; jurisprudencia del TS (CENDOJ).
 12. TODO(juridico): ¿Qué actuaciones interrumpen la prescripción (112.2)? En concreto:
     ¿interrumpe un intento de notificación fallido, o la publicación en TESTRA sin
-    publicación en BOE? ¿Cuándo el procedimiento está «paralizado» más de un mes por causa
-    no imputable al denunciado? Tras declararse la caducidad, ¿se puede iniciar un nuevo
+    publicación en BOE? ¿Cuándo «se paraliza durante más de un mes por causa no imputable
+    al denunciado» el procedimiento? Tras declararse la caducidad, ¿se puede iniciar un nuevo
     procedimiento si la infracción no ha prescrito? ¿Se aplica en tráfico la regla de que
     «los procedimientos caducados no interrumpirán el plazo de prescripción» (Ley 39/2015
     art. 95.3), también respecto de las notificaciones hechas en el procedimiento caducado?
