@@ -3,7 +3,7 @@ name = "gglaw"
 version = "0.0.0"
 description = "Asistente open source para que cada persona se defienda por sí misma en trámites administrativos en España."
 readme = "README.md"
-license = "AGPL-3.0-only"
+license = "AGPL-3.0-or-later"
 license-files = ["LICENSE"]
 requires-python = ">=3.12"
 dependencies = [

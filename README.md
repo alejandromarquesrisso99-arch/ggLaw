@@ -68,4 +68,5 @@ DNI/NIE, matrículas, direcciones, números de expediente ni firmas).
 
 ## Licencia
 
-[GNU Affero General Public License v3.0](LICENSE).
+[GNU Affero General Public License v3.0](LICENSE) o, a tu elección, cualquier versión
+posterior publicada por la Free Software Foundation (`AGPL-3.0-or-later`).
