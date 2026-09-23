@@ -89,7 +89,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("bloques", nargs="*", help="Ids de bloque, p. ej. a112")
     parser.add_argument("--index", action="store_true", help="Lista los bloques")
     parser.add_argument("--meta", action="store_true", help="Muestra metadatos")
-    args = parser.parse_args(argv)
+    args = parser.parse_intermixed_args(argv)
 
     if args.meta:
         for key, value in fetch_metadata(args.norma_id).items():
