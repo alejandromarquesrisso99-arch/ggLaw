@@ -213,6 +213,17 @@ class TestMonths:
         assert deadline.nominal_end == nominal_end
         assert deadline.end == end
 
+    @pytest.mark.parametrize(
+        ("notified", "expected_end"),
+        [
+            (date(2026, 1, 28), date(2026, 2, 28)),  # el cómputo empieza el 29, que no existe en II
+            (date(2028, 1, 29), date(2028, 2, 29)),  # bisiesto
+        ],
+    )
+    def test_notification_day_exists_in_february(self, notified: date, expected_end: date) -> None:
+        deadline = compute_deadline(notified, months(1), NO_HOLIDAYS)
+        assert deadline.nominal_end == expected_end
+
     def test_last_day_of_february_is_not_month_end_to_month_end(self) -> None:
         """De fecha a fecha: del 29-II se va al 29-III, no al 31-III."""
         deadline = compute_deadline(date(2028, 2, 29), months(1), NO_HOLIDAYS)
@@ -341,28 +352,54 @@ class TestElectronicNotification:
 
     @pytest.mark.parametrize("accessed_on", [date(2026, 6, 1), date(2026, 6, 5), date(2026, 6, 11)])
     def test_access_within_ten_days_is_the_notification_date(self, accessed_on: date) -> None:
-        assert electronic_notification_date(self.MADE_AVAILABLE, accessed_on) == accessed_on
+        assert (
+            electronic_notification_date(self.MADE_AVAILABLE, accessed_on, rejection_applies=True)
+            == accessed_on
+        )
 
     def test_no_access_is_rejection_on_the_tenth_day(self) -> None:
-        assert electronic_notification_date(self.MADE_AVAILABLE, None) == date(2026, 6, 11)
+        assert electronic_notification_date(
+            self.MADE_AVAILABLE, None, rejection_applies=True
+        ) == date(2026, 6, 11)
 
     def test_tenth_day_on_saturday_is_not_extended(self) -> None:
         made_available = date(2026, 6, 3)  # miércoles; el décimo día es el sábado 13-VI
-        assert electronic_notification_date(made_available, None) == date(2026, 6, 13)
+        assert electronic_notification_date(made_available, None, rejection_applies=True) == date(
+            2026, 6, 13
+        )
 
     def test_access_after_rejection_does_not_change_the_date(self) -> None:
         late_access = date(2026, 6, 12)
-        assert electronic_notification_date(self.MADE_AVAILABLE, late_access) == date(2026, 6, 11)
+        assert electronic_notification_date(
+            self.MADE_AVAILABLE, late_access, rejection_applies=True
+        ) == date(2026, 6, 11)
 
     def test_access_before_being_made_available_is_an_error(self) -> None:
         with pytest.raises(ValueError, match="puesta a disposición"):
-            electronic_notification_date(self.MADE_AVAILABLE, date(2026, 5, 31))
+            electronic_notification_date(
+                self.MADE_AVAILABLE, date(2026, 5, 31), rejection_applies=True
+            )
 
     def test_deadline_runs_from_the_rejection(self) -> None:
-        notified = electronic_notification_date(self.MADE_AVAILABLE, None)
+        notified = electronic_notification_date(self.MADE_AVAILABLE, None, rejection_applies=True)
+        assert notified is not None
         deadline = compute_deadline(notified, months(1), NO_HOLIDAYS)
         assert deadline.nominal_end == date(2026, 7, 11)  # sábado
         assert deadline.end == date(2026, 7, 13)
+
+    def test_without_rejection_conditions_there_is_no_notification(self) -> None:
+        """Notificación electrónica voluntaria, o en la DEV sin constancia de recepción o con
+        imposibilidad de acceso: sin acceso no hay notificación practicada."""
+        assert (
+            electronic_notification_date(self.MADE_AVAILABLE, None, rejection_applies=False) is None
+        )
+
+    def test_without_rejection_conditions_a_late_access_is_the_notification(self) -> None:
+        late_access = date(2026, 6, 20)
+        assert (
+            electronic_notification_date(self.MADE_AVAILABLE, late_access, rejection_applies=False)
+            == late_access
+        )
 
 
 # Calendario sintético con festivos repartidos por el año, algunos encadenados con fines de

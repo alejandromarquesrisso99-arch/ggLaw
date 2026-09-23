@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import Literal
 
 import yaml
-from pydantic import BaseModel, ConfigDict, ValidationError, model_validator
+from pydantic import BaseModel, ConfigDict, Field, ValidationError, model_validator
 
 DEFAULT_CALENDARS_DIR = Path(__file__).resolve().parent.parent / "calendars"
 TERRITORIES_FILE = "territorios.yaml"
@@ -63,6 +63,8 @@ class Calendar:
         Solo quedan cubiertos los años que todos cubren.
         """
         years = self._years.intersection(*(other.years for other in others))
+        if not years:
+            raise CalendarNotAvailableError("Los calendarios no tienen ningún año en común.")
         holidays = self._holidays.union(*(other.holidays for other in others))
         return Calendar((day for day in holidays if day.year in years), years)
 
@@ -88,7 +90,8 @@ class _CalendarFile(BaseModel):
 
     estado: Literal["borrador", "revisado", "validado_abogado"]
     fuentes: list[_Source]
-    festivos: list[_Holiday]
+    # Un año sin festivos declarados es casi seguro un fichero a medias: se rechaza.
+    festivos: list[_Holiday] = Field(min_length=1)
 
     @model_validator(mode="after")
     def _holidays_cite_declared_sources(self) -> _CalendarFile:

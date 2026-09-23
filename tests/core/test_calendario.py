@@ -4,7 +4,7 @@ Fundamento (Ley 39/2015; resumen propio, no transcripción): art. 30.2 (sábados
 festivos son inhábiles), 30.6 (combinación de calendarios de residencia y sede) y 30.7
 (calendarios oficiales de días inhábiles).
 
-TODO(juridico): contrastar con la transcripción literal en knowledge/ley-39-2015.md.
+Texto literal y fuente: knowledge/ley-39-2015.md.
 
 Los festivos y ficheros YAML de estos tests son SINTÉTICOS y no son datos oficiales.
 """
@@ -60,6 +60,10 @@ class TestCalendar:
 
 class TestMerge:
     """Art. 30.6: se combinan los calendarios de la residencia y de la sede del órgano."""
+
+    def test_no_common_year_raises(self) -> None:
+        with pytest.raises(CalendarNotAvailableError):
+            Calendar(holidays=(), years=[2026]).merge(Calendar(holidays=(), years=[2027]))
 
     def test_union_of_holidays_and_intersection_of_years(self) -> None:
         residence = Calendar(holidays=[date(2026, 1, 20), date(2027, 1, 20)], years=[2026, 2027])
@@ -140,6 +144,10 @@ def unknown_status(data: dict[str, Any]) -> None:
     data["estado"] = "aprobado"
 
 
+def no_holidays(data: dict[str, Any]) -> None:
+    data["festivos"] = []
+
+
 class TestLoadCalendar:
     def test_local_calendar_includes_regional_and_national_holidays(
         self, calendars_dir: Path
@@ -175,6 +183,7 @@ class TestLoadCalendar:
             holiday_without_source,
             source_without_url,
             unknown_status,
+            no_holidays,
         ],
     )
     def test_invalid_data_names_the_file(
@@ -211,6 +220,27 @@ class TestRepositoryCalendars:
     def test_palma_2026_holidays(self) -> None:
         calendar = load_calendar("palma", DEFAULT_CALENDARS_DIR)
         assert {day for day in calendar.holidays if day.year == 2026} == set(self.PALMA_2026)
+
+    def test_national_2026_matches_the_age_calendar(self) -> None:
+        """Días inhábiles en todo el territorio nacional (anexo de BOE-A-2025-23702)."""
+        calendar = load_calendar("nacional", DEFAULT_CALENDARS_DIR)
+        assert {day for day in calendar.holidays if day.year == 2026} == {
+            date(2026, 1, 1),
+            date(2026, 1, 6),
+            date(2026, 4, 3),
+            date(2026, 5, 1),
+            date(2026, 10, 12),
+            date(2026, 12, 8),
+            date(2026, 12, 25),
+        }
+
+    def test_illes_balears_2026_has_the_twelve_days_of_the_caib_agreement(self) -> None:
+        """Ap. a) del Acuerdo de BOE-A-2025-26609: doce días, sin las fiestas locales."""
+        calendar = load_calendar("illes_balears", DEFAULT_CALENDARS_DIR)
+        local = {date(2026, 1, 20), date(2026, 6, 24)}
+        assert {day for day in calendar.holidays if day.year == 2026} == (
+            set(self.PALMA_2026) - local
+        )
 
     def test_2027_is_not_available_yet(self) -> None:
         with pytest.raises(CalendarNotAvailableError):

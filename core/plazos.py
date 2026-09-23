@@ -18,7 +18,8 @@ from core.calendario import Calendar
 
 ONE_DAY = timedelta(days=1)
 
-# Art. 43.2 Ley 39/2015 y art. 90.2 RDL 6/2015: rechazo a los diez días naturales sin acceso.
+# Art. 43.2 Ley 39/2015 (norma general, no sectorial) y art. 90.2 RDL 6/2015, que coincide:
+# rechazo a los diez días naturales sin acceso.
 ELECTRONIC_REJECTION_DAYS = 10
 
 
@@ -56,7 +57,12 @@ class Deadline(BaseModel):
 
 
 def compute_deadline(notification_date: date, spec: DeadlineSpec, calendar: Calendar) -> Deadline:
-    """Último día de un plazo contado desde una notificación, publicación o silencio.
+    """Último día de un plazo para actuar, contado desde una notificación, publicación o
+    silencio (art. 30.3 y 30.4), con la prórroga del art. 30.5.
+
+    No sirve para la prescripción (el art. 112.1 del RDL 6/2015 cuenta desde el mismo día de
+    los hechos) ni para plazos de notificación presunta como el del art. 91 del RDL 6/2015.
+    TODO(juridico): definir su cómputo (día inicial y aplicación del art. 30.5) en la tarea 5.
 
     Lanza CalendarNotAvailableError si el cómputo necesita un año sin calendario oficial.
     """
@@ -83,19 +89,31 @@ def compute_deadline(notification_date: date, spec: DeadlineSpec, calendar: Cale
     )
 
 
-def electronic_notification_date(made_available_on: date, accessed_on: date | None) -> date:
-    """Fecha en que se entiende practicada una notificación electrónica.
+def electronic_notification_date(
+    made_available_on: date, accessed_on: date | None, *, rejection_applies: bool
+) -> date | None:
+    """Fecha en que se entiende practicada una notificación electrónica, para contar los
+    plazos del interesado.
 
     Si se accede dentro de los diez días naturales siguientes a la puesta a disposición, es
-    la fecha de acceso; si no, se entiende rechazada el décimo día, sin prórroga aunque sea
+    la fecha de acceso. Si no, se entiende rechazada el décimo día, sin prórroga aunque sea
     inhábil (criterio fijado el 2026-09-23: da la fecha más temprana posible).
+
+    `rejection_applies` indica si concurren las condiciones del rechazo: notificación
+    electrónica obligatoria o elegida por el interesado (art. 43.2 Ley 39/2015) y, en la DEV,
+    constancia de la recepción sin imposibilidad técnica o material del acceso (art. 90.2
+    RDL 6/2015). Si no concurren y no hubo acceso, no hay notificación practicada: devuelve
+    None.
+
+    No sirve para comprobar si la Administración notificó en plazo (caducidad): el art. 43.3
+    da por cumplida esa obligación con la puesta a disposición.
     """
     if accessed_on is not None and accessed_on < made_available_on:
         raise ValueError("La fecha de acceso es anterior a la puesta a disposición.")
     rejection_date = made_available_on + timedelta(days=ELECTRONIC_REJECTION_DAYS)
-    if accessed_on is not None and accessed_on <= rejection_date:
+    if accessed_on is not None and (accessed_on <= rejection_date or not rejection_applies):
         return accessed_on
-    return rejection_date
+    return rejection_date if rejection_applies else None
 
 
 def _next_business_day(day: date, calendar: Calendar) -> date:
