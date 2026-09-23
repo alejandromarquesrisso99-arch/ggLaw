@@ -18,6 +18,7 @@ import pytest
 import yaml
 
 from core.calendario import (
+    DEFAULT_CALENDARS_DIR,
     Calendar,
     CalendarDataError,
     CalendarNotAvailableError,
@@ -184,3 +185,37 @@ class TestLoadCalendar:
         write_calendar(calendars_dir / "palma" / "2026.yaml", data)
         with pytest.raises(CalendarDataError, match=r"palma[/\\]2026\.yaml"):
             load_calendar("palma", calendars_dir)
+
+
+class TestRepositoryCalendars:
+    """Datos reales de calendars/, contrastados con
+    knowledge/dias-inhabiles-2026-illes-balears-palma.md (tabla resumen)."""
+
+    PALMA_2026 = (
+        date(2026, 1, 1),
+        date(2026, 1, 6),
+        date(2026, 1, 20),
+        date(2026, 3, 2),
+        date(2026, 4, 2),
+        date(2026, 4, 3),
+        date(2026, 4, 6),
+        date(2026, 5, 1),
+        date(2026, 6, 24),
+        date(2026, 8, 15),
+        date(2026, 10, 12),
+        date(2026, 12, 8),
+        date(2026, 12, 25),
+        date(2026, 12, 26),
+    )
+
+    def test_palma_2026_holidays(self) -> None:
+        calendar = load_calendar("palma", DEFAULT_CALENDARS_DIR)
+        assert {day for day in calendar.holidays if day.year == 2026} == set(self.PALMA_2026)
+
+    def test_2027_is_not_available_yet(self) -> None:
+        with pytest.raises(CalendarNotAvailableError):
+            load_calendar("palma", DEFAULT_CALENDARS_DIR).is_business_day(date(2027, 1, 4))
+
+    @pytest.mark.parametrize("territory", ["nacional", "illes_balears", "palma"])
+    def test_every_territory_loads(self, territory: str) -> None:
+        assert 2026 in load_calendar(territory, DEFAULT_CALENDARS_DIR).years

@@ -142,9 +142,9 @@ class TestBusinessDays:
 class TestCalendarDays:
     """Plazos en días naturales, cuando una norma sectorial los fija (art. 30.2).
 
-    TODO(juridico): confirmar que la norma sectorial de tráfico (RDL 6/2015) no excluye la
-    prórroga del art. 30.5 para sus plazos en días naturales. Fuente: RDL 6/2015 (BOE
-    consolidado) y disposiciones de la Ley 39/2015 sobre su aplicación supletoria.
+    En tráfico (arts. 87, 93, 94 y 95 del RDL 6/2015) el RDL no regula el último día
+    inhábil; su art. 83.1 y la DA 1.ª.2.c) de la Ley 39/2015 remiten supletoriamente a esta,
+    así que se aplica la prórroga del art. 30.5 (knowledge/rdl-6-2015.md).
     """
 
     def test_counts_weekends_and_holidays(self) -> None:
@@ -327,16 +327,14 @@ class TestElectronicNotification:
     obligatoria o la eligió el interesado y no se accede en diez días naturales desde la
     puesta a disposición, se entiende rechazada.
 
-    TODO(juridico): dos dudas sobre el rechazo por falta de acceso:
-      1. ¿Se entiende practicada el décimo día tras la puesta a disposición (criterio de
-         estos tests) o el día siguiente? Cambia en un día el inicio de los plazos.
-      2. Si el décimo día es inhábil, ¿se prorroga por el art. 30.5? Estos tests evitan la
-         duda con un décimo día hábil; la implementación no prorrogará mientras no se aclare.
-    Ambas decisiones dan la fecha más temprana posible, así que el plazo del ciudadano nunca
+    El art. 90.2 del RDL 6/2015 recoge la misma regla para la DEV.
+
+    Criterio fijado por Alex el 2026-09-23 ante el silencio de la norma: la notificación se
+    entiende practicada el décimo día tras la puesta a disposición, sin prórroga aunque ese
+    día sea inhábil. Da la fecha más temprana posible, así que el plazo del ciudadano nunca
     vence después de lo real. Ojo: para comprobar si la Administración notificó a tiempo
-    (caducidad) el criterio prudente es el contrario.
-    Fuentes: art. 43.2 Ley 39/2015 (BOE consolidado), jurisprudencia del TS sobre el cómputo
-    de los diez días y, para tráfico, la regulación de la DEV en el RDL 6/2015.
+    (caducidad) el criterio prudente sería el contrario.
+    TODO(juridico): revisar con jurisprudencia del TS sobre el cómputo de los diez días.
     """
 
     MADE_AVAILABLE = date(2026, 6, 1)  # lunes; el décimo día es el jueves 11-VI
@@ -347,6 +345,10 @@ class TestElectronicNotification:
 
     def test_no_access_is_rejection_on_the_tenth_day(self) -> None:
         assert electronic_notification_date(self.MADE_AVAILABLE, None) == date(2026, 6, 11)
+
+    def test_tenth_day_on_saturday_is_not_extended(self) -> None:
+        made_available = date(2026, 6, 3)  # miércoles; el décimo día es el sábado 13-VI
+        assert electronic_notification_date(made_available, None) == date(2026, 6, 13)
 
     def test_access_after_rejection_does_not_change_the_date(self) -> None:
         late_access = date(2026, 6, 12)
