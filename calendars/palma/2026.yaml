@@ -1,0 +1,15 @@
+# Fiestas locales de Palma en 2026, inhábiles por el ap. b) del Acuerdo de BOE-A-2025-26609.
+# Ninguna corrección posterior (BOIB 139/2025, 150/2025, 15/2026) afecta a Palma.
+# Detalle y texto literal: knowledge/dias-inhabiles-2026-illes-balears-palma.md
+estado: borrador
+fuentes:
+  - id: BOIB-129-2025
+    url: https://www.caib.es/sites/calendarilaboral/f/529406
+    consultado: 2026-09-23
+festivos:
+  - fecha: 2026-01-20
+    nombre: San Sebastián
+    fuente: BOIB-129-2025
+  - fecha: 2026-06-24
+    nombre: San Juan
+    fuente: BOIB-129-2025

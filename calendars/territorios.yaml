@@ -1,0 +1,7 @@
+# Jerarquía de territorios: el calendario de un territorio incluye los festivos de sus padres.
+nacional:
+  padre: null
+illes_balears:
+  padre: nacional
+palma:
+  padre: illes_balears
