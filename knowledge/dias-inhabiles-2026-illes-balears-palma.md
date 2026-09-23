@@ -19,7 +19,7 @@ fuente:
   - https://www.caib.es/eboibfront/pdf/es/2026/15/1211539
 version_consolidada: no aplica (disposiciones no consolidadas; texto de la publicación oficial)
 consultado: 2026-09-23
-estado: borrador
+estado: revisado
 ---
 
 # Días inhábiles 2026 — Estado, Illes Balears y Palma
