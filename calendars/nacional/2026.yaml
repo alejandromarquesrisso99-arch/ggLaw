@@ -1,32 +1,33 @@
-# Fiestas nacionales no sustituibles de 2026 (código * de BOE-A-2025-21667).
+# Días inhábiles en todo el territorio nacional en 2026 según el calendario de días
+# inhábiles de la AGE (art. 30.7 Ley 39/2015), anexo de BOE-A-2025-23702. El 15-VIII no
+# figura porque cae en sábado. Solo es un calendario completo para la sede electrónica de
+# la AGE (p. ej. la DGT): para un interesado o un órgano de una comunidad autónoma hay que
+# cargar el territorio autonómico o local correspondiente.
 # Detalle y texto literal: knowledge/dias-inhabiles-2026-illes-balears-palma.md
-estado: borrador
+estado: revisado
 fuentes:
-  - id: BOE-A-2025-21667
-    url: https://www.boe.es/diario_boe/txt.php?id=BOE-A-2025-21667
-    consultado: 2026-09-23
   - id: BOE-A-2025-23702
     url: https://www.boe.es/diario_boe/txt.php?id=BOE-A-2025-23702
     consultado: 2026-09-23
 festivos:
   - fecha: 2026-01-01
     nombre: Año Nuevo
-    fuente: BOE-A-2025-21667
+    fuente: BOE-A-2025-23702
+  - fecha: 2026-01-06
+    nombre: Epifanía del Señor
+    fuente: BOE-A-2025-23702
   - fecha: 2026-04-03
     nombre: Viernes Santo
-    fuente: BOE-A-2025-21667
+    fuente: BOE-A-2025-23702
   - fecha: 2026-05-01
     nombre: Fiesta del Trabajo
-    fuente: BOE-A-2025-21667
-  - fecha: 2026-08-15  # sábado
-    nombre: Asunción de la Virgen
-    fuente: BOE-A-2025-21667
+    fuente: BOE-A-2025-23702
   - fecha: 2026-10-12
     nombre: Fiesta Nacional de España
-    fuente: BOE-A-2025-21667
+    fuente: BOE-A-2025-23702
   - fecha: 2026-12-08
     nombre: Inmaculada Concepción
-    fuente: BOE-A-2025-21667
+    fuente: BOE-A-2025-23702
   - fecha: 2026-12-25
     nombre: Natividad del Señor
-    fuente: BOE-A-2025-21667
+    fuente: BOE-A-2025-23702

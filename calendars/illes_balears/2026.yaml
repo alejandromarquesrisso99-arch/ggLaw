@@ -1,17 +1,13 @@
-# Días inhábiles de ámbito autonómico en Illes Balears en 2026 (además de los nacionales).
+# Días inhábiles de Illes Balears en 2026 que se suman a los nacionales: ap. a) del Acuerdo
+# de BOE-A-2025-26609 (doce días en total con los nacionales). Coincide con el calendario
+# de la sede electrónica de la CAIB, donde las fiestas locales son hábiles (ap. c).
 # Detalle y texto literal: knowledge/dias-inhabiles-2026-illes-balears-palma.md
-estado: borrador
+estado: revisado
 fuentes:
   - id: BOE-A-2025-26609
     url: https://www.boe.es/diario_boe/txt.php?id=BOE-A-2025-26609
     consultado: 2026-09-23
-  - id: BOE-A-2025-21667
-    url: https://www.boe.es/diario_boe/txt.php?id=BOE-A-2025-21667
-    consultado: 2026-09-23
 festivos:
-  - fecha: 2026-01-06
-    nombre: Epifanía del Señor
-    fuente: BOE-A-2025-26609
   - fecha: 2026-03-02
     nombre: Día siguiente al Día de las Illes Balears
     fuente: BOE-A-2025-26609
@@ -20,6 +16,9 @@ festivos:
     fuente: BOE-A-2025-26609
   - fecha: 2026-04-06
     nombre: Lunes de Pascua
+    fuente: BOE-A-2025-26609
+  - fecha: 2026-08-15  # sábado
+    nombre: Asunción de la Virgen
     fuente: BOE-A-2025-26609
   - fecha: 2026-12-26  # sábado
     nombre: Segunda fiesta de Navidad

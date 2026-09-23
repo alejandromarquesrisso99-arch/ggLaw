@@ -1,4 +1,5 @@
 # Jerarquía de territorios: el calendario de un territorio incluye los festivos de sus padres.
+# «nacional» solo es completo para la sede electrónica de la AGE (art. 31.3 Ley 39/2015).
 nacional:
   padre: null
 illes_balears:
