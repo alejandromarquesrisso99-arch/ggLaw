@@ -18,8 +18,8 @@ from core.calendario import Calendar
 
 ONE_DAY = timedelta(days=1)
 
-# Art. 43.2 Ley 39/2015 (norma general, no sectorial) y art. 90.2 RDL 6/2015, que coincide:
-# rechazo a los diez días naturales sin acceso.
+# Art. 43.2 Ley 39/2015 (norma general, no sectorial) y art. 90.2 RDL 6/2015 (regla análoga
+# para la DEV): rechazo a los diez días naturales sin acceso.
 ELECTRONIC_REJECTION_DAYS = 10
 
 

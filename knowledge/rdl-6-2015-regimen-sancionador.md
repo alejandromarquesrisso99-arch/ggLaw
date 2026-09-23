@@ -31,13 +31,27 @@ estado: borrador
   TODO(juridico): (1) ¿el plazo en meses se cuenta de fecha a fecha incluyendo el día de los
   hechos?; (2) ¿se aplica la prórroga del art. 30.5 de la Ley 39/2015 a un plazo de
   prescripción? Fuente: jurisprudencia sobre el art. 112 RDL 6/2015.
-- **Interrupción de la prescripción (art. 112.2):** se interrumpe por cualquier actuación
-  administrativa que conozca el denunciado o que busque su identidad o domicilio, y por las
-  notificaciones de los arts. 89, 90 y 91; se reanuda si el procedimiento se paraliza más de un
-  mes por causa no imputable al denunciado. Una regla que compare solo la fecha de los hechos
-  con la de la notificación daría falsos positivos.
-- **Caducidad (art. 112.3):** un año desde la iniciación del procedimiento. Solo coincide con la
-  fecha de la denuncia si se notificó en el acto (art. 86.2); si no, cuenta desde la incoación.
+- **Interrupción de la prescripción (art. 112.2):** se interrumpe por «cualquier actuación
+  administrativa de la que tenga conocimiento el denunciado o esté encaminada a averiguar su
+  identidad o domicilio y se practique con otras administraciones, instituciones u
+  organismos», y por las notificaciones de los arts. 89, 90 y 91; se reanuda si el
+  procedimiento se paraliza más de un mes por causa no imputable al denunciado. Una regla que
+  compare solo la fecha de los hechos con la de la notificación daría falsos positivos; una
+  que trate cualquier averiguación interna como interruptiva daría falsos negativos.
+  TODO(juridico): ¿la condición «y se practique con otras administraciones…» afecta solo a la
+  averiguación de identidad o domicilio o también a la primera alternativa? Fuente:
+  jurisprudencia sobre el art. 112.2 RDL 6/2015.
+- **Caducidad (art. 112.3):** un año desde la iniciación del procedimiento sin que se haya
+  producido la resolución sancionadora. Solo coincide con la fecha de la denuncia si se
+  notificó en el acto (art. 86.2); si no, cuenta desde la incoación. El plazo se suspende
+  mientras la jurisdicción penal conoce de los hechos (art. 112.3, párrafo segundo). La regla
+  necesita la fecha de iniciación y la fecha de la resolución (o de su notificación).
+  TODO(juridico): (1) ¿basta con dictar la resolución dentro del año o debe notificarse (arts.
+  21.1, 25.1 y 40.4 de la Ley 39/2015, supletorios)?; (2) ¿se cuenta de fecha a fecha (art.
+  30.4) y se aplica la prórroga del art. 30.5 a un plazo de la Administración?; (3) ¿se
+  aplican las suspensiones del art. 22 y la interrupción del art. 25.2 de la Ley 39/2015?;
+  (4) si la incoación no se notificó en el acto, ¿cuenta la fecha del acuerdo o la de su
+  notificación? Fuente: jurisprudencia sobre el art. 112.3 RDL 6/2015.
 - **Art. 96:** recurso de reposición potestativo en un mes contra la resolución sancionadora,
   que pone fin a la vía administrativa.
 - Arts. 74, 80-82, 108 y 110: infracciones, sanciones, responsables, ejecución y cobro.
@@ -45,6 +59,8 @@ estado: borrador
   script de estos ficheros; necesita un tratamiento propio. Tampoco está transcrita la
   normativa de control metrológico de los cinemómetros. TODO(juridico): transcribir ambos
   antes de la regla de verificación metrológica del cinemómetro.
+- Grafías que están así en el BOE (sic): el «.»» al final del art. 76.h), el punto que falta al
+  final del art. 76.b) y «de acreditación los centros» en el art. 77.q).
 
 ## Artículo 11. Obligaciones del titular del vehículo y del conductor habitual.
 
@@ -77,6 +93,7 @@ _Versión vigente desde 2016-01-31. Versiones en el BOE: 2016-01-31._
 ## Artículo 75. Infracciones leves.
 
 _Versión vigente desde 2021-12-22. Versiones en el BOE: 2016-01-31, 2021-12-22._
+
 _Nota del BOE: Se añaden las letras b) bis y b) ter y se modifica la c) por el art. único.22 de la Ley 18/2021, de 20 de diciembre. Ref. BOE-A-2021-21006#au_
 
 Son infracciones leves las conductas tipificadas en esta ley referidas a:
@@ -93,9 +110,12 @@ c) Incumplir las normas contenidas en esta Ley que no se califiquen expresamente
 
 ## Artículo 76. Infracciones graves.
 
-_Versión vigente desde 2023-06-30. Versiones en el BOE: 2016-01-31, 2022-03-21, 2022-03-02, 2023-06-30._
+_Versión vigente desde 2023-06-30. Versiones en el BOE: 2016-01-31, 2022-03-02, 2022-03-21, 2023-06-30._
+
 _Nota del BOE: Se modifica la letra w) por el art. 147.3 del Real Decreto-ley 5/2023, de 28 de junio. Ref. BOE-A-2023-15135#a1-59_
+
 _Nota del BOE: Se modifica la letra n) por la disposición fnal 5 del Real Decreto-ley 3/2022, de 1 de marzo. Ref. BOE-A-2022-3290#df-5_
+
 _Nota del BOE: Se modifican las letras d), g), h), j), s) y x) y se añaden las letras z1), z2) y z3), con efectos de 21 de marzo de 2022, por el art. único.23 de la Ley 18/2021, de 20 de diciembre. Ref. BOE-A-2021-21006#au_
 
 Son infracciones graves, cuando no sean constitutivas de delito, las conductas tipificadas en esta ley referidas a:
@@ -165,7 +185,9 @@ z3) No respetar las restricciones de circulación derivadas de la aplicación de
 ## Artículo 77. Infracciones muy graves.
 
 _Versión vigente desde 2023-06-30. Versiones en el BOE: 2016-01-31, 2022-03-21, 2023-06-30._
+
 _Nota del BOE: Se modifica la letra q) por el art. 147.4 del Real Decreto-ley 5/2023, de 28 de junio. Ref. BOE-A-2023-15135#a1-59_
+
 _Nota del BOE: Se modifica la letra q) y se añaden las letras s), t), u), v), w) y x), con efectos de 21 de marzo de 2022, por el art. único.24 de la Ley 18/2021, de 20 de diciembre. Ref. BOE-A-2021-21006#au_
 
 Son infracciones muy graves, cuando no sean constitutivas de delito, las conductas tipificadas en esta ley referidas a:
@@ -225,6 +247,7 @@ x) Arrojar a la vía o sus inmediaciones objetos que puedan producir incendios o
 ## Artículo 80. Tipos.
 
 _Versión vigente desde 2022-03-21. Versiones en el BOE: 2016-01-31, 2022-03-21._
+
 _Nota del BOE: Se modifica la letra d) del apartado 2 y se añade el apartado 4, con efectos de 21 de marzo de 2022, por el art. único.25 de la Ley 18/2021, de 20 de diciembre. Ref. BOE-A-2021-21006#au_
 
 1. Las infracciones leves serán sancionadas con multa de hasta 100 euros; las graves, con multa de 200 euros, y las muy graves, con multa de 500 euros. No obstante, las infracciones consistentes en no respetar los límites de velocidad se sancionarán en la cuantía prevista en el anexo IV.
@@ -248,6 +271,7 @@ La realización de actividades durante el tiempo de suspensión de la autorizaci
 ## Artículo 81. Graduación.
 
 _Versión vigente desde 2022-03-21. Versiones en el BOE: 2016-01-31, 2022-03-21._
+
 _Nota del BOE: Se modifica el segundo párrafo, con efectos de 21 de marzo de 2022, por el art. único.26 de la Ley 18/2021, de 20 de diciembre. Ref. BOE-A-2021-21006#au_
 
 La cuantía de las multas establecidas en el artículo 80.1 y en el anexo IV podrá incrementarse en un 30 por ciento, en atención a la gravedad y trascendencia del hecho, los antecedentes del infractor y a su condición de reincidente, el peligro potencial creado para él mismo y para los demás usuarios de la vía y al criterio de proporcionalidad.
@@ -301,6 +325,7 @@ Los Jefes Provinciales de Tráfico y los órganos competentes que correspondan, 
 ## Artículo 85. Actuaciones administrativas y jurisdiccionales penales.
 
 _Versión vigente desde 2022-09-15. Versiones en el BOE: 2016-01-31, 2022-09-15._
+
 _Nota del BOE: Se modifica el apartado 1 por la disposición final 1 de la Ley Orgánica 11/2022, de 13 de septiembre. Ref. BOE-A-2022-14965#df_
 
 1. Cuando en un procedimiento sancionador se ponga de manifiesto un hecho que ofrezca indicios de delito perseguible de oficio, la autoridad administrativa lo pondrá en conocimiento del Ministerio Fiscal, por si procede el ejercicio de la acción penal, y acordará la suspensión de las actuaciones.

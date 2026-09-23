@@ -33,27 +33,41 @@ alegarlos en una multa de tráfico sería un motivo que no procede:
 - **Contenido de la denuncia y propuesta de resolución:** los regulan los arts. 87 y 95 del
   RDL 6/2015. TODO(juridico): confirmar si los requisitos de los arts. 64.2 y 89 de esta ley
   (p. ej. identidad del instructor, traslado de la propuesta) se exigen además en tráfico o si
-  el RDL los desplaza. Fuente: jurisprudencia sobre el art. 95 RDL 6/2015.
+  el RDL los desplaza, y cómo se aplica el art. 53.2.a) (derecho a conocer la identidad del
+  instructor). Fuente: jurisprudencia sobre el art. 95 RDL 6/2015.
+- **Notificaciones:** en tráfico la práctica de la notificación la regulan los arts. 89-92 del
+  RDL 6/2015. Su art. 90.3 permite que la recoja cualquier persona que esté en el domicilio
+  (el art. 42.2 exige mayor de catorce años) y repetir el intento dentro de los tres días
+  siguientes, sin las reglas horarias del art. 42.2. La notificación infructuosa va al BOE
+  (art. 91, veinte días naturales) y al TESTRA (art. 92), no por el art. 44. TODO(juridico):
+  ¿se exigen en tráfico, de forma supletoria, las reglas horarias del segundo intento del art.
+  42.2? Fuente: jurisprudencia del TS sobre notificaciones en tráfico.
+- **Prueba y propuesta:** el art. 95.2-3 del RDL regula el informe del agente y el traslado de
+  nuevas alegaciones; los arts. 77.2 y 90.2 de esta ley son, como mucho, supletorios.
 - **Recursos:** la resolución sancionadora de tráfico pone fin a la vía administrativa (art.
   96.1 RDL 6/2015), así que no cabe recurso de alzada (arts. 121-122). El recurso de reposición
   es el del art. 96 del RDL (un mes, potestativo); los arts. 123-124 de esta ley son supletorios.
 
 Para qué sirve cada bloque:
 
-- Arts. 14 y 16: canal de presentación (electrónico o no), que decide el calendario de días
-  inhábiles (arts. 30.6 y 31.3, en knowledge/ley-39-2015.md).
+- Arts. 14 y 16: canal de presentación (electrónico o no), del que depende qué calendario de
+  días inhábiles se usa (arts. 30.6 y 31.3; ver el TODO abierto sobre el alcance del art. 31.3
+  en knowledge/ley-39-2015.md).
 - Arts. 21, 24 y 25: obligación de resolver, silencio y caducidad (supletorios en tráfico).
 - Art. 32: el apartado 5 (ampliación por ciberincidente) lo añadió el Real Decreto-ley 6/2022.
   core/plazos.py no modela ampliaciones de plazo: si la Administración acuerda una, el
   vencimiento calculado deja de valer.
 - Art. 35: motivación, base de defectos de la resolución sancionadora.
 - Arts. 40-42 y 44: requisitos y práctica de las notificaciones (defectos de notificación).
-- Arts. 47 y 48: nulidad y anulabilidad, que fundamentan los recursos (art. 112.1).
+- Arts. 47 y 48: nulidad y anulabilidad, que fundamentan los recursos (art. 112.1). Por el
+  art. 48.2, un defecto de forma solo anula si el acto carece de los requisitos formales
+  indispensables para alcanzar su fin o causa indefensión: una regla de defecto formal debe
+  comprobarlo para no alegar motivos que no proceden.
 - Art. 53: derechos del interesado en el procedimiento.
-- Arts. 64, 76, 77, 85, 89, 90 y 95: procedimiento sancionador general (supletorio).
+- Arts. 64, 76, 77, 85, 89, 90 y 95: procedimiento sancionador general (supletorio). El art.
+  77 tiene un apartado 3 bis añadido por la Ley 15/2022 (ver la nota del BOE bajo el artículo).
 - Arts. 66 y 68: contenido mínimo de las solicitudes y subsanación (plantillas de la tarea 6).
-- Arts. 112, 115, 118, 121-124: recursos. El art. 77 tiene un apartado 3 bis añadido por la
-  Ley 15/2022 (ver la nota del BOE bajo el artículo).
+- Arts. 112, 115, 118, 121-124: recursos.
 - TODO(juridico): la Ley 40/2015 (principios de la potestad sancionadora, arts. 25-31,
   incluida la prescripción del art. 30) no está transcrita; hará falta para reglas que no
   regule el RDL 6/2015.
@@ -185,6 +199,7 @@ b) En los procedimientos en que la Administración ejercite potestades sancionad
 ## Artículo 32. Ampliación.
 
 _Versión vigente desde 2022-03-31. Versiones en el BOE: 2016-10-02, 2022-03-31._
+
 _Nota del BOE: Se añade el apartado 5 por la disposición final 21 del Real Decreto-ley 6/2022, de 29 de marzo. Ref. BOE-A-2022-4972#df-21_
 
 1. La Administración, salvo precepto en contrario, podrá conceder de oficio o a petición de los interesados, una ampliación de los plazos establecidos, que no exceda de la mitad de los mismos, si las circunstancias lo aconsejan y con ello no se perjudican derechos de tercero. El acuerdo de ampliación deberá ser notificado a los interesados.
@@ -440,6 +455,7 @@ Unos y otros serán tenidos en cuenta por el órgano competente al redactar la c
 ## Artículo 77. Medios y período de prueba.
 
 _Versión vigente desde 2022-07-14. Versiones en el BOE: 2016-10-02, 2022-07-14._
+
 _Nota del BOE: Se añade el apartado 3 bis por la disposición final 4 de la Ley 15/2022, de 12 de julio. Ref. BOE-A-2022-11589#df-4_
 
 1. Los hechos relevantes para la decisión de un procedimiento podrán acreditarse por cualquier medio de prueba admisible en Derecho, cuya valoración se realizará de acuerdo con los criterios establecidos en la Ley 1/2000, de 7 de enero, de Enjuiciamiento Civil.

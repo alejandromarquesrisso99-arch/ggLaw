@@ -338,7 +338,8 @@ class TestElectronicNotification:
     obligatoria o la eligió el interesado y no se accede en diez días naturales desde la
     puesta a disposición, se entiende rechazada.
 
-    El art. 90.2 del RDL 6/2015 recoge la misma regla para la DEV.
+    El art. 90.2 del RDL 6/2015 recoge una regla análoga, no idéntica, para la DEV
+    (knowledge/rdl-6-2015.md).
 
     Criterio fijado por Alex el 2026-09-23 ante el silencio de la norma: la notificación se
     entiende practicada el décimo día tras la puesta a disposición, sin prórroga aunque ese
