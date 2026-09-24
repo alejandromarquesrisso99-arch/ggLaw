@@ -1,8 +1,8 @@
 ---
 norma: Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas
 identificador: BOE-A-2015-10565
-articulos: [14, 16, 21, 22, 24, 25, 29, 30, 31, 32, 40, 41, 42, 43, 44, 45, 46, 47, 48, 53, 63, 64, 66, 68, 85, 89, 90, 95, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126]
-disposiciones: [adicional primera, final séptima]
+articulos: [14, 16, 21, 22, 24, 25, 29, 30, 31, 32, 40, 41, 42, 43, 44, 45, 46, 47, 48, 53, 63, 64, 66, 68, 85, 89, 90, 95, 98, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126]
+disposiciones: [adicional primera, derogatoria única, final séptima]
 fuente: https://www.boe.es/buscar/act.php?id=BOE-A-2015-10565
 version_consolidada: 2024-11-06
 consultado: 2026-09-23
@@ -21,7 +21,8 @@ página HTML consolidada (`act.php?id=BOE-A-2015-10565`) y el texto coincide. So
 los espacios que deja el marcado HTML y los sufijos `#df-…` de las referencias. Cada
 bloque lleva un comentario `<!-- bloque … -->` con la fecha de publicación y de vigencia
 de la redacción transcrita. Las notas editoriales del BOE aparecen como `> _Nota BOE: …_`
-y no son texto normativo.
+y no son texto normativo. El art. 98 y la disposición derogatoria única se añadieron el
+2026-09-24 con el mismo método (necesarios para las dudas 11 y 13 de `dudas-abiertas.md`).
 
 **Fecha de la versión consolidada.** La API de metadatos devuelve
 `fecha_actualizacion: 20260923T065942Z`, pero esa fecha es la de actualización del
@@ -85,6 +86,7 @@ plazo se prorroga al primer día hábil siguiente.
 | Art. | Regula | Contenido relevante | Por qué se incluye |
 |---|---|---|---|
 | DA 1ª | Especialidades por razón de materia | 2.c): "Las actuaciones y procedimientos sancionadores en materia tributaria y aduanera, en el orden social, en materia de tráfico y seguridad vial y en materia de extranjería" se rigen "por su normativa específica y supletoriamente por lo dispuesto en esta Ley" | Es la norma de enlace. Decide cuándo se aplica la LPAC a las multas de tráfico. |
+| DD única | Derogación normativa | 2.a): deroga la "Ley 30/1992, de 26 de noviembre". 3: las referencias a lo derogado "deberán entenderse efectuadas a las disposiciones de esta Ley que regulan la misma materia" | Explica por qué la DA 21ª de la Ley 30/1992 (anuncios en el BOE) ya no existe como tal y su regla está hoy en el art. 44 (duda 13). |
 
 ### B. Relación electrónica y presentación de escritos
 
@@ -144,6 +146,7 @@ plazo se prorroga al primer día hábil siguiente.
 | 85 | Terminación: reconocimiento y pago voluntario | Reducciones de al menos el 20 %, acumulables, condicionadas "al desistimiento o renuncia de cualquier acción o recurso en vía administrativa contra la sanción" | Consecuencia de pagar con descuento. |
 | 89 | Propuesta de resolución | 89.1: archivo sin propuesta (hechos inexistentes o no acreditados, prescripción, etc.). 89.2: la propuesta se notifica y abre plazo de alegaciones | Fases del procedimiento. |
 | 90 | Resolución sancionadora | 90.2: no puede basarse en hechos distintos. Si la infracción es más grave, alegaciones en quince días. 90.3: "será ejecutiva cuando no quepa contra ella ningún recurso ordinario en vía administrativa" | Momento en que la sanción es ejecutiva. |
+| 98 | Ejecutoriedad | 98.1.b): no es inmediatamente ejecutiva la resolución sancionadora "contra la que quepa algún recurso en vía administrativa, incluido el potestativo de reposición", salvo que "Una disposición establezca lo contrario" (98.1.c) | En tráfico, la LSV lo establece: ejecutiva desde la notificación (96.1 y 96.3 LSV; duda 11). |
 
 ### H. Recursos administrativos
 
@@ -169,7 +172,7 @@ plazo se prorroga al primer día hábil siguiente.
 
 Por ahora no se incluyen: el art. 33 (tramitación de urgencia), el 39 (eficacia de los
 actos), los 9-10 (identificación y firma), el 73 (cumplimiento de trámites), los 76-77 y
-82 (alegaciones, prueba y audiencia en el procedimiento común), el 98 (ejecutoriedad) y los
+82 (alegaciones, prueba y audiencia en el procedimiento común) y los
 106-111 (revisión de oficio y rectificación de errores). Se pueden añadir si alguna regla
 los necesita.
 
@@ -194,6 +197,32 @@ b) Las actuaciones y procedimientos de gestión, inspección, liquidación, reca
 c) Las actuaciones y procedimientos sancionadores en materia tributaria y aduanera, en el orden social, en materia de tráfico y seguridad vial y en materia de extranjería.
 
 d) Las actuaciones y procedimientos en materia de extranjería y asilo.
+
+<!-- bloque ddunica · versión publicada 20151002 · vigente desde 20161002 -->
+
+### Disposición derogatoria única. Derogación normativa.
+
+1. Quedan derogadas todas las normas de igual o inferior rango en lo que contradigan o se opongan a lo dispuesto en la presente Ley.
+
+2. Quedan derogadas expresamente las siguientes disposiciones:
+
+a) Ley 30/1992, de 26 de noviembre, de Régimen Jurídico de las Administraciones Públicas y del Procedimiento Administrativo Común.
+
+b) Ley 11/2007, de 22 de junio, de acceso electrónico de los ciudadanos a los Servicios Públicos.
+
+c) Los artículos 4 a 7 de la Ley 2/2011, de 4 de marzo, de Economía Sostenible.
+
+d) Real Decreto 429/1993, de 26 de marzo, por el que se aprueba el Reglamento de los procedimientos de las Administraciones Públicas en materia de responsabilidad patrimonial.
+
+e) Real Decreto 1398/1993, de 4 de agosto, por el que se aprueba el Reglamento del Procedimiento para el Ejercicio de la Potestad Sancionadora.
+
+f) Real Decreto 772/1999, de 7 de mayo, por el que se regula la presentación de solicitudes, escritos y comunicaciones ante la Administración General del Estado, la expedición de copias de documentos y devolución de originales y el régimen de las oficinas de registro.
+
+g) Los artículos 2.3, 10, 13, 14, 15, 16, 26, 27, 28, 29.1.a), 29.1.d), 31, 32, 33, 35, 36, 39, 48, 50, los apartados 1, 2 y 4 de la disposición adicional primera, la disposición adicional tercera, la disposición transitoria primera, la disposición transitoria segunda, la disposición transitoria tercera y la disposición transitoria cuarta del Real Decreto 1671/2009, de 6 de noviembre, por el que se desarrolla parcialmente la Ley 11/2007, de 22 de junio, de acceso electrónico de los ciudadanos a los Servicios Públicos.
+
+Hasta que, de acuerdo con lo dispuesto en la disposición final séptima, produzcan efectos las previsiones relativas al registro electrónico de apoderamientos, registro electrónico, punto de acceso general electrónico de la Administración y archivo único electrónico, se mantendrán en vigor los artículos de las normas previstas en las letras a), b) y g) relativos a las materias mencionadas.
+
+3. Las referencias contenidas en normas vigentes a las disposiciones que se derogan expresamente deberán entenderse efectuadas a las disposiciones de esta Ley que regulan la misma materia que aquéllas.
 
 ## 2. Relación electrónica, registros y solicitudes
 
@@ -766,6 +795,30 @@ b) Habiendo el interesado interpuesto recurso contencioso-administrativo:
 2.º El órgano judicial se pronuncie sobre la suspensión cautelar solicitada, en los términos previstos en ella.
 
 4. Cuando las conductas sancionadas hubieran causado daños o perjuicios a las Administraciones y la cuantía destinada a indemnizar estos daños no hubiera quedado determinada en el expediente, se fijará mediante un procedimiento complementario, cuya resolución será inmediatamente ejecutiva. Este procedimiento será susceptible de terminación convencional, pero ni ésta ni la aceptación por el infractor de la resolución que pudiera recaer implicarán el reconocimiento voluntario de su responsabilidad. La resolución del procedimiento pondrá fin a la vía administrativa.
+
+<!-- bloque a98 · versión publicada 20151002 · vigente desde 20161002 -->
+
+### Artículo 98. Ejecutoriedad.
+
+1. Los actos de las Administraciones Públicas sujetos al Derecho Administrativo serán inmediatamente ejecutivos, salvo que:
+
+a) Se produzca la suspensión de la ejecución del acto.
+
+b) Se trate de una resolución de un procedimiento de naturaleza sancionadora contra la que quepa algún recurso en vía administrativa, incluido el potestativo de reposición.
+
+c) Una disposición establezca lo contrario.
+
+d) Se necesite aprobación o autorización superior.
+
+2. Cuando de una resolución administrativa, o de cualquier otra forma de finalización del procedimiento administrativo prevista en esta ley, nazca una obligación de pago derivada de una sanción pecuniaria, multa o cualquier otro derecho que haya de abonarse a la Hacienda pública, éste se efectuará preferentemente, salvo que se justifique la imposibilidad de hacerlo, utilizando alguno de los medios electrónicos siguientes:
+
+a) Tarjeta de crédito y débito.
+
+b) Transferencia bancaria.
+
+c) Domiciliación bancaria.
+
+d) Cualesquiera otros que se autoricen por el órgano competente en materia de Hacienda Pública.
 
 ## 8.1 Recursos administrativos: disposiciones generales (arts. 112-120)
 
