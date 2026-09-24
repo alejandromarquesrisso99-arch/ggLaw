@@ -51,7 +51,9 @@ los ECLI del TC citados están verificados en sus fichas. Del TS solo se han le�
 que fijan doctrina legal publicados en el BOE. El panel «Jurisprudencia» de boe.es
 (selección del CENDOJ) no vincula ninguna sentencia a los arts. 30 y 31 LPAC ni a los arts.
 90, 95, 96 y 112 LSV. Para el art. 30 LRJSP vincula la STS 603/2021 (25/02/2021), no leída.
-Todo lo demás son **pistas no verificadas**, halladas en fuentes secundarias.
+Todo lo demás son **pistas no verificadas**, halladas en fuentes secundarias. La revisión
+de las pistas de las dudas 1-8 está al final del fichero; sus cambios ya están aplicados en
+el texto de esas dudas.
 
 ---
 
@@ -97,7 +99,9 @@ regulación parcial excluye el resto del precepto general.
 
 **Qué queda pendiente.** Que Alex o un abogado confirmen la tabla precepto a precepto,
 sobre todo 40.4, 42.2, 64.2 y 95.3 LPAC en tráfico. Buscar en CENDOJ doctrina del TS
-sobre supletoriedad de la LPAC en tráfico (no localizada en boe.es).
+sobre supletoriedad de la LPAC en tráfico. No se ha localizado en el panel de
+jurisprudencia de boe.es (LSV, LPAC) ni en los boletines del Gabinete Técnico del TS de
+2022-2024 (comprobado el 2026-09-24).
 
 ---
 
@@ -140,9 +144,15 @@ pendiente hasta que se valide.
 **Fuente.** LRJSP arts. 25-31 y DF 14ª; LSV arts. 96 y 112. Jurisprudencia vinculada por
 boe.es al art. 30 LRJSP: STS 603/2021 (25/02/2021), «Prescripción de sanciones. Día inicial
 de cómputo en supuestos de desestimación presunta del recurso de alzada. Aplicación
-retroactiva de la Ley 40/2015» (ECLI deducido ECLI:ES:TS:2021:603, no leída).
-**Pistas no verificadas:** STS de 15/10/2020 (rec. cas. 7337/2019), que extendería el
-30.3, párr. 3, a la reposición, y STS 333/2023, de 15/03/2023 (retroactividad).
+retroactiva de la Ley 40/2015» (existencia, fecha y rúbrica comprobadas en boe.es;
+ECLI:ES:TS:2021:603 deducido del ROJ con la regla de correspondencia que publica el
+Gabinete Técnico del TS, no comprobado uno a uno; no leída).
+**Pistas no verificadas:** STS de 15/10/2020 (rec. cas. 7337/2019; citada en bases
+comerciales como STS 1328/2020, número de resolución), que según reseñas extendería el
+30.3, párr. 3, a la reposición; no figura en boe.es ni en los boletines del Gabinete
+Técnico accesibles. Y STS 333/2023 (número de resolución), de 15/03/2023, rec. 8037/2021
+según una base comercial (retroactividad del 30.3, párr. 3); no figura en boe.es ni en el
+boletín del Gabinete Técnico de marzo de 2023.
 Consultado 2026-09-23.
 
 **Certeza.** `A` en que los plazos son los del 112 LSV y en el texto de 30.2 y 30.3.
@@ -241,7 +251,10 @@ aplican tras 2010. Decidir si el 15.1 RPST («notificarse») pesa en la interpre
 
 **Certeza.** `B` en la prórroga: es la lectura literal del 30.5 y el precepto no
 distingue, pero ninguna sentencia se ha leído. Riesgo: una línea jurisprudencial
-(pista no verificada, STS de 17/04/2024, ECLI:ES:TS:2024:2017 según una reseña)
+(pista parcialmente verificada: el TS admitió en el rec. 8105/2022, por ATS de
+14/06/2023, ECLI:ES:TS:2023:7780A, la cuestión de si el art. 30.5 LPAC se aplica al plazo
+de prescripción tributaria de cuatro años del art. 66 LGT; la sentencia que lo resuelve,
+de 17/04/2024 según reseñas, no se ha leído y su ECLI no está confirmado)
 distinguiría plazos procedimentales (con prórroga) de plazos sustantivos (sin prórroga).
 Los 20 días de alegaciones son procedimentales, así que el riesgo para ellos es bajo.
 `A` en la presentación en sábado: el 31.2.b) se limita literalmente a los plazos en días
@@ -250,8 +263,9 @@ hábiles.
 **Qué queda pendiente.** Confirmar en CENDOJ que el TS aplica el 30.5 a plazos en días
 naturales de la LSV. Decidir si la prórroga se aplica también a los plazos en días
 naturales que no son para el interesado (90.2 LSV, 10 días del rechazo en DEV; 91 LSV,
-20 días desde la publicación en el BOE). Hay una pista secundaria de un criterio del TEAC
-que no aplica el 30.5 al plazo de 10 días de las notificaciones electrónicas (art. 43.2
+20 días desde la publicación en el BOE). Hay una pista secundaria, no verificable desde el
+entorno (DYCTEA inaccesible), de un criterio del TEAC que no aplica el 30.5 al plazo de
+10 días de las notificaciones electrónicas (art. 43.2
 LPAC). **No aplicar la prórroga a esos plazos** hasta validarlo.
 
 **Recomendación para ggLaw.** Mostrar al usuario como fecha límite **el día 20 natural
@@ -335,8 +349,12 @@ jurisprudencia del TS al art. 90 LSV y, al art. 42 LPAC, ninguna sobre esta cues
 contrastar con jurisprudencia, y cabe objetar que el 30.2 regula plazos para actuar y no
 el tiempo entre dos actuaciones materiales del notificador. `C` en si la franja horaria
 del 42.2 LPAC se exige en tráfico. Falta jurisprudencia del TS o de los TSJ en CENDOJ
-(pista no verificada: STS de 12/12/2025, rec. 2922/2023, sobre uno o dos intentos y
-caducidad; no consta que trate el tipo de día).
+(pista no verificada: STS de 12/12/2025, rec. 2922/2023, citada como STS 1634/2025; según
+reseñas trata del *pro actione* y la fecha de notificación, y no consta que trate el número
+de intentos ni el tipo de día. En fuente oficial solo consta que el TS admitió, por ATS de
+22/11/2023, ROJ: ATS 15681/2023, RCA 8522/2022, la cuestión de si basta que el primer y el
+segundo intento se hagan dentro del plazo máximo, arts. 40.4 y 42.2 LPAC; sentencia no
+localizada).
 
 **Qué queda pendiente.** Buscar en CENDOJ: «tres días siguientes» con «hábiles» y
 «segundo intento», y el art. 90.3 LSV o el 59.2 de la Ley 30/1992 (precedente con la
@@ -368,7 +386,9 @@ horaria del 42.2, presentarlo como argumento subsidiario.
   diferencia es de un día.
 - **Prórroga en la prescripción**: según el CC 5.2 los días inhábiles no se excluyen en el
   cómputo civil. Aplicar el 30.5 LPAC a la prescripción es dudoso: hay una pista no
-  verificada de una STS de 2024 que no lo aplicaría a un plazo sustantivo de 4 años.
+  verificada de una STS de 17/04/2024 (rec. 8105/2022, la misma de la duda 4) sobre si el
+  30.5 se aplica al plazo de prescripción tributaria de cuatro años del art. 66 LGT. Solo
+  se ha confirmado el auto que admitió esa cuestión, no lo que resolvió.
 
 **Fundamento.**
 - LPAC 30.4: «Si el plazo se fija en meses o años, éstos se computarán a partir del día
@@ -397,9 +417,11 @@ pasa en fin de mes (hechos el 30/11, 3 meses) ni si hay prórroga al día hábil
 es de un día en los casos límite.
 
 **Qué queda pendiente.** Jurisprudencia del TS sobre el cómputo del 112.1 LSV y de su
-precepto equivalente del RDL 339/1990 (CENDOJ; número de artículo por confirmar). Verificar la STS de 17/04/2024
-(pista) sobre el 30.5 y los plazos sustantivos. Decidir qué hacer en los casos de fin de
-mes.
+precepto equivalente del RDL 339/1990 (art. 92 en la redacción de la Ley 18/2009,
+comprobado en BOE-A-2009-18732; ver dudas 9 y 10) en CENDOJ. Leer la STS de 17/04/2024
+(rec. 8105/2022; admitido por ATS de 14/06/2023, ECLI:ES:TS:2023:7780A) y valorar si su
+criterio, dictado para la LGT, es trasladable al art. 112 LSV. Decidir qué hacer en los
+casos de fin de mes.
 
 **Recomendación para ggLaw.** Implementar la prescripción con **tres zonas**:
 `no_prescrita` (interrupción el día 14/04 del ejemplo o antes), `dudosa` (en la ventana
@@ -796,9 +818,9 @@ STS de 2020.
 - **Norma específica de la DEV**: no se ha localizado en el BOE ninguna orden ministerial ni
   resolución que regule la DEV con carácter general. La búsqueda por título solo devuelve la
   Resolución de la DGT de 17/08/2023 (BOE-A-2023-19016), sobre colaboración social
-  (actuación mediante representantes) en el ámbito de la DEV. La DF 3ª LSV habilita al Ministro del Interior para el TESTRA, no
-  para la DEV. La sede de la DGT cita como normativa reguladora de la DEV solo la LSV y la
-  LPAC.
+  (actuación mediante representantes) en el ámbito de la DEV. La DF 3ª LSV habilita al
+  Ministro del Interior para el TESTRA, no para la DEV. La sede de la DGT cita como
+  normativa reguladora de la DEV solo la LSV y la LPAC.
 - **Efecto en los plazos** (si el interesado tiene DEV):
   - Si **accede**, la notificación se practica en ese momento (90.2 LSV y 43.2 LPAC).
   - Si **no accede** en 10 días naturales, se entiende **rechazada** y «se tendrá por
@@ -1939,3 +1961,35 @@ cumplido en los 213 bloques, pero la API no documenta que siempre sea así.
   el RPST frente a la LSV). Antes de marcar `revisado` sigue haciendo falta la revisión
   humana del paso 5 y de la jurisprudencia.
 - Decidir con Alex si el check se ejecuta en CI (requiere red) o solo a mano.
+
+---
+
+## Revisión de las pistas no verificadas de las dudas 1-8
+
+> Revisión del 2026-09-24. **No es asesoramiento jurídico.** CENDOJ sigue inaccesible (403
+> y CAPTCHA), así que no se ha leído ninguna STS. Fuentes usadas: panel «Jurisprudencia» de
+> boe.es (selección orientativa del CENDOJ: da ROJ, fecha y rúbrica, pero no texto ni
+> ECLI), boletines del Gabinete Técnico del TS (área contencioso-administrativa, mayo de
+> 2022 a marzo de 2024, en
+> <https://www.poderjudicial.es/cgpj/es/Poder-Judicial/Tribunal-Supremo/Actividad-del-TS/Boletines-del-TS/Boletin-Contencioso/>;
+> recogen sobre todo autos de admisión, no la doctrina final) y hj.tribunalconstitucional.es.
+> No accesible: DYCTEA del TEAC (403). Bases comerciales, Dialnet y blogs solo se han usado
+> para descubrir datos. Los cambios ya están aplicados en el texto de las dudas 1-8 y en los
+> ficheros de normativa afectados.
+
+| Duda | Pista | Veredicto | Qué consta en fuente oficial |
+|---|---|---|---|
+| 1 | Doctrina del TS sobre la supletoriedad de la LPAC en tráfico | No verificable | Nada en el panel de boe.es (LSV, LPAC) ni en los boletines de 2022-2024 |
+| 2 | STS 603/2021, de 25/02/2021 (30.3 LRJSP, alzada) | Confirmada en parte | Existencia, fecha y rúbrica en el panel de boe.es de la LRJSP. ECLI:ES:TS:2021:603 deducido del ROJ; texto no leído |
+| 2 y 11 | STS de 15/10/2020, rec. 7337/2019 (30.3 LRJSP aplicado a la reposición) | No verificable | No figura en boe.es ni en los boletines accesibles |
+| 2 | STS 333/2023, de 15/03/2023 (retroactividad del 30.3 LRJSP) | No verificable | No figura en boe.es ni en el boletín de marzo de 2023 |
+| 4 y 7 | STS de 17/04/2024 (30.5 LPAC y plazo de cuatro años) | Confirmada en parte y mal descrita | Solo el ATS de 14/06/2023 (ECLI:ES:TS:2023:7780A, rec. 8105/2022), que admitió la cuestión para la prescripción **tributaria** (art. 66 LGT). La sentencia no se ha leído; su ECLI no está confirmado |
+| 4 | Criterio del TEAC sobre el 30.5 y los 10 días del 43.2 LPAC | No verificable | DYCTEA inaccesible desde el entorno |
+| 6 | STS de 12/12/2025, rec. 2922/2023 (uno o dos intentos y caducidad) | No verificable; probablemente mal descrita | Según reseñas trata del *pro actione* y la fecha de notificación. Relacionados, en fuente oficial (autos de admisión, no doctrina): ATS de 22/11/2023 (ROJ: ATS 15681/2023, RCA 8522/2022; dos intentos dentro del plazo máximo, arts. 40.4 y 42.2 LPAC); ATS de 01/06/2022 (ECLI:ES:TS:2022:8419A, rec. 2750/2022; qué debe constar para acreditar el intento); ATS de 24/11/2022 (ECLI:ES:TS:2022:16362A, rec. 6994/2022) y ATS de 19/01/2023 (ECLI:ES:TS:2023:285A, rec. 8019/2022), sobre el intento en papel cuando había obligación de relacionarse electrónicamente |
+| — | ECLI de las SSTS de 17/11/2003, 22/09/2008 y 03/12/2013 (doctrina legal publicada en el BOE) | No verificable | Las publicaciones del BOE no incluyen ECLI ni ROJ |
+| — | ECLI de las SSTC citadas en `knowledge/` | Confirmados | Fichas de hj.tribunalconstitucional.es (duda 20) |
+
+**Recomendación para ggLaw.** Ninguna de estas pistas puede sostener una regla. Mientras no
+se lean en CENDOJ, las reglas afectadas (prescripción de la sanción con reposición
+pendiente, prórroga del 30.5 en la prescripción, número de intentos de notificación) deben
+quedarse en la zona `dudosa` o `posible`, nunca como motivo cierto.
