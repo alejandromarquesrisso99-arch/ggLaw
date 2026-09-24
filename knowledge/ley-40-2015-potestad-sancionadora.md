@@ -233,25 +233,37 @@ d) Lo previsto en las disposiciones adicionales: cuarta, sobre adaptación de en
 
 ## Jurisprudencia (solo referencias; no leída)
 
+Revisado el 2026-09-24 (duda 20 y revisión de pistas de `knowledge/dudas-abiertas.md`).
+CENDOJ sigue sin poder usarse desde el entorno de trabajo (403 y CAPTCHA).
+
 - **STS 603/2021 (25/02/2021)**, Sala Tercera. El panel «Jurisprudencia» del texto
   consolidado en boe.es (selección CENDOJ) la vincula al art. 30 con la rúbrica
   «Prescripción de sanciones. Día inicial de cómputo en supuestos de desestimación
   presunta del recurso de alzada. Aplicación retroactiva de la Ley 40/2015».
   <https://www.poderjudicial.es/search/openDocument/64e2f3e4fc8e03c3>.
-  ECLI deducido del ROJ: ECLI:ES:TS:2021:603, **pendiente de confirmar**. Texto no leído
-  (CENDOJ bloqueado desde el entorno de trabajo).
+  Existencia, fecha y rúbrica comprobadas en boe.es. ECLI:ES:TS:2021:603 deducido del ROJ
+  con la regla de correspondencia que publica el Gabinete Técnico del TS, **no comprobado
+  uno a uno**. Texto no leído.
 - **Pistas no verificadas** (solo en fuentes secundarias; no usar como fuente):
-  STS de 15/10/2020, rec. de casación 7337/2019, que según varias reseñas extiende el
-  art. 30.3, párr. 3, a la desestimación presunta del **recurso de reposición**;
-  STS 333/2023, de 15/03/2023, sobre aplicación retroactiva del art. 30.3, párr. 3;
-  STS de 17/04/2024 (ECLI:ES:TS:2024:2017 según una reseña) sobre si el art. 30.5
-  LPAC (prórroga al día hábil) se aplica a un plazo de prescripción de cuatro años.
+  - STS de 15/10/2020, rec. de casación 7337/2019 (citada en bases comerciales como
+    STS 1328/2020, número de resolución), que según reseñas extiende el art. 30.3,
+    párr. 3, a la desestimación presunta del **recurso de reposición**. No figura en
+    boe.es ni en los boletines del Gabinete Técnico accesibles (mayo 2022-marzo 2024).
+  - STS 333/2023 (número de resolución), de 15/03/2023, rec. 8037/2021 según una base
+    comercial, sobre aplicación retroactiva del art. 30.3, párr. 3. No figura en boe.es
+    ni en el boletín del Gabinete Técnico de marzo de 2023.
+  - STS de 17/04/2024 (rec. 8105/2022). En fuente oficial solo consta el auto que admitió
+    el recurso (ATS de 14/06/2023, ECLI:ES:TS:2023:7780A, boletín del Gabinete Técnico de
+    julio de 2023): la cuestión era si el art. 30.5 LPAC se aplica al plazo de prescripción
+    **tributaria** de cuatro años (art. 66 LGT). La sentencia no se ha leído y el
+    ECLI:ES:TS:2024:2017 que le atribuye una reseña no está confirmado.
 
 ## Dudas abiertas
 
 1. `TODO(juridico)`: ¿Se aplica el art. 30.3, párr. 3 (alzada no resuelta) a la
    reposición potestativa del art. 96.2 RDL 6/2015 contra sanciones de tráfico? La
-   STS de 15/10/2020 (rec. 7337/2019) lo afirmaría, pero no se ha leído. Fuente: CENDOJ.
+   STS de 15/10/2020 (rec. 7337/2019) lo afirmaría, pero no se ha leído ni se ha
+   encontrado en fuente oficial accesible (ver «Jurisprudencia»). Fuente: CENDOJ.
 2. `TODO(juridico)`: Relación entre el día inicial del art. 112.4 RDL 6/2015 («desde el
    día siguiente a aquel en que adquiera firmeza la sanción en vía administrativa») y el
    del art. 30.3, párr. 1, de esta Ley («sea ejecutable […] o haya transcurrido el plazo

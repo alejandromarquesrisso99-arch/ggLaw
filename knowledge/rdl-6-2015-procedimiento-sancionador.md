@@ -664,22 +664,26 @@ f) la duración, el contenido y los requisitos de los cursos de conducción segu
 ## Jurisprudencia relevante
 
 Solo se incluyen sentencias **verificadas en fuente primaria**: el texto íntegro de cada
-una se ha consultado en el BOE (Suplemento del Tribunal Constitucional) el 2026-09-23.
-Los resúmenes son propios. No se incluyen nombres de las partes.
+una se ha consultado en el BOE (Suplemento del Tribunal Constitucional o, para el TS, la
+publicación del fallo que fija doctrina legal) el 2026-09-23 y el 2026-09-24. Los
+resúmenes son propios. No se incluyen nombres de las partes.
 
-No se ha podido verificar ninguna sentencia del Tribunal Supremo ni de tribunales
-superiores: CENDOJ (poderjudicial.es) y tribunalconstitucional.es no son accesibles
-desde el entorno de trabajo. Por el mismo motivo, **el ECLI de las sentencias siguientes
-está pendiente de verificar** (el BOE no lo recoge en estas publicaciones).
+Los ECLI de las SSTC se han verificado el 2026-09-24 en las fichas de
+hj.tribunalconstitucional.es (el BOE no los recoge en estas publicaciones). CENDOJ sigue
+sin poder usarse desde el entorno de trabajo (búsquedas con error 403 y descarga de
+sentencias con CAPTCHA). Por eso no se ha leído en CENDOJ ninguna sentencia del Tribunal
+Supremo ni de tribunales superiores, y los ECLI de las SSTS publicadas en el BOE siguen
+pendientes (el BOE no publica ECLI ni ROJ).
 
-Todas se dictaron sobre el texto articulado anterior (RDL 339/1990). Su aplicación al
-régimen vigente del RDL 6/2015 (DEV, TESTRA, art. 11.1.a) está en las dudas abiertas.
+Todas se dictaron sobre normas anteriores (RDL 339/1990, RD 320/1994 o Ley 30/1992). Su
+aplicación al régimen vigente del RDL 6/2015 (DEV, TESTRA, art. 11.1.a) está en las dudas
+abiertas y en `knowledge/dudas-abiertas.md` (dudas 9-13 y 19).
 
 ### Identificación del conductor
 
 - **STC 197/1995, de 21 de diciembre** (Pleno). Cuestiones de inconstitucionalidad
   acumuladas 2848/1993 y otras. BOE núm. 21, de 24/01/1996, ref. BOE-T-1996-1494.
-  ECLI: pendiente de verificar.
+  ECLI:ES:TC:1995:197.
   <https://www.boe.es/buscar/doc.php?id=BOE-T-1996-1494>
   Resumen: desestima la cuestión contra el antiguo art. 72.3 LSV. El deber del titular
   de comunicar quién conducía es un deber de colaboración que no obliga a declarar sobre
@@ -688,7 +692,7 @@ régimen vigente del RDL 6/2015 (DEV, TESTRA, art. 11.1.a) está en las dudas ab
   procedimiento sancionador.
 
 - **STC 111/2004, de 12 de julio** (Sala Primera). Recurso de amparo 6667-2000. BOE
-  núm. 193, de 11/08/2004, ref. BOE-T-2004-14849. ECLI: pendiente de verificar.
+  núm. 193, de 11/08/2004, ref. BOE-T-2004-14849. ECLI:ES:TC:2004:111.
   <https://www.boe.es/diario_boe/txt.php?id=BOE-T-2004-14849>
   Resumen: otorga el amparo (legalidad sancionadora, art. 25.1 CE) y anula la multa
   impuesta a una titular que identificó al conductor con nombre, apellidos y domicilio
@@ -696,7 +700,7 @@ régimen vigente del RDL 6/2015 (DEV, TESTRA, art. 11.1.a) está en las dudas ab
   **Ojo:** el art. 11.1.a vigente sí exige el número del permiso o licencia.
 
 - **STC 29/2014, de 24 de febrero** (Sala Primera). Recurso de amparo 8363-2010. BOE
-  núm. 73, de 25/03/2014, ref. BOE-A-2014-3239. ECLI: pendiente de verificar.
+  núm. 73, de 25/03/2014, ref. BOE-A-2014-3239. ECLI:ES:TC:2014:29.
   <https://www.boe.es/diario_boe/txt.php?id=BOE-A-2014-3239>
   Resumen: deniega el amparo. Se puede sancionar al titular por una identificación que
   no es veraz cuando la Administración ha intentado dirigir el procedimiento contra la
@@ -704,10 +708,26 @@ régimen vigente del RDL 6/2015 (DEV, TESTRA, art. 11.1.a) está en las dudas ab
   responsable al titular de forma automática: hace falta un procedimiento con garantías.
   Distingue su caso del de la STC 111/2004 y posteriores.
 
+- **STC 21/2015, de 16 de febrero** (Sala Segunda). Recurso de amparo 716-2013. BOE
+  núm. 64, de 16/03/2015, ref. BOE-A-2015-2822. ECLI:ES:TC:2015:21.
+  <https://www.boe.es/diario_boe/txt.php?id=BOE-A-2015-2822>
+  Resumen: otorga el amparo (legalidad sancionadora, art. 25.1 CE) y anula una multa
+  municipal de 2009 por no identificar verazmente al conductor. Sigue las SSTC 111/2004,
+  30/2013 y 45/2013 y tiene en cuenta que la norma vigente al cometerse los hechos no
+  exigía expresamente los datos que la Administración echó en falta.
+
+- **STC 117/2016, de 20 de junio** (Sala Segunda). Recurso de amparo 4924-2015. BOE
+  núm. 181, de 28/07/2016, ref. BOE-A-2016-7294. ECLI:ES:TC:2016:117.
+  <https://www.boe.es/diario_boe/txt.php?id=BOE-A-2016-7294>
+  Resumen: estima el amparo (presunción de inocencia, art. 24.2 CE) y anula una sanción
+  de la DGT al titular por identificación no veraz. La simple negativa del identificado a
+  haber conducido no prueba que la identificación fuera falsa si el titular aportó prueba
+  y la Administración no la valoró. Precisa el alcance de la STC 29/2014.
+
 ### Notificación edictal de denuncias y sanciones de tráfico
 
 - **STC 219/2007, de 8 de octubre** (Sala Segunda). Recurso de amparo 2204-2005. BOE
-  núm. 273, de 14/11/2007, ref. BOE-T-2007-19598. ECLI: pendiente de verificar.
+  núm. 273, de 14/11/2007, ref. BOE-T-2007-19598. ECLI:ES:TC:2007:219.
   <https://www.boe.es/diario_boe/txt.php?id=BOE-T-2007-19598>
   Resumen: otorga el amparo (art. 24.1 CE) frente a una multa municipal de tráfico
   notificada por edictos después de fallar la notificación en un domicilio erróneo. El
@@ -716,12 +736,35 @@ régimen vigente del RDL 6/2015 (DEV, TESTRA, art. 11.1.a) está en las dudas ab
   defensa.
 
 - **STC 128/2008, de 27 de octubre** (Sala Primera). Recurso de amparo 1292-2005. BOE
-  núm. 281, de 21/11/2008, ref. BOE-T-2008-18801. ECLI: pendiente de verificar.
+  núm. 281, de 21/11/2008, ref. BOE-T-2008-18801. ECLI:ES:TC:2008:128.
   <https://www.boe.es/diario_boe/txt.php?id=BOE-T-2008-18801>
   Resumen: otorga el amparo (art. 24.2 CE). Aunque se intentó notificar en el domicilio
   del Registro de Vehículos, la Administración no podía pasar a los edictos sin una mínima
   indagación en otros registros públicos, sobre todo cuando después notificó la providencia
   de apremio sin problema en otro domicilio. Anula la sanción y el apremio.
+
+### Caducidad y prescripción (doctrina legal del TS publicada en el BOE)
+
+- **STS (Sala Tercera, Sección Cuarta) de 15 de noviembre de 2000**, recurso de casación
+  en interés de la ley 4041/1999. BOE núm. 25, de 29/01/2001, ref. BOE-A-2001-2011.
+  <https://www.boe.es/buscar/doc.php?id=BOE-A-2001-2011>. ECLI: pendiente (CENDOJ).
+  Resumen: doctrina legal sobre la caducidad del art. 16 RD 320/1994. Si el infractor no
+  pudo ser notificado en el acto, el plazo se cuenta desde la incoación por el órgano
+  competente una vez conocida su identidad, no desde la denuncia del agente.
+
+- **STS (Sala Tercera, Sección Quinta) de 15 de diciembre de 2004**, recurso de casación
+  en interés de la ley 97/2002. BOE núm. 98, de 25/04/2005, ref. BOE-A-2005-6615.
+  <https://www.boe.es/buscar/doc.php?id=BOE-A-2005-6615>. ECLI: pendiente (CENDOJ).
+  Resumen: doctrina legal general, no específica de tráfico. La prescripción de la
+  infracción deja de correr con la resolución sancionadora y su notificación; no se
+  extiende a la vía de recurso.
+
+- **STS (Sala Tercera, Sección Cuarta) de 3 de junio de 2008**, recurso de casación en
+  interés de la ley 35/2007. BOE núm. 175, de 21/07/2008, ref. BOE-A-2008-12489.
+  <https://www.boe.es/buscar/doc.php?id=BOE-A-2008-12489>. ECLI: pendiente (CENDOJ).
+  Resumen: doctrina legal sobre el art. 81 del RDL 339/1990 (redacción de la Ley 19/2001).
+  En tráfico hay caducidad si no ha recaído resolución sancionadora al año de la
+  iniciación. El fallo publicado no aclara si la resolución debe notificarse en ese año.
 
 ---
 
@@ -729,6 +772,8 @@ régimen vigente del RDL 6/2015 (DEV, TESTRA, art. 11.1.a) está en las dudas ab
 
 Formato: `TODO(juridico):` pregunta concreta, seguida de la fuente que habría que
 consultar. Ninguna tiene respuesta en este fichero y no deben resolverse de memoria.
+Las propuestas de respuesta (borrador, con fuentes y grado de certeza) están en
+`knowledge/dudas-abiertas.md`, que usa una numeración consolidada propia.
 
 ### Supletoriedad y cómputo de plazos
 
@@ -877,5 +922,6 @@ consultar. Ninguna tiene respuesta en este fichero y no deben resolverse de memo
 
 ### Verificación pendiente (no jurídica)
 
-21. TODO(juridico): Verificar el ECLI de las SSTC 197/1995, 111/2004, 29/2014, 219/2007
-    y 128/2008 en hj.tribunalconstitucional.es (no accesible desde el entorno de trabajo).
+21. Resuelta el 2026-09-24: los ECLI de las SSTC 197/1995, 111/2004, 29/2014, 219/2007
+    y 128/2008 se han verificado en hj.tribunalconstitucional.es y figuran en
+    «Jurisprudencia relevante» (ver también la duda 20 de `knowledge/dudas-abiertas.md`).

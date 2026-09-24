@@ -1052,12 +1052,15 @@ d) Que la resolución se hubiese dictado como consecuencia de prevaricación, co
 
 ## Jurisprudencia relevante
 
-Aquí solo figuran resoluciones leídas en una fuente primaria, la publicación en el BOE,
-el 2026-09-23. Los resúmenes son propios. Desde este entorno no se ha podido acceder a
-CENDOJ (poderjudicial.es) ni a tribunalconstitucional.es (el proxy bloquea ambos
-dominios). Por eso los ECLI que el BOE no publica se marcan como pendientes.
+Aquí solo figuran resoluciones leídas en una fuente primaria (la publicación en el BOE o
+la ficha de hj.tribunalconstitucional.es) el 2026-09-23 y el 2026-09-24. Los resúmenes son
+propios. Los ECLI del TC se han verificado el 2026-09-24 en hj.tribunalconstitucional.es.
+CENDOJ sigue sin poder usarse desde el entorno de trabajo (búsquedas con error 403 y
+descarga de sentencias con CAPTCHA). Por eso los ECLI de las SSTS, que el BOE no publica,
+siguen pendientes.
 
-Todas las resoluciones son anteriores a la Ley 39/2015 o aplican normativa anterior: la
+Las SSTC sobre notificación edictal y las SSTS son anteriores a la Ley 39/2015 o aplican
+normativa anterior: la
 Ley 30/1992 y la ley de tráfico entonces vigente. La doctrina del TC deriva del art. 24 CE
 y no depende de la ley de procedimiento aplicable. La del TS interpreta el art. 58.4 de la
 Ley 30/1992, cuyo equivalente actual es el art. 40.4 de la Ley 39/2015.
@@ -1077,8 +1080,7 @@ Ley 30/1992, cuyo equivalente actual es el art. 40.4 de la Ley 39/2015.
 - **STC 219/2007, de 8 de octubre** (Sala Segunda, recurso de amparo 2204-2005).
   BOE núm. 273, de 14/11/2007, BOE-T-2007-19598.
   <https://www.boe.es/diario_boe/txt.php?id=BOE-T-2007-19598>
-  ECLI: la publicación del BOE no lo incluye. `TODO(juridico)`: confirmar en
-  hj.tribunalconstitucional.es; por el formato habitual sería ECLI:ES:TC:2007:219.
+  ECLI:ES:TC:2007:219 (verificado en hj.tribunalconstitucional.es el 2026-09-24).
   *Resumen propio:* multa municipal de tráfico. La denuncia se notificó en un domicilio
   erróneo y después por edictos, aunque el Ayuntamiento conocía el domicilio real por el
   censo electoral. El TC aprecia falta de diligencia, declara vulnerado el art. 24 CE y
@@ -1087,8 +1089,7 @@ Ley 30/1992, cuyo equivalente actual es el art. 40.4 de la Ley 39/2015.
 - **STC 54/2003, de 24 de marzo** (Sala Segunda, recurso de amparo 727-2000).
   BOE núm. 91, de 16/04/2003, BOE-T-2003-7855.
   <https://www.boe.es/diario_boe/txt.php?id=BOE-T-2003-7855>
-  ECLI: la publicación del BOE no lo incluye. `TODO(juridico)`: confirmar; por formato
-  sería ECLI:ES:TC:2003:54.
+  ECLI:ES:TC:2003:54 (verificado en hj.tribunalconstitucional.es el 2026-09-24).
   *Resumen propio:* multa por no identificar al conductor. La empresa titular fue
   emplazada por edictos en su antiguo domicilio social, aunque el nuevo constaba en el
   Registro Mercantil y la Administración lo usó después para el apremio. Para el TC fue
@@ -1097,12 +1098,33 @@ Ley 30/1992, cuyo equivalente actual es el art. 40.4 de la Ley 39/2015.
 La STC 82/2019 cita además, en la misma línea, las SSTC 158/2007, 32/2008, 128/2008,
 59/2014 y 93/2018. Se han visto solo como citas y no se han leído una a una.
 
+### Tribunal Constitucional: notificaciones electrónicas infructuosas
+
+- **STC 84/2022, de 27 de junio** (Sala Primera, recurso de amparo 83-2021).
+  ECLI:ES:TC:2022:84. BOE núm. 181, de 29/07/2022, BOE-A-2022-12748.
+  <https://hj.tribunalconstitucional.es/es/Resolucion/Show/29026>
+  *Resumen propio:* sanción de transportes notificada en la dirección electrónica
+  habilitada y tenida por rechazada a los diez días. El aviso se envió a un correo mal
+  transcrito y el interesado no supo nada. El TC aprecia vulneración del art. 24.2 CE:
+  ante comunicaciones electrónicas infructuosas, la Administración debía intentar que
+  llegaran a su conocimiento por otra vía. Anula la sanción. Relacionado con los arts.
+  41.6 y 43.2 LPAC y con el art. 90.2 LSV (DEV).
+
+- **STC 147/2022, de 29 de noviembre** (Sala Primera, recurso de amparo 3209-2019).
+  ECLI:ES:TC:2022:147. BOE núm. 5, de 06/01/2023, BOE-A-2023-460.
+  <https://hj.tribunalconstitucional.es/es/Resolucion/Show/29153>
+  *Resumen propio:* liquidación tributaria a una sociedad obligada a relacionarse
+  electrónicamente. Las notificaciones se tuvieron por rechazadas aunque la Administración
+  sabía que no se accedía a ellas. Aplica la STC 84/2022, otorga el amparo (art. 24.1 CE)
+  y retrotrae las actuaciones.
+
 ### Tribunal Supremo: «intento de notificación debidamente acreditado» (art. 58.4 Ley 30/1992, hoy art. 40.4 LPAC)
 
 - **STS (Sala Tercera, Sección Tercera) de 17 de noviembre de 2003**, recurso de
   casación en interés de la ley 128/2002. Doctrina legal publicada en el BOE núm. 4, de
   05/01/2004, BOE-A-2004-198. <https://www.boe.es/buscar/doc.php?id=BOE-A-2004-198>
-  ECLI: el BOE no lo publica y queda pendiente de obtener en CENDOJ.
+  ECLI: el BOE no lo publica y queda pendiente de obtener en CENDOJ (comprobado el
+  2026-09-24: la publicación del BOE no incluye ECLI ni ROJ).
   *Resumen propio:* para cumplir el plazo máximo del procedimiento basta un intento de
   notificación personal hecho con las garantías legales y acreditado en el expediente,
   aunque no llegue a practicarse. En su redacción original situaba el final del intento
@@ -1113,7 +1135,8 @@ La STC 82/2019 cita además, en la misma línea, las SSTC 158/2007, 32/2008, 128
   contencioso-administrativo 557/2011. Rectificación de doctrina legal publicada en el
   BOE núm. 9, de 10/01/2014, BOE-A-2014-291.
   <https://www.boe.es/diario_boe/txt.php?id=BOE-A-2014-291>
-  ECLI: pendiente (CENDOJ).
+  ECLI: pendiente (CENDOJ; comprobado el 2026-09-24: la publicación del BOE no incluye
+  ECLI ni ROJ).
   *Resumen propio:* corrige la doctrina de 2003 en un único punto. A efectos del plazo
   máximo, el intento de notificación termina en la fecha en que se hizo, no cuando la
   Administración recibe el envío devuelto. Es relevante para calcular la caducidad cuando
@@ -1125,7 +1148,8 @@ La STC 82/2019 cita además, en la misma línea, las SSTC 158/2007, 32/2008, 128
   casación en interés de la ley 69/2005. Doctrina legal publicada en el BOE núm. 275, de
   14/11/2008, BOE-A-2008-18350.
   <https://www.boe.es/diario_boe/txt.php?id=BOE-A-2008-18350>
-  ECLI: pendiente (CENDOJ).
+  ECLI: pendiente (CENDOJ; comprobado el 2026-09-24: la publicación del BOE no incluye
+  ECLI ni ROJ).
   *Resumen propio:* aunque pasen los tres meses sin resolver la alzada contra una
   sanción, la sanción no es firme ni ejecutiva, así que no empieza a correr su plazo de
   prescripción. **Atención:** podría haber quedado superada por una ley posterior (ver la
@@ -1194,14 +1218,21 @@ La STC 82/2019 cita además, en la misma línea, las SSTC 158/2007, 32/2008, 128
    una interpretación que hay que confirmar. También falta confirmar si un único intento
    dentro del plazo máximo basta para el art. 40.4. Algunas reseñas secundarias, no
    verificadas y que solo sirven de pista, mencionan sentencias recientes del TS en
-   casación, entre ellas una STS de 12/12/2025 (rec. 2922/2023). Fuente: CENDOJ (Sala
+   casación, entre ellas una STS de 12/12/2025 (rec. 2922/2023). Según reseñas, esa
+   sentencia trata del *pro actione* y de la fecha de notificación, no del número de
+   intentos; no se ha podido leer. En fuente oficial solo consta que el TS admitió, por
+   ATS de 22/11/2023 (RCA 321/2023), la cuestión de si basta que el primer y el segundo
+   intento se hagan dentro del plazo máximo (arts. 40.4 y 42.2). Fuente: CENDOJ (Sala
    Tercera; buscar: artículo 42.2 Ley 39/2015 y segundo intento).
 
 8. `TODO(juridico)`: **Vigencia de la doctrina 2003/2013 sobre el «intento de notificación debidamente
    acreditado».**
    Interpreta el art. 58.4 de la Ley 30/1992. Hay que confirmar en CENDOJ que el TS la
    aplica igual al art. 40.4 LPAC y a la caducidad del sancionador de tráfico, y obtener
-   los ECLI.
+   los ECLI (comprobado el 2026-09-24: las publicaciones del BOE no incluyen ECLI ni ROJ).
+   El TS ha admitido recursos de casación sobre el intento de notificación (autos citados
+   en los boletines del Gabinete Técnico del TS; ver la duda 6 de
+   `knowledge/dudas-abiertas.md`), pero no se ha leído la doctrina resultante.
 
 9. `TODO(juridico)`: **Caducidad del sancionador de tráfico.** En la LPAC, los arts. 21.2
    y 21.3 (seis meses como máximo y tres meses por defecto) y el 25.1.b) son solo
@@ -1220,6 +1251,7 @@ La STC 82/2019 cita además, en la misma línea, las SSTC 158/2007, 32/2008, 128
     por la regulación de la prescripción de sanciones en la Ley 40/2015 (BOE-A-2015-10566,
     art. 30). No se ha verificado en esta tarea y hay que leer el art. 30 de la Ley 40/2015
     antes de construir una regla. Fuente: Ley 40/2015, art. 30, y RDL 6/2015, art. 112.
+    Propuesta de respuesta (borrador): duda 11 de `knowledge/dudas-abiertas.md`.
 
 12. `TODO(juridico)`: **Notificación edictal en tráfico: BOE, TEU y TESTRA.** El art. 44
     LPAC exige un anuncio en el BOE y no menciona el «Tablón Edictal Único» (se ha
@@ -1244,7 +1276,9 @@ La STC 82/2019 cita además, en la misma línea, las SSTC 158/2007, 32/2008, 128
     «Jurisprudencia» del texto consolidado (boe.es, en colaboración con CENDOJ) relaciona
     con estos artículos las siguientes STS. Su existencia, fecha y enlace se han
     comprobado en boe.es, pero **no se ha leído el texto** porque CENDOJ está bloqueado.
-    Los ECLI indicados se deducen del ROJ y hay que confirmarlos.
+    Los ECLI indicados se deducen del ROJ con la regla de correspondencia que publica el
+    Gabinete Técnico del TS en sus boletines («ROJ: STS 1647/2022 - ECLI:ES:TS:2022:1647»);
+    hay que confirmarlos uno a uno al leer cada sentencia.
     - STS 3150/2019 (15/10/2019), art. 42: sanción y notificación por BOE.
       <https://www.poderjudicial.es/search/openDocument/a4834ece81452fb2>. ECLI:ES:TS:2019:3150, pendiente de confirmar.
     - STS 2496/2019 (12/07/2019), arts. 123-124: reposición desistida y extemporaneidad
