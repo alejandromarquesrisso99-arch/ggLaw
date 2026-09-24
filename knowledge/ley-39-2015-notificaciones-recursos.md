@@ -1221,9 +1221,9 @@ La STC 82/2019 cita además, en la misma línea, las SSTC 158/2007, 32/2008, 128
    casación, entre ellas una STS de 12/12/2025 (rec. 2922/2023). Según reseñas, esa
    sentencia trata del *pro actione* y de la fecha de notificación, no del número de
    intentos; no se ha podido leer. En fuente oficial solo consta que el TS admitió, por
-   ATS de 22/11/2023 (RCA 321/2023), la cuestión de si basta que el primer y el segundo
-   intento se hagan dentro del plazo máximo (arts. 40.4 y 42.2). Fuente: CENDOJ (Sala
-   Tercera; buscar: artículo 42.2 Ley 39/2015 y segundo intento).
+   ATS de 22/11/2023 (ROJ: ATS 15681/2023; RCA 8522/2022), la cuestión de si basta que el
+   primer y el segundo intento se hagan dentro del plazo máximo (arts. 40.4 y 42.2).
+   Fuente: CENDOJ (Sala Tercera; buscar: artículo 42.2 Ley 39/2015 y segundo intento).
 
 8. `TODO(juridico)`: **Vigencia de la doctrina 2003/2013 sobre el «intento de notificación debidamente
    acreditado».**
