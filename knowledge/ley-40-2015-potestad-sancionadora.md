@@ -1,15 +1,15 @@
 ---
-norma: Ley 40/2015, de 1 de octubre, de Régimen Jurídico del Sector Público (principios de la potestad sancionadora)
+norma: Ley 40/2015, de 1 de octubre, de Régimen Jurídico del Sector Público (delegación de competencias y principios de la potestad sancionadora)
 identificador: BOE-A-2015-10566
-articulos: [25, 26, 27, 28, 29, 30, 31]
-disposiciones: [final decimocuarta (apartado 1)]
+articulos: [9, 12, 25, 26, 27, 28, 29, 30, 31]
+disposiciones: [final decimocuarta]
 fuente: https://www.boe.es/buscar/act.php?id=BOE-A-2015-10566
 version_consolidada: 2024-08-02
 consultado: 2026-09-23
 estado: borrador
 ---
 
-# Ley 40/2015 (LRJSP): principios de la potestad sancionadora (arts. 25-31)
+# Ley 40/2015 (LRJSP): delegación (arts. 9 y 12) y potestad sancionadora (arts. 25-31)
 
 > **Aviso:** esto es material de referencia para ggLaw, no asesoramiento jurídico.
 > Contenido en `estado: borrador`, pendiente de revisión por Alex o por un abogado.
@@ -19,6 +19,8 @@ descargada con `scripts/boe_fetch.py` (API de datos abiertos del BOE) el 2026-09
 Cada bloque lleva un comentario `<!-- bloque … -->` con la fecha de publicación y de
 vigencia de la redacción transcrita. Los arts. 25-31 conservan la redacción original,
 vigente desde el 2016-10-02 (ninguna modificación registrada en el índice de bloques).
+Los arts. 9 y 12 y el apartado 2 de la DF 14ª se añadieron el 2026-09-24 con el mismo
+método; también conservan la redacción original.
 
 **Fecha de la versión consolidada.** La página consolidada del BOE indica «Última
 actualización publicada el 02/08/2024». El campo `fecha_actualizacion` de la API
@@ -31,16 +33,26 @@ El capítulo III del título preliminar de esta Ley recoge los principios de la 
 sancionadora de todas las Administraciones (art. 25.1) y su art. 30 regula la
 prescripción cuando la ley sectorial no dice nada. Ver en
 `knowledge/rdl-6-2015-procedimiento-sancionador.md` la duda 13 y en
-`knowledge/ley-39-2015-notificaciones-recursos.md` la duda 11.
+`knowledge/ley-39-2015-notificaciones-recursos.md` la duda 11. Los arts. 9 (delegación de
+competencias) y 12 (delegación de firma) se incluyen porque en Palma la potestad
+sancionadora de tráfico está delegada por el alcalde (duda 17 de
+`knowledge/dudas-abiertas.md` y `knowledge/palma-competencia-sancionadora-trafico.md`).
 
 **Carácter básico.** La DF 14ª.1 dicta la Ley al amparo del art. 149.1.18.ª CE. El
 capítulo III del título preliminar no figura entre los preceptos no básicos de la DF 14ª.2
-(transcrita solo el apartado 1; se ha comprobado que el 2 no menciona los arts. 25-31).
+(transcrita completa). Tampoco figura la sección 2.ª del capítulo II del título preliminar
+(arts. 8-14, según el índice de bloques del BOE): la DF 14ª.2.a solo excluye «La subsección
+2.ª referida a los órganos colegiados de la Administración General del Estado de la sección
+3.ª del capítulo II del Título preliminar». Por tanto, los arts. 9 y 12 también son básicos y
+se aplican a los ayuntamientos.
 
 ## Índice (elaboración propia)
 
 | Materia | Artículo | Texto literal clave | Relevancia para tráfico |
 |---|---|---|---|
+| Delegación: límites | 9.2.c) | «La resolución de recursos en los órganos administrativos que hayan dictado los actos objeto de recurso» | Palma delega en el mismo concejal la sanción y la reposición: ver duda 17 |
+| Delegación: efectos | 9.4 | «se considerarán dictadas por el órgano delegante» | La resolución delegada del concejal es del alcalde a efectos de recurso (52.2.b LBRL) |
+| Delegación de firma | 12.2 y 12.3 | «no alterará la competencia del órgano delegante»; «se hará constar esta circunstancia y la autoridad de procedencia» | Comprobar en la multa quién firma y por qué título |
 | Legalidad | 25.1 | «de acuerdo con lo establecido en esta Ley y en la Ley de Procedimiento Administrativo Común» | Fundamenta que el cap. III se aplique también a tráfico |
 | Retroactividad favorable | 26.2 | «producirán efecto retroactivo en cuanto favorezcan al presunto infractor […] y a sus plazos de prescripción» | Cambios normativos en plazos de prescripción |
 | Tipicidad | 27 | «no serán susceptibles de aplicación analógica» (27.4) | — |
@@ -55,6 +67,52 @@ capítulo III del título preliminar no figura entre los preceptos no básicos d
 ---
 
 # Texto literal (versión consolidada BOE)
+
+## Título preliminar, capítulo II, sección 2.ª (competencia): arts. 9 y 12
+
+<!-- bloque a9 · versión publicada 20151002 · vigente desde 20161002 -->
+
+### Artículo 9. Delegación de competencias.
+
+1. Los órganos de las diferentes Administraciones Públicas podrán delegar el ejercicio de las competencias que tengan atribuidas en otros órganos de la misma Administración, aun cuando no sean jerárquicamente dependientes, o en los Organismos públicos o Entidades de Derecho Público vinculados o dependientes de aquéllas.
+
+En el ámbito de la Administración General del Estado, la delegación de competencias deberá ser aprobada previamente por el órgano ministerial de quien dependa el órgano delegante y en el caso de los Organismos públicos o Entidades vinculados o dependientes, por el órgano máximo de dirección, de acuerdo con sus normas de creación. Cuando se trate de órganos no relacionados jerárquicamente será necesaria la aprobación previa del superior común si ambos pertenecen al mismo Ministerio, o del órgano superior de quien dependa el órgano delegado, si el delegante y el delegado pertenecen a diferentes Ministerios.
+
+Asimismo, los órganos de la Administración General del Estado podrán delegar el ejercicio de sus competencias propias en sus Organismos públicos y Entidades vinculados o dependientes, cuando resulte conveniente para alcanzar los fines que tengan asignados y mejorar la eficacia de su gestión. La delegación deberá ser previamente aprobada por los órganos de los que dependan el órgano delegante y el órgano delegado, o aceptada por este último cuando sea el órgano máximo de dirección del Organismo público o Entidad vinculado o dependiente.
+
+2. En ningún caso podrán ser objeto de delegación las competencias relativas a:
+
+a) Los asuntos que se refieran a relaciones con la Jefatura del Estado, la Presidencia del Gobierno de la Nación, las Cortes Generales, las Presidencias de los Consejos de Gobierno de las Comunidades Autónomas y las Asambleas Legislativas de las Comunidades Autónomas.
+
+b) La adopción de disposiciones de carácter general.
+
+c) La resolución de recursos en los órganos administrativos que hayan dictado los actos objeto de recurso.
+
+d) Las materias en que así se determine por norma con rango de Ley.
+
+3. Las delegaciones de competencias y su revocación deberán publicarse en el «Boletín Oficial del Estado», en el de la Comunidad Autónoma o en el de la Provincia, según la Administración a que pertenezca el órgano delegante, y el ámbito territorial de competencia de éste.
+
+4. Las resoluciones administrativas que se adopten por delegación indicarán expresamente esta circunstancia y se considerarán dictadas por el órgano delegante.
+
+5. Salvo autorización expresa de una Ley, no podrán delegarse las competencias que se ejerzan por delegación.
+
+No constituye impedimento para que pueda delegarse la competencia para resolver un procedimiento la circunstancia de que la norma reguladora del mismo prevea, como trámite preceptivo, la emisión de un dictamen o informe; no obstante, no podrá delegarse la competencia para resolver un procedimiento una vez que en el correspondiente procedimiento se haya emitido un dictamen o informe preceptivo acerca del mismo.
+
+6. La delegación será revocable en cualquier momento por el órgano que la haya conferido.
+
+7. El acuerdo de delegación de aquellas competencias atribuidas a órganos colegiados, para cuyo ejercicio se requiera un quórum o mayoría especial, deberá adoptarse observando, en todo caso, dicho quórum o mayoría.
+
+<!-- bloque a12 · versión publicada 20151002 · vigente desde 20161002 -->
+
+### Artículo 12. Delegación de firma.
+
+1. Los titulares de los órganos administrativos podrán, en materias de su competencia, que ostenten, bien por atribución, bien por delegación de competencias, delegar la firma de sus resoluciones y actos administrativos en los titulares de los órganos o unidades administrativas que de ellos dependan, dentro de los límites señalados en el artículo 9.
+
+2. La delegación de firma no alterará la competencia del órgano delegante y para su validez no será necesaria su publicación.
+
+3. En las resoluciones y actos que se firmen por delegación se hará constar esta circunstancia y la autoridad de procedencia.
+
+## Título preliminar, capítulo III (principios de la potestad sancionadora): arts. 25-31
 
 <!-- bloque ciii · versión publicada 20151002 · vigente desde 20161002 -->
 
@@ -159,13 +217,19 @@ En el caso de desestimación presunta del recurso de alzada interpuesto contra l
 
 <!-- bloque dfdecimocuaa · versión publicada 20151002 · vigente desde 20161002 -->
 
-### Disposición final decimocuarta. Título competencial. [solo apartado 1]
+### Disposición final decimocuarta. Título competencial.
 
 1. Esta Ley se dicta al amparo de lo dispuesto en el artículo 149.1.18.ª de la Constitución Española que atribuye al Estado competencia exclusiva sobre las bases régimen jurídico de las Administraciones Públicas, así como al amparo de lo previsto en el artículo 149.1.13.ª, relativo a las bases y coordinación de la planificación general de la actividad económica, y del artículo 149.1.14.ª, relativo a la Hacienda Pública general.
 
-[…]
+2. No tiene carácter básico y se aplica exclusivamente a la Administración General del Estado y al sector público estatal lo previsto en:
 
----
+a) La subsección 2.ª referida a los órganos colegiados de la Administración General del Estado de la sección 3.ª del capítulo II del Título preliminar.
+
+b) El Título I relativo a la Administración General del Estado.
+
+c) Lo dispuesto en el Capítulo II relativo a la organización y funcionamiento del sector público institucional estatal, el Capítulo III de los organismos públicos estatales, el Capítulo IV de las Autoridades administrativas independientes, el Capítulo V de las sociedades mercantiles estatales, en el artículo 123.2 del Capítulo VI relativo a los Consorcios, los artículos 128, 130, 131, 132, 133, 135 y 136 del Capítulo VII de las fundaciones del sector público estatal y el Capítulo VIII de los fondos carentes de personalidad jurídica, todos ellos del Título II relativo a la organización y funcionamiento del sector público institucional.
+
+d) Lo previsto en las disposiciones adicionales: cuarta, sobre adaptación de entidades y organismos estatales, quinta, sobre gestión compartida de servicios comunes en organismos públicos estatales, sexta, sobre medios propios, séptima, sobre el registro electrónico estatal de órganos e instrumentos de cooperación, undécima, sobre conflictos de atribuciones intraministeriales, duodécima, sobre Autoridades Portuarias y Puertos del Estado, decimotercera, relativa a las entidades de la Seguridad Social, decimocuarta, sobre la organización militar, decimoquinta, relativa al personal militar, la decimosexta, sobre Servicios territoriales integrados en las Delegaciones del Gobierno, decimoséptima, relativa a la Agencia Estatal de la Administración Tributaria, la decimoctava relativa al Centro Nacional de Inteligencia, la decimonovena relativa al Banco de España y la vigésima relativa al Fondo de Reestructuración Ordenada Bancaria.
 
 ## Jurisprudencia (solo referencias; no leída)
 
