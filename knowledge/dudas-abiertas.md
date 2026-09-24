@@ -29,6 +29,16 @@ primaria. `C`: no resoluble con las fuentes accesibles (se indica qué falta).
   (fichero: `knowledge/lopj-6-1985-tribunales-instancia.md`).
 - **Orden TESTRA**: Orden INT/3022/2010, BOE-A-2010-18102, <https://www.boe.es/buscar/act.php?id=BOE-A-2010-18102>
   (fichero: `knowledge/orden-int-3022-2010-testra.md`).
+- **Ley 23/2006**: Ley balear de capitalidad de Palma de Mallorca, BOE-A-2007-1896,
+  <https://www.boe.es/buscar/act.php?id=BOE-A-2007-1896> (fichero: `knowledge/ley-23-2006-capitalidad-palma.md`).
+- **Palma (BOIB)**: Reglamento orgánico del Gobierno y de la Administración (ROGA, BOIB
+  núm. 6, de 14/01/2023) y Resolución de Alcaldía 4833/2026 (BOIB núm. 32, de 12/03/2026),
+  leídos en la versión PDF oficial (fichero: `knowledge/palma-competencia-sancionadora-trafico.md`).
+- **Metrología**: Ley 32/2014 (BOE-A-2014-13359), RD 244/2016 (BOE-A-2016-5530), Orden
+  ICT/155/2020 (BOE-A-2020-2573) y Directriz 1/2022 (BOE-A-2022-8355)
+  (fichero: `knowledge/metrologia-cinemometros.md`).
+- **EAIB**: Estatuto de Autonomía de las Illes Balears, LO 1/2007, BOE-A-2007-4233 (leído,
+  no transcrito en `knowledge/`).
 - Leídas con `scripts/boe_fetch.py` y no transcritas en `knowledge/`: Ley 15/2014
   (BOE-A-2014-9467), art. 25; Ley 6/2014 (BOE-A-2014-3715), art. único; RD 181/2008
   (BOE-A-2008-2389), arts. 7 y 8; Ley 57/2003 (BOE-A-2003-23103), DT 1ª y DF 3ª. Leído en el
@@ -1399,7 +1409,533 @@ defectuosa, falta de advertencia, prescripción y caducidad.
 
 ---
 
-## Dudas 17-21: pendientes
+## Dudas 17-21: Palma, cinemómetros, identificación del conductor, jurisprudencia y control de versiones
 
-TODO(juridico): en preparación (órgano sancionador de Palma, cinemómetros, identificación
-del conductor, verificación de ECLI y control de modificaciones de las normas).
+### Duda 17. Órgano que sanciona el tráfico urbano en Palma, ordenanza de circulación vigente y traspaso de tráfico a Illes Balears
+
+**Respuesta propuesta.**
+- **Vías urbanas de Palma.** La competencia es del alcalde (84.4 LSV). La Ley balear
+  23/2006 de capitalidad de Palma lo repite (art. 90.1) y permite «desconcentrar o
+  delegar» (art. 90.2). Hoy está **delegada en el concejal titular del Área de
+  Movilidad**: Resolución de Alcaldía 4833, de 6 de marzo de 2026 (BOIB núm. 32, de
+  12/03/2026), apartado VII.A, letra j). La delegación incluye **resolver los recursos de
+  reposición** (apartado 4). Como resuelve por delegación del alcalde, su resolución pone
+  fin a la vía administrativa (52.2.b LBRL). Contra ella cabe reposición potestativa en
+  un mes ante el mismo órgano (96.2 LSV) o contencioso. Hay una duda sobre la validez de
+  delegar también la resolución de la reposición (art. 9.2.c LRJSP; ver pendientes).
+- **Ley 23/2006.** Verificada: Ley 23/2006, de 20 de diciembre, de capitalidad de Palma de
+  Mallorca (BOIB núm. 186 extraordinario, de 27/12/2006; BOE núm. 26, de 30/01/2007;
+  BOE-A-2007-1896). Vigente (`estatus_derogacion: N`). Ninguno de los artículos
+  relevantes se ha modificado desde 2006. Transcrita en
+  `knowledge/ley-23-2006-capitalidad-palma.md`.
+- **Ordenanza de circulación.** La vigente es la **Ordenanza municipal de circulación
+  aprobada por el Pleno el 14/06/2001**, publicada en el **BOIB núm. 80, de 05/07/2001**
+  (edicto 13220, págs. 10149-10190), con modificaciones localizadas en el BOIB núm. 126 de
+  19/10/2002 (aprobación provisional de la DT única), núm. 168 de 13/11/2012 (art. 61), núm.
+  158 de 12/09/2020 (art. 7) y núm. 30 de 09/03/2023 (arts. 56-60 y 62-68, ORA). Hay
+  además una ordenanza de ciclistas (BOIB núm. 52, de 12/04/2012) y una de zonas de bajas
+  emisiones (BOIB núm. 167, de 21/12/2024). **No se ha podido leer el texto** de la
+  ordenanza (el PDF de 2001 está en boib.caib.es, bloqueado; la sede de Palma y
+  mobipalma.mobi, también). Detalle en `knowledge/palma-competencia-sancionadora-trafico.md`.
+- **Traspaso de tráfico a Illes Balears: no consta.** En el BOE solo aparecen reales
+  decretos de traspaso de «tráfico y circulación de vehículos a motor» a País Vasco
+  (RD 3256/1982), Cataluña (RD 391/1998) y Navarra (RD 252/2023). El Estatuto de Autonomía
+  (LO 1/2007) no menciona el tráfico en ninguna de sus versiones (comprobado sobre el texto
+  completo de la API). Por tanto, en **vías interurbanas y travesías** de Mallorca
+  sanciona el **Jefe de Tráfico de la provincia** (84.1 LSV), que puede delegar las
+  infracciones captadas por imagen en el Director del Centro de Tratamiento de Denuncias
+  Automatizadas (84.2 LSV). El art. 84.3 LSV no se aplica.
+
+**Fundamento.**
+- LSV 84.4: «La sanción por infracción a normas de circulación cometidas en vías urbanas
+  corresponderá a los respectivos Alcaldes, los cuales podrán delegar esta competencia de
+  acuerdo con la normativa aplicable».
+- Ley 23/2006, art. 90.1: «La sanción por infracciones de normas de circulación cometidas
+  en vías urbanas corresponde al alcalde o a la alcaldesa». Art. 90.2: «El alcalde o la
+  alcaldesa puede desconcentrar o delegar el ejercicio de dichas competencias en los
+  términos de la legislación básica de régimen local y la presente Ley». Art. 89.1: «Es
+  competencia propia del Ayuntamiento de Palma de Mallorca la ordenación del tráfico de
+  personas y vehículos, incluyendo la vigilancia y sanción de infracciones por todas las
+  vías urbanas».
+- ROGA de Palma, art. 11.1 (BOIB núm. 6, de 14/01/2023): «El/la Alcalde/esa podrá delegar
+  mediante Decreto las competencias que le atribuyen las leyes, en los términos
+  establecidos por ellas, en la Junta de Gobierno de Palma, en sus miembros, en los/las
+  demás Concejales/las».
+- Resolución 4833/2026, VII.A.j): «Incoar, tramitar y resolver los expedientes por
+  infracción de las normas de tráfico y circulación y, en general, todas las competencias
+  derivadas de la potestad sancionadora que se desprendan del Texto articulado de la Ley
+  sobre tráfico, circulación de vehículos a motor y seguridad vial». Apartado 4:
+  «ejercerán todas las facultades que corresponden al órgano delegante sin limitación ni
+  condición alguna, incluida la resolución de los recursos de reposición». Apartado 10:
+  «Quedan sin efecto los anteriores decretos relacionados con la organización de los
+  servicios administrativos del Ayuntamiento de Palma».
+- LBRL 52.2.b): ponen fin a la vía «Las de autoridades y órganos inferiores en los casos
+  que resuelvan por delegación del Alcalde».
+- Edicto BOIB núm. 30/2023: modificación de la «Ordenanza de circulación (aprobada por
+  Acuerdo de Pleno de 14 de junio de 2001)».
+- LSV 84.1: «corresponde al Jefe de Tráfico de la provincia en que se haya cometido el
+  hecho». LSV 84.3: solo en las comunidades «que hayan recibido el traspaso de funciones y
+  servicios en materia de tráfico y circulación de vehículos a motor».
+- Estatuto IB (LO 1/2007), art. 70: competencias propias de los Consejos Insulares, entre
+  ellas «5. Inspección técnica de vehículos» y «10. Transportes terrestres». Ninguna se
+  refiere a la sanción de infracciones de tráfico.
+
+**Fuente.**
+- LSV art. 84: <https://www.boe.es/buscar/act.php?id=BOE-A-2015-11722>.
+- Ley 23/2006 arts. 89-90 (BOE-A-2007-1896): <https://www.boe.es/buscar/act.php?id=BOE-A-2007-1896>
+  (metadatos y análisis de la API del BOE).
+- LO 1/2007, arts. 30-33 y 70 (BOE-A-2007-4233): <https://www.boe.es/buscar/act.php?id=BOE-A-2007-4233>.
+- Reales decretos de traspaso en materia de tráfico: BOE-A-1982-31308, BOE-A-1998-7794,
+  BOE-A-2023-8750 (buscador del BOE, títulos con los términos "traspaso tráfico" y "traspaso circulación
+  vehículos"). Búsqueda "traspaso Illes Balears": ningún traspaso de tráfico.
+- BOIB núm. 32, de 12/03/2026, edicto 2428: <https://www.caib.es/eboibfront/pdf/es/2026/32/1214707>
+  (págs. 13562-13565 y 13594).
+- BOIB núm. 6, de 14/01/2023, edicto 226 (ROGA): <https://www.caib.es/eboibfront/pdf/es/2023/6/1127867>.
+- BOIB núm. 30, de 09/03/2023, edicto 1875: <https://www.caib.es/eboibfront/es/2023/11705/670730/movilidad-acuerdo-de-aprobacion-definitiva-del-pro>.
+- BOIB núm. 80, de 05/07/2001, edicto 13220 (sumario de la sección IV):
+  <https://www.caib.es/eboibfront/es/2001/5803/seccio-iv-administracio-municipal/5006>.
+- LBRL art. 52: `knowledge/lbrl-7-1985-regimen-local.md`.
+- LRJSP arts. 9 y 12 (delegación): `knowledge/ley-40-2015-potestad-sancionadora.md`.
+Consultado 2026-09-23 y 2026-09-24.
+
+**Certeza.**
+- `A` en la atribución legal al alcalde y en la posibilidad de delegar (84.4 LSV; 90
+  Ley 23/2006), y en la vigencia de la Ley 23/2006.
+- `A` en el contenido de la Resolución 4833/2026 publicada en el BOIB. `B` en que sea la
+  delegación **vigente hoy**: no se ha encontrado otra posterior en el BOIB hasta el
+  23/09/2026, pero una delegación puede revocarse y la búsqueda del BOIB no es exhaustiva.
+- `B` en la identificación de la ordenanza (aprobada el 14/06/2001 y publicada en el BOIB
+  núm. 80/2001): el sumario del BOIB no da el título del edicto de 2001 y el enlace se
+  basa en el edicto de 2023. `C` en su contenido: no leído.
+- `B` en la ausencia de traspaso: es una prueba negativa (búsquedas en el BOE y texto
+  del Estatuto), no una declaración expresa.
+
+**Qué queda pendiente.**
+- `TODO(juridico)`: comprobar en una resolución sancionadora real de Palma (anonimizada)
+  qué órgano firma y si cita la Resolución 4833/2026 o una delegación de firma.
+- `TODO(juridico)`: leer el texto consolidado de la ordenanza de circulación y comprobar si
+  regula órganos, lugares de presentación (93.4 LSV) o especialidades de procedimiento.
+  Fuente: BOIB (PDF en boib.caib.es) o sede electrónica de Palma, ambas bloqueadas.
+- `TODO(juridico)`: confirmar en www.dgt.es qué órgano actúa como Jefatura Provincial de
+  Tráfico de Illes Balears y su sede, para las plantillas de vías interurbanas.
+- `TODO(juridico)`: **delegación de la resolución de la reposición.** La LRJSP (básica,
+  DF 14ª) prohíbe delegar «La resolución de recursos en los órganos administrativos que
+  hayan dictado los actos objeto de recurso» (art. 9.2.c) y dice que las resoluciones
+  delegadas «se considerarán dictadas por el órgano delegante» (art. 9.4). La Resolución
+  4833/2026 delega en el mismo concejal la sanción y la resolución de la reposición
+  (apartado 4). ¿Es válida esa delegación para la reposición del 96.2 LSV, o la reposición
+  debería resolverla el alcalde? Certeza `C`. Fuente: jurisprudencia del TS sobre el
+  art. 9.2.c LRJSP y su precedente (art. 13.2.c Ley 30/1992) en reposición (CENDOJ).
+  Texto literal de los arts. 9 y 12 LRJSP en `knowledge/ley-40-2015-potestad-sancionadora.md`.
+- `TODO(juridico)`: moratoria de la ZBE fijada «hasta el 31/06/2025» (fecha imposible, BOIB
+  núm. 8/2025). Ver `knowledge/palma-competencia-sancionadora-trafico.md`, duda 4.
+
+**Recomendación para ggLaw.** No escribir en código el nombre del órgano. Tomarlo de la
+propia resolución notificada (extracción) y, si falta o no coincide con "Área de Movilidad
+(por delegación del Alcalde)", avisar al usuario. Dirigir la reposición al órgano que
+firmó la resolución, como dice el 96.2 LSV.
+
+---
+
+### Duda 18. Norma metrológica de los cinemómetros: controles, errores máximos y qué debe acreditar la Administración
+
+**Respuesta propuesta.**
+- **Normas aplicables y vigentes** (comprobado con `--meta`, `--index` y el análisis del
+  BOE): Ley 32/2014, de 22 de diciembre, de Metrología (BOE-A-2014-13359, sin
+  modificaciones); RD 244/2016, de 3 de junio (BOE-A-2016-5530, modificado por RD 249/2025
+  en anexos que no afectan a cinemómetros); **Orden ICT/155/2020, de 7 de febrero**
+  (BOE-A-2020-2573), **anexo XII**, vigente desde el 24/10/2020 y modificada en parte por
+  la Orden ITU/1475/2024 (desde 16/01/2025). La Orden ITC/3123/2010, anterior norma de
+  cinemómetros, está derogada desde el 24/10/2020. No hay norma posterior que sustituya a
+  la Orden ICT/155/2020. Complemento técnico: Directriz 1/2022 sobre cabinas
+  (BOE-A-2022-8355).
+- **Controles:** (1) evaluación de la conformidad antes de ponerlo en servicio (módulo B,
+  examen de tipo, y módulo F, verificación del producto, con al menos 50 medidas en
+  tráfico real tras la instalación); (2) verificación después de reparación o
+  modificación siempre que se rompan precintos; (3) **verificación periódica cada año**,
+  contada desde la puesta en servicio y después desde la fecha del último certificado;
+  vencido el plazo, el aparato no puede usarse para sancionar; (4) en radares fijos,
+  revisión de la cabina cada cuatro años.
+- **Errores máximos permitidos en servicio (verificación periódica, ensayos en
+  carretera):** fijo o estático, ± 5 km/h hasta 100 km/h y ± 5 % por encima; **móvil
+  sobre vehículo**, ± 7 km/h hasta 100 km/h y ± 7 % por encima. En la evaluación de la
+  conformidad y tras reparación son más estrictos (± 3 km/h / ± 3 % fijo o estático; ± 5
+  km/h / ± 5 % móvil). Los de tramo y en aeronave usan siempre los de conformidad. Un
+  radar en un vehículo parado es «estático».
+- **Qué debe poder acreditar la Administración** si se discute la medición: que el
+  cinemómetro superó las fases de control aplicables (conformidad o, si es anterior a
+  2020, el título con el que se puso en servicio), el **certificado de verificación
+  periódica vigente en la fecha de los hechos**, en su caso el de verificación después de
+  reparación y, en radares fijos, el de revisión de cabina. Además, la foto debe contener
+  fecha y hora, velocidad, sentido (si mide en ambos) e identificación del cinemómetro.
+- Transcripción completa en `knowledge/metrologia-cinemometros.md`.
+
+**Fundamento.**
+- LSV 83.2: los aparatos de medida usados en denuncias «estarán sometidos a control
+  metrológico en los términos establecidos por la normativa de metrología».
+- Ley 32/2014, art. 8.1: sometidos a control los instrumentos usados por razones de «[…]
+  sanciones administrativas». Art. 8.6: «Gozarán de presunción de exactitud de medida,
+  salvo prueba en contrario, las mediciones realizadas con instrumentos o sistemas de
+  medida sometidos a control metrológico del Estado que hayan superado las fases de
+  control metrológico que les sean de aplicación». Art. 12.2: la rotura de precintos
+  «impedirá su puesta en servicio hasta que no haya superado la correspondiente
+  verificación».
+- Orden ICT/155/2020, anexo XII, ap. 3: «Módulo B, examen de tipo, más Módulo F,
+  conformidad con el tipo basada en la verificación del producto». Ap. 5: «El plazo de
+  verificación periódica será de un año».
+- Orden, art. 14.1, párr. 2: «Transcurrido el plazo para que un instrumento de medida
+  tenga que ser objeto de verificación periódica, este no podrá ser utilizado para los
+  fines estipulados en el apartado 1 del artículo 8 de la Ley 32/2014, de 22 de diciembre,
+  hasta que no la supere». Art. 14.2: el plazo cuenta para la primera verificación «desde
+  la fecha de la puesta en servicio del instrumento de medida». Art. 14.4: las siguientes,
+  «a contar desde la fecha del certificado de la verificación anterior».
+- Orden, anexo XII, apéndice I, 3.1.2: «Los errores máximos permitidos en la verificación
+  periódica de cinemómetros son los que se indican en la tabla 2». Tabla 2 (ensayos en
+  carretera): «± 5 km/h, para v ≤ 100 km/h ± 5 %, para v > 100 km/h» (fija o estática) y
+  «± 7 km/h, para v ≤ 100 km/h ± 7 %, para v > 100 km/h» (móvil).
+- Orden, anexo XII, apéndice I, 1.6.iii): los móviles «también pueden realizar mediciones
+  con el vehículo parado, en este caso se consideran estáticos». 1.2: la filmación o
+  registro informará de «La fecha y hora de la medida», «la velocidad medida del vehículo
+  infractor» e «identificación del cinemómetro que realizó la medida y ubicación (si
+  procede)».
+- Orden, anexo XII, apéndice IV: «cada cuatro años y coincidiendo con el proceso de
+  verificación periódica de los cinemómetros fijos se revisarán las cabinas que los
+  alojan».
+- Orden, DT 2ª: los instrumentos en servicio el 24/10/2020 «podrán seguir siendo
+  utilizados mientras superen las verificaciones establecidas para los instrumentos en
+  servicio».
+
+**Fuente.** Ley 32/2014 (<https://www.boe.es/buscar/act.php?id=BOE-A-2014-13359>), arts. 7-9
+y 12; RD 244/2016 (<https://www.boe.es/buscar/act.php?id=BOE-A-2016-5530>), arts. 2, 6, 7,
+16, 18, 19, 21 y anexo III; Orden ICT/155/2020 (<https://www.boe.es/buscar/act.php?id=BOE-A-2020-2573>),
+arts. 1-3, 9-12, 14-18, DT 2ª, DD y anexo XII; Directriz 1/2022
+(<https://www.boe.es/buscar/act.php?id=BOE-A-2022-8355>); metadatos de la Orden ITC/3123/2010
+(BOE-A-2010-18556). www.cem.es no se ha usado como fuente. Consultado 2026-09-23 y 2026-09-24.
+
+**Certeza.**
+- `A` en las normas vigentes, los módulos, la periodicidad anual, el cómputo del plazo, la
+  prohibición de uso tras el vencimiento y los valores de las tablas de emp (literal).
+- `B` en la lista de lo que debe acreditar la Administración: se deduce del art. 8.6 Ley
+  32/2014 y de los certificados que exige la Orden, pero ninguna norma leída regula el
+  contenido del expediente sancionador.
+- `C` en si debe descontarse el emp de la velocidad medida para encuadrar la sanción y en
+  qué tabla usar: no está en las normas leídas; falta la fuente (instrucciones de la DGT,
+  jurisprudencia).
+
+**Qué queda pendiente.**
+- `TODO(juridico)`: localizar en fuente primaria (instrucción de la DGT o sentencia) la
+  regla sobre descuento del emp. Hasta entonces es pista no verificada.
+- `TODO(juridico)`: leer la Orden ITC/3123/2010 (BOE-A-2010-18556) para hechos anteriores al
+  24/10/2020.
+- `TODO(juridico)`: jurisprudencia del TS o de los TSJ sobre la carga de aportar los
+  certificados de verificación (CENDOJ, bloqueado).
+- `TODO(juridico)`: valor normativo de la Directriz 1/2022.
+
+**Recomendación para ggLaw.** Regla determinista con datos del expediente:
+`fecha_hechos`, `tipo_instalacion` (fijo, estático, móvil, tramo, aeronave),
+`fecha_ultima_verificacion` (certificado) y `fecha_puesta_en_servicio`. Motivo sólido solo
+si el certificado aportado por la Administración está vencido en la fecha de los hechos
+(más de un año desde la verificación anterior) o no existe. Si la Administración no aporta
+el certificado, la regla debe proponer **pedirlo** (solicitud de prueba o acceso al
+expediente), no afirmar que el radar no estaba verificado. No usar el descuento del emp
+como motivo cierto.
+
+---
+
+### Duda 19. Identificación del conductor: requerimiento «debidamente» hecho, vigencia de la doctrina del TC, día inicial y pago reducido
+
+**Respuesta propuesta.**
+- **«debidamente requeridos» (77.j LSV).** La LSV no define el requerimiento. De su texto
+  y de la doctrina del TC se deduce que, como mínimo: (a) se dirige a quien tiene el deber
+  (titular, arrendatario a largo plazo o conductor habitual; 11.1-11.3 y 93.1, párr. 2);
+  (b) se notifica válidamente por los cauces de los arts. 89-91 LSV (DEV, domicilio, BOE),
+  y **no** por edictos sin haber buscado con diligencia el domicilio real (STC 54/2003, que
+  anula precisamente una multa por no identificar al conductor); (c) identifica la
+  infracción originaria (el deber es identificar «al conductor responsable de dicha
+  infracción») y da el plazo legal de 20 días naturales. El contenido mínimo del
+  requerimiento no está regulado: los puntos (a) y (c) son interpretación.
+- **Vigencia de la doctrina del TC.**
+  - **STC 197/1995:** sigue vigente. El deber de identificar es constitucional y no obliga a
+    declarar contra uno mismo. Las SSTC 29/2014 y 117/2016 se apoyan en ella.
+  - **STC 111/2004** (y SSTC 30/2013, 45/2013 y 21/2015, que la reiteran): protege al
+    titular que dio nombre y domicilio del conductor cuando **la ley de entonces no exigía**
+    el DNI ni el número de permiso. La STC 21/2015 lo dice como elemento del caso. Desde la
+    Ley 18/2009 (art. 9 bis, hoy art. 11.1.a LSV) la ley **sí exige** el número del permiso.
+    Para hechos posteriores a su entrada en vigor, esa doctrina ya no cubre una
+    identificación sin número de permiso (interpretación).
+  - **STC 29/2014:** sigue vigente, pero **matizada por la STC 117/2016**. La negativa del
+    identificado permite abrir un procedimiento contra el titular. Pero esa negativa,
+    por sí sola, no prueba que la identificación fuera falsa. La Administración debe
+    instruir, admitir la prueba del titular y motivar. A su vez, el titular debe dar las
+    explicaciones que se le pidan para comprobar que la identificación es verosímil.
+  - No se ha encontrado ninguna resolución del TC posterior a 2016 sobre identificación
+    del conductor (búsquedas en el BOE, Suplemento del TC, hasta el 23/09/2026).
+- **Día inicial de los 20 días naturales (93.1, párr. 2):** el día siguiente al de la
+  notificación de la denuncia, igual que el resto de plazos del 93.1 (respuesta ya dada
+  en la duda 5; certeza `B`).
+- **Pago reducido de la multa por no identificar: no cabe.** El art. 93.2 excluye la
+  infracción del 77.j del procedimiento abreviado, y la reducción del 50 % es una
+  consecuencia del abreviado (94.a). La multa es el doble o el triple de la de la
+  infracción originaria (80.2.b). Además, como el 77.j es muy grave y su denuncia no se
+  notifica «en el acto», el efecto resolutorio automático del 95.4 no parece aplicable:
+  haría falta resolución expresa (interpretación).
+
+**Fundamento.**
+- LSV 77.j: «Incumplir el titular o el arrendatario del vehículo con el que se haya
+  cometido la infracción la obligación de identificar verazmente al conductor responsable
+  de dicha infracción, cuando sean debidamente requeridos para ello en el plazo
+  establecido».
+- LSV 93.1, párr. 2: «dispondrán de un plazo de veinte días naturales para identificar al
+  conductor responsable de la infracción, contra el que se iniciará el procedimiento
+  sancionador».
+- LSV 11.1.a): «Los datos facilitados deben incluir el número del permiso o licencia de
+  conducción que permita la identificación en el Registro de Conductores e Infractores del
+  organismo autónomo Jefatura Central de Tráfico».
+- Ley 18/2009, art. único, nuevo art. 9 bis.1.a) del RDL 339/1990: «Los datos facilitados
+  deben incluir el número del permiso o licencia de conducción que permita la
+  identificación en el Registro de Conductores e Infractores». DF 7ª: «La presente Ley
+  entrará en vigor a los seis meses de su publicación en el «Boletín Oficial del Estado»».
+  Metadatos BOE: publicada el 24/11/2009, `fecha_vigencia: 20100524`.
+- LSV 93.2: «El procedimiento sancionador abreviado no será de aplicación a las
+  infracciones previstas en el artículo 77.h), j), n), ñ), o), p), q), r), s) y t)».
+- LSV 94: «Una vez realizado el pago voluntario de la multa […] concluirá el procedimiento
+  sancionador con las siguientes consecuencias: a) La reducción del 50 por ciento del
+  importe de la sanción».
+- LSV 80.2.b): «La multa por la infracción prevista en el artículo 77. j) será el doble de
+  la prevista para la infracción originaria que la motivó, si es infracción leve, y el
+  triple, si es infracción grave o muy grave».
+- LSV 95.4.c): efecto resolutorio en «Infracciones graves y muy graves cuya notificación se
+  efectuase en el acto de la denuncia».
+- Jurisprudencia del TC (resúmenes propios; ECLI, sala y registro confirmados en
+  hj.tribunalconstitucional.es):
+  - **STC 197/1995, de 21 de diciembre** (Pleno), cuestiones de inconstitucionalidad
+    2848-1993 y acumuladas, ECLI:ES:TC:1995:197. Leída en el BOE
+    (BOE-T-1996-1494). El deber del titular de identificar al conductor es
+    constitucional; la responsabilidad del identificado se decide después, en su propio
+    procedimiento.
+  - **STC 111/2004, de 12 de julio** (Sala Primera), recurso de amparo 6667-2000,
+    ECLI:ES:TC:2004:111 (BOE-T-2004-14849). Anula la multa a una titular que dio nombre y
+    domicilio del conductor sin DNI ni permiso, porque la norma de entonces no lo exigía.
+  - **STC 21/2015, de 16 de febrero** (Sala Segunda), recurso de amparo 716-2013,
+    ECLI:ES:TC:2015:21, BOE núm. 64, de 16/03/2015 (BOE-A-2015-2822),
+    <https://www.boe.es/diario_boe/txt.php?id=BOE-A-2015-2822>. **Leída en el BOE.** Aplica
+    las SSTC 111/2004, 30/2013 y 45/2013 a una multa municipal (Madrid, 2009). Entre los
+    elementos del caso cita que la norma vigente al cometerse los hechos no exigía
+    expresamente esos datos.
+  - **STC 29/2014, de 24 de febrero** (Sala Primera), recurso de amparo 8363-2010,
+    ECLI:ES:TC:2014:29 (BOE-A-2014-3239). Deniega el amparo: se puede sancionar al titular
+    si el identificado niega haber conducido, pero solo tras un procedimiento con garantías.
+  - **STC 117/2016, de 20 de junio** (Sala Segunda), recurso de amparo 4924-2015,
+    ECLI:ES:TC:2016:117, BOE núm. 181, de 28/07/2016 (BOE-A-2016-7294),
+    <https://www.boe.es/diario_boe/txt.php?id=BOE-A-2016-7294>. **Leída en el BOE.**
+    Otorga el amparo por vulneración de la presunción de inocencia: la simple negativa del
+    identificado no prueba que la identificación fuera falsa si el titular aportó prueba y
+    la Administración no la valoró. Aclara el alcance de la STC 29/2014 y precisa que el
+    deber de «veracidad» incluye dar explicaciones cuando se pidan.
+  - **STC 54/2003, de 24 de marzo** (Sala Segunda), recurso de amparo 727-2000,
+    ECLI:ES:TC:2003:54 (BOE-T-2003-7855). Multa por no identificar al conductor impuesta
+    tras emplazar por edictos a una empresa cuyo domicilio real constaba en el Registro
+    Mercantil: vulneración del derecho de defensa.
+
+**Fuente.** LSV arts. 11, 77, 80, 93-95 (`knowledge/rdl-6-2015-procedimiento-sancionador.md`);
+Ley 18/2009 (BOE-A-2009-18732), art. único y DF 7ª (`scripts/boe_fetch.py`); BOE,
+Suplemento del TC (búsquedas por título con los términos "identificar al conductor",
+"identificación del conductor", "conductor tráfico amparo", "infracción de tráfico
+amparo" y "multa de tráfico"); hj.tribunalconstitucional.es, fichas de las resoluciones citadas. Consultado
+2026-09-23 y 2026-09-24.
+
+**Certeza.**
+- `A` en que no cabe el pago reducido de la multa del 77.j (93.2 y 94, literales) y en la
+  exigencia legal actual del número de permiso (11.1.a).
+- `A` en los datos y el contenido de las SSTC 21/2015 y 117/2016 (leídas en el BOE).
+- `B` en que la STC 111/2004 ya no protege una identificación sin número de permiso para
+  hechos posteriores a la Ley 18/2009: es la lectura de la STC 21/2015, pero ninguna
+  sentencia leída lo dice para un caso posterior.
+- `B` en los requisitos del requerimiento «debidamente» hecho y en el día inicial.
+- `C` en la fecha exacta de entrada en vigor del art. 9 bis.1: los metadatos dan el
+  24/05/2010 y la DF 7ª dice «a los seis meses de su publicación» (24/11/2009); hay que
+  confirmar el cómputo si un caso cae en esos días.
+
+**Qué queda pendiente.**
+- `TODO(juridico)`: jurisprudencia del TS o de los TSJ sobre el contenido mínimo del
+  requerimiento de identificación y sobre identificaciones sin número de permiso tras la
+  Ley 18/2009 (CENDOJ, bloqueado). El panel de jurisprudencia de boe.es para la LSV
+  enlaza los arts. 11, 77 y 93, pero solo muestra seis sentencias (cinco penales o
+  civiles y una contencioso-administrativa sobre tasas), ninguna sobre este punto.
+- `TODO(juridico)`: confirmar si una denuncia por el 77.j puede producir el efecto
+  resolutorio del 95.4 (la denuncia por no identificar se notifica siempre después).
+
+**Recomendación para ggLaw.** Regla determinista: motivo "requerimiento no notificado
+debidamente" solo si el expediente muestra notificación edictal sin intento en otros
+domicilios conocidos (enlazar con la regla de defectos de notificación). No proponer la
+STC 111/2004 como motivo para hechos posteriores al 24/05/2010 si faltó el número de
+permiso. Si el identificado niega conducir, proponer la STC 117/2016 y aportar prueba de
+la veracidad. Informar siempre de que la multa del 77.j **no** admite el 50 %.
+
+---
+
+### Duda 20. Verificación de ECLI y datos de sentencias del TC y del TS
+
+**Respuesta propuesta.** Las siete SSTC pedidas, y dos más localizadas para la duda 19,
+tienen ECLI confirmado en hj.tribunalconstitucional.es (tabla). Las seis SSTS existen con la fecha y el tema que
+indica el panel de jurisprudencia de boe.es, pero **ninguna se ha podido leer** (CENDOJ
+exige CAPTCHA). Su ECLI se deduce del ROJ con una regla de correspondencia que sí está
+confirmada en fuente oficial (boletines del Gabinete Técnico del TS: «ROJ: STS 1647/2022 -
+ECLI:ES:TS:2022:1647»), pero el ECLI concreto de cada una sigue sin comprobarse. La STS de
+15/10/2020 (rec. 7337/2019) no aparece en ninguna fuente primaria accesible.
+
+**Tribunal Constitucional** (fichas de hj.tribunalconstitucional.es, `Resolucion/Show/<id>`):
+
+| Sentencia | Órgano | Fecha | Registro | ECLI | BOE | Ficha TC |
+|---|---|---|---|---|---|---|
+| STC 197/1995 | Pleno | 21/12/1995 | Cuestiones de inconstitucionalidad 2848-1993, 2849-1993, 3413-1993, 3828-1993, 1270-1994, 2217-1994 (acumulados) | ECLI:ES:TC:1995:197 | núm. 21, 24/01/1996 | <https://hj.tribunalconstitucional.es/es/Resolucion/Show/3051> |
+| STC 54/2003 | Sala Segunda | 24/03/2003 | Recurso de amparo 727-2000 | ECLI:ES:TC:2003:54 | núm. 91, 16/04/2003 | <https://hj.tribunalconstitucional.es/es/Resolucion/Show/4829> |
+| STC 111/2004 | Sala Primera | 12/07/2004 | Recurso de amparo 6667-2000 | ECLI:ES:TC:2004:111 | núm. 193, 11/08/2004 | <https://hj.tribunalconstitucional.es/es/Resolucion/Show/5116> |
+| STC 219/2007 | Sala Segunda | 08/10/2007 | Recurso de amparo 2204-2005 | ECLI:ES:TC:2007:219 | núm. 273, 14/11/2007 | <https://hj.tribunalconstitucional.es/es/Resolucion/Show/6186> |
+| STC 128/2008 | Sala Primera | 27/10/2008 | Recurso de amparo 1292-2005 | ECLI:ES:TC:2008:128 | núm. 281, 21/11/2008 | <https://hj.tribunalconstitucional.es/es/Resolucion/Show/6360> |
+| STC 29/2014 | Sala Primera | 24/02/2014 | Recurso de amparo 8363-2010 | ECLI:ES:TC:2014:29 | núm. 73, 25/03/2014 | <https://hj.tribunalconstitucional.es/es/Resolucion/Show/23817> |
+| STC 82/2019 | Sala Segunda | 17/06/2019 | Recurso de amparo 5533-2017 | ECLI:ES:TC:2019:82 | núm. 177, 25/07/2019 | <https://hj.tribunalconstitucional.es/es/Resolucion/Show/25973> |
+| STC 21/2015 (nueva) | Sala Segunda | 16/02/2015 | Recurso de amparo 716-2013 | ECLI:ES:TC:2015:21 | núm. 64, 16/03/2015 | <https://hj.tribunalconstitucional.es/es/Resolucion/Show/24320> |
+| STC 117/2016 (nueva) | Sala Segunda | 20/06/2016 | Recurso de amparo 4924-2015 | ECLI:ES:TC:2016:117 | núm. 181, 28/07/2016 | <https://hj.tribunalconstitucional.es/es/Resolucion/Show/25015> |
+
+Todos los datos coinciden con los que ya figuraban en `knowledge/` (sala, fecha, recurso,
+BOE). Los ECLI se han incorporado el 2026-09-24:
+- `knowledge/rdl-6-2015-procedimiento-sancionador.md`, «Jurisprudencia relevante»: SSTC
+  197/1995, 111/2004, 29/2014, 219/2007 y 128/2008, más las nuevas SSTC 21/2015 y 117/2016.
+  La duda 21 de ese fichero queda resuelta.
+- `knowledge/ley-39-2015-notificaciones-recursos.md`, «Jurisprudencia relevante»: SSTC
+  219/2007 y 54/2003 (los ECLI deducidos «por formato» eran correctos). La STC 82/2019 ya
+  tenía el ECLI correcto.
+
+**Tribunal Supremo** (datos del panel «Jurisprudencia» de boe.es, selección del CENDOJ;
+texto **no leído**):
+
+| Referencia (ROJ) | Fecha | Tema según el panel de boe.es | Norma del panel | ECLI | Estado |
+|---|---|---|---|---|---|
+| STS 603/2021 | 25/02/2021 | «Prescripción de sanciones. Día inicial de cómputo en supuestos de desestimación presunta del recurso de alzada. Aplicación retroactiva de la Ley 40/2015» | Ley 40/2015 | ECLI:ES:TS:2021:603 (deducido) | No leída |
+| STS 3150/2019 | 15/10/2019 | «Resolución sancionadora del Consejo de Ministros. Actas de liquidación de cuotas de la Tesorería General de la Seguridad Social. Notificación por BOE» | Ley 39/2015 | ECLI:ES:TS:2019:3150 (deducido) | No leída |
+| STS 2496/2019 | 12/07/2019 | «Sanción. Agencia Española de Protección de datos. Inadmisión recurso contencioso administrativo. Interposición del recurso de reposición desistido. Extemporaneidad» | Ley 39/2015 | ECLI:ES:TS:2019:2496 (deducido) | No leída |
+| STS 2916/2020 | 22/09/2020 | «Procedimiento administrativo: plazo de caducidad en procedimientos carentes de previsión normativa específica. Expediente de restitución de la legalidad urbanística: tres meses desde el acuerdo de incoación» | Ley 39/2015 | ECLI:ES:TS:2020:2916 (deducido) | No leída |
+| STS 2714/2022 | 07/07/2022 | «Omisión de firma electrónica y registro en solicitud presentada por vía electrónica: es aplicable la previsión de subsanación del art. 68 de la Ley 39/2015» | Ley 39/2015 | ECLI:ES:TS:2022:2714 (deducido) | No leída |
+| STS 4444/2021 | 01/12/2021 | «Aplicación del artículo 71 LRJCA (similar al artículo 68 Ley 39/2015), en los supuestos de presentaciones telemáticas no finalizadas, de forma que no se pueda tener por decaído en su derecho al solicitante sin previo requerimiento de subsanación» | Ley 39/2015 y Ley 40/2015 | ECLI:ES:TS:2021:4444 (deducido) | No leída |
+| STS de 15/10/2020, rec. cas. 7337/2019 | 15/10/2020 | — | — | — | No aparece en boe.es ni en los boletines del Gabinete Técnico accesibles (2022-2024). Pista no verificada: una base comercial la cita como "STS 1328/2020" (número de resolución, no ROJ). No leída |
+
+**Fundamento.**
+- Formato ROJ-ECLI: boletín del Gabinete Técnico del TS, mayo de 2022 (2): «STS,
+  Contencioso sección 1 del 28 de abril de 2022 (ROJ: STS 1647/2022 - ECLI:ES:TS:2022:1647)»;
+  boletín de julio de 2023: «Roj: ATS 7780/2023 - ECLI:ES:TS:2023:7780A». Los autos llevan
+  la letra «A» al final del ECLI.
+- Panel de boe.es: pestaña «Jurisprudencia» (`act.php?id=…&tn=5`) de BOE-A-2015-10565 y
+  BOE-A-2015-10566, con el aviso «Esta selección tiene carácter meramente orientativo».
+
+**Fuente.** hj.tribunalconstitucional.es (fichas citadas); BOE, Suplemento del TC;
+<https://www.boe.es/buscar/act.php?id=BOE-A-2015-10565&p=20241106&tn=5>;
+<https://www.boe.es/buscar/act.php?id=BOE-A-2015-10566&p=20151002&tn=5>; boletines del
+Gabinete Técnico del TS en
+<https://www.poderjudicial.es/cgpj/es/Poder-Judicial/Tribunal-Supremo/Actividad-del-TS/Boletines-del-TS/Boletin-Contencioso/>
+(PDF de 2022, 2023 y febrero-marzo de 2024; no hay otros publicados en esa página).
+Consultado 2026-09-24.
+
+**Certeza.** `A` en los ECLI y datos de las nueve SSTC (fuente oficial del TC). `A` en la
+existencia, fecha y rúbrica de las seis SSTS (boe.es). `B` en sus ECLI (regla oficial de
+correspondencia, pero no comprobados uno a uno). `C` en la STS de 15/10/2020: no
+verificable.
+
+**Qué queda pendiente.**
+- `TODO(juridico)`: leer en CENDOJ (con acceso manual, resolviendo el CAPTCHA una persona)
+  las seis SSTS y la de 15/10/2020 (rec. 7337/2019) y confirmar ECLI y doctrina.
+- `TODO(juridico)`: los ECLI de las SSTS de 17/11/2003 (BOE-A-2004-198), 03/12/2013
+  (BOE-A-2014-291) y 22/09/2008 (BOE-A-2008-18350) no figuran en el BOE (comprobado en
+  las tres publicaciones). Siguen pendientes (ver la revisión de pistas al final de este fichero).
+
+**Recomendación para ggLaw.** En las plantillas citar las SSTC con su ECLI confirmado. Las
+SSTS, citarlas solo por fecha y número de recurso (dato del BOE) hasta leerlas; no usar
+el ECLI deducido en un escrito.
+
+---
+
+### Duda 21. Procedimiento para detectar modificaciones de las normas antes de marcar algo como `revisado`
+
+**Respuesta propuesta.** Procedimiento en cinco pasos, probado el 2026-09-24 sobre todos
+los ficheros de `knowledge/`:
+1. **Metadatos** (`boe_fetch.py <ID> --meta`): comprobar `estatus_derogacion: N`,
+   `estatus_anulacion: N` y `vigencia_agotada: N`. Si alguno es `S`, parar: la norma ya no
+   rige (ejemplo real: la Orden ITC/3123/2010 de cinemómetros da `estatus_derogacion: S`,
+   `fecha_derogacion: 20201024`).
+2. **Índice** (`--index`): para cada comentario `<!-- bloque ID · versión publicada P · … -->`
+   del fichero, buscar el bloque `ID` en el índice y comparar su `fecha_actualizacion` con
+   `P`. Igual: sin cambios. Posterior: el BOE tiene una redacción nueva y hay que volver a
+   transcribir el bloque. Bloque inexistente: renumeración o derogación; revisar a mano.
+3. **Versión consolidada**: comparar la fecha máxima del índice de la norma con el campo
+   `version_consolidada` del frontmatter. Si es posterior, hay cambios en bloques no
+   transcritos: revisar si afectan (p. ej. definiciones o disposiciones transitorias).
+4. **Versiones futuras**: volver a pedir los bloques transcritos con `boe_fetch.py` y
+   buscar la línea `<!-- AVISO: existe una versión posterior aún no vigente … -->`.
+5. **Análisis** (`https://www.boe.es/datosabiertos/api/legislacion-consolidada/id/<ID>/analisis`):
+   leer las «referencias posteriores» (modificaciones, derogaciones, sentencias del TC
+   que anulan). Sirve para detectar normas que desplazan a la transcrita sin modificarla
+   formalmente (caso del RD 320/1994).
+
+**Resultado de la prueba (2026-09-24).**
+- Pasos 2 y 4: **213 entradas** (bloques) revisadas en los 12 ficheros de `knowledge/`. **210 coinciden** con el índice
+  (`versión publicada` = `fecha_actualizacion`). Las otras 3 entradas no son discrepancias:
+  dos ficheros sin bloques (`dudas-abiertas.md`, `palma-competencia-sancionadora-trafico.md`,
+  que transcribe del BOIB) y un **falso positivo** en `lopj-6-1985-tribunales-instancia.md`
+  (bloque `anoventaytres`). El script lo buscó en el índice de la LO 1/2025
+  (BOE-A-2025-76), porque era el último identificador citado antes del bloque, pero el
+  bloque es de la LOPJ (BOE-A-1985-12666). Comprobado a mano: en el índice de la LOPJ
+  `anoventaytres` tiene `20250103`, igual que lo transcrito. Ningún fichero tiene líneas
+  `AVISO` de versiones futuras ni bloques con vigencia posterior a la fecha de la prueba.
+- Paso 3: en todos los ficheros de una sola norma, `version_consolidada` coincide con la
+  fecha máxima del índice (LBRL 2026-06-03, Ley 23/2006 2025-05-17, LPAC 2024-11-06, LRJSP
+  2024-08-02, LJCA 2025-01-03, RPST 2005-01-24, LSV 2026-06-26, Orden INT/3022/2010
+  2010-11-25). En los ficheros de varias normas el campo único no basta:
+  `lopj-6-1985-tribunales-instancia.md` dice 2025-02-17 (LOPJ), pero la LO 1/2025 tiene
+  bloques de 2025-06-04 (el propio fichero lo explica en un comentario);
+  `metrologia-cinemometros.md` usa 2025-10-03 (Orden ICT/155/2020), y las otras tres normas
+  tienen fechas distintas.
+- Los bloques de la Directriz 1/2022 (BOE-A-2022-8355) salen con «vigente desde» vacío:
+  la API no da fecha de vigencia. El script debe tolerarlo.
+
+**Propuesta de automatización (no implementada).**
+- Script `scripts/check_knowledge.py` (solo biblioteca estándar, reutiliza
+  `boe_fetch.fetch_index`, `fetch_metadata` y `fetch_block_markdown`):
+  - lee cada `knowledge/*.md`, su frontmatter y los comentarios de bloque;
+  - para cada norma, pasos 1 a 4; salida en tabla (fichero, norma, bloque, estado) y
+    código de salida 1 si hay algún bloque cambiado, derogado o con versión futura;
+  - opción `--offline` que no consulta la red y solo valida el formato (útil en CI).
+- Test `tests/test_knowledge_vigencia.py` marcado `@pytest.mark.network` (excluido por
+  defecto en `uv run pytest`, ejecutado a mano antes de pasar una regla a `revisado`), y un
+  test offline que compruebe que cada fichero con bloques declara sus identificadores BOE.
+- Para evitar el falso positivo de la LOPJ, **añadir el identificador de la norma al
+  comentario de bloque** (cambio en `boe_fetch.py`):
+  `<!-- bloque BOE-A-1985-12666:anoventaytres · versión publicada … · vigente desde … -->`.
+- **Campos nuevos en el frontmatter** (propuesta):
+  ```yaml
+  normas:                      # una entrada por norma transcrita en el fichero
+    - id: BOE-A-2020-2573
+      version_consolidada: 2025-10-03   # fecha máxima del índice al transcribir
+      comprobado: 2026-09-24            # última ejecución del check sin cambios
+      estatus: vigente                  # vigente | derogada | parcialmente_anulada
+  ```
+  y mantener `version_consolidada` y `consultado` para compatibilidad.
+
+**Fundamento.** `scripts/boe_fetch.py` (`fetch_index` devuelve `id`, `titulo` y
+`fecha_actualizacion` de cada bloque; `fetch_block_markdown` elige la versión vigente y
+avisa de las futuras). API de datos abiertos del BOE: rutas `/metadatos`,
+`/texto/indice`, `/texto/bloque/<id>` y `/analisis`.
+
+**Fuente.** <https://www.boe.es/datosabiertos/api/legislacion-consolidada/>. La prueba se
+hizo con un script local no incluido en el repositorio; la propuesta de automatización está
+arriba. Consultado 2026-09-24.
+
+**Certeza.** `A` en los resultados de la prueba (reproducibles). `B` en que la igualdad
+`versión publicada` = `fecha_actualizacion` del índice sea un criterio suficiente: se ha
+cumplido en los 213 bloques, pero la API no documenta que siempre sea así.
+
+**Qué queda pendiente.**
+- `TODO(juridico)`: el check detecta cambios **en el texto**, no cambios de
+  **interpretación** (jurisprudencia nueva) ni normas que desplazan sin modificar (p. ej.
+  el RPST frente a la LSV). Antes de marcar `revisado` sigue haciendo falta la revisión
+  humana del paso 5 y de la jurisprudencia.
+- Decidir con Alex si el check se ejecuta en CI (requiere red) o solo a mano.
