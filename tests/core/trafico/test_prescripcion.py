@@ -15,6 +15,7 @@ FACTS = date(2026, 1, 15)  # jueves; +3 meses: miércoles 15-IV; +6 meses: miér
 
 def run(notification: dict[str, object], severity: str = "leve", **data: object) -> Outcome:
     data.setdefault("expediente_consultado", True)
+    data.setdefault("sancion_recurrida", "infraccion_original")
     return evaluate(
         fecha_hechos=FACTS, gravedad=severity, notificacion_denuncia=notification, **data
     ).outcome
@@ -51,6 +52,7 @@ class TestFirstStretch:
             gravedad="leve",
             notificacion_denuncia=by_post(date(2026, 4, 16)),
             expediente_consultado=True,
+            sancion_recurrida="infraccion_original",
         )
         assert result.outcome is Outcome.UNCERTAIN
 
@@ -62,6 +64,7 @@ class TestFirstStretch:
             gravedad="leve",
             notificacion_denuncia=by_post(date(2026, 6, 1)),
             expediente_consultado=True,
+            sancion_recurrida="infraccion_original",
         )
         assert result.outcome is Outcome.UNCERTAIN
 
@@ -93,7 +96,10 @@ class TestUnknownProceedings:
 
     def test_unanswered_file_question_is_missing_data(self) -> None:
         result = evaluate(
-            fecha_hechos=FACTS, gravedad="leve", notificacion_denuncia=by_post(date(2026, 5, 4))
+            fecha_hechos=FACTS,
+            gravedad="leve",
+            notificacion_denuncia=by_post(date(2026, 5, 4)),
+            sancion_recurrida="infraccion_original",
         )
         assert result.outcome is Outcome.MISSING_DATA
         assert result.missing == ("expediente_consultado",)
@@ -105,3 +111,27 @@ class TestUnknownProceedings:
         result = evaluate(fecha_hechos=FACTS, notificacion_denuncia=in_person(FACTS))
         assert result.outcome is Outcome.MISSING_DATA
         assert result.missing == ("gravedad",)
+
+
+class TestReviewRegressions:
+    def test_failure_to_identify_does_not_run_from_the_original_facts(self) -> None:
+        # C3: la infracción del art. 77.j no se comete el día de los hechos originales.
+        late = by_post(date(2026, 7, 20))
+        assert run(late, "muy_grave", sancion_recurrida="no_identificar_conductor") is (
+            Outcome.UNCERTAIN
+        )
+
+    def test_unknown_contested_sanction_blocks_applies(self) -> None:
+        result = evaluate(
+            fecha_hechos=FACTS,
+            gravedad="leve",
+            notificacion_denuncia=by_post(date(2026, 5, 4)),
+            expediente_consultado=True,
+        )
+        assert result.outcome is Outcome.MISSING_DATA
+        assert result.missing == ("sancion_recurrida",)
+
+    def test_refusal_before_the_boe_interrupts(self) -> None:
+        # C1: el rechazo en el domicilio tiene por efectuado el trámite (art. 90.3).
+        notification = by_boe(date(2026, 5, 4), (date(2026, 3, 2), "rechazada"))
+        assert run(notification) is Outcome.DOES_NOT_APPLY

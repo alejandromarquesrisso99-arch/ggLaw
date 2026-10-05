@@ -112,41 +112,47 @@ class Notification(_Data):
         return min(day for day in dates if day is not None)
 
     def practiced_on(self, boe_period: DeadlineSpec, calendar: Calendar) -> DateRange:
-        """Fecha en que la notificación se entiende practicada.
+        """Fecha en que la notificación se entiende practicada: la del primer cauce que produjo
+        efecto (art. 41.7 Ley 39/2015), aunque después se publicara en el BOE.
 
         - En el acto: ese día (art. 89.1).
-        - DEV: acceso o rechazo a los diez días naturales (art. 90.2; criterio de
-          core.plazos.electronic_notification_date).
         - Domicilio: entrega o rechazo (art. 90.3).
+        - DEV: acceso o rechazo a los diez días naturales (art. 90.2; criterio de
+          core.plazos.electronic_notification_date). Si no hubo acceso y aun así se publicó en
+          el BOE, pudo haber imposibilidad técnica del acceso (art. 90.2): no hay cota superior
+          propia y manda la del BOE.
         - BOE: «transcurrido el período de veinte días naturales» desde la publicación (art.
           91). TODO(juridico): ¿se entiende practicada el último de esos días o el siguiente?
           ¿Se prorroga si es inhábil? Hasta resolverlo se da el rango que cubre ambas lecturas:
           del día 20 al día siguiente al último día del plazo prorrogado.
         """
-        match self.channel:
-            case NotificationChannel.IN_PERSON:
-                assert self.handed_over_on is not None
-                return DateRange.exact(self.handed_over_on)
-            case NotificationChannel.DEV:
-                assert self.dev_available_on is not None
-                practiced = electronic_notification_date(
-                    self.dev_available_on, self.dev_accessed_on, rejection_applies=True
-                )
-                assert practiced is not None
-                return DateRange.exact(practiced)
-            case NotificationChannel.ADDRESS:
-                effective = self._address_effective()
-                assert effective is not None
-                return DateRange.exact(effective)
-            case NotificationChannel.BOE:
-                assert self.boe_published_on is not None
-                latest: date | None = None
-                with suppress(CalendarNotAvailableError):
-                    latest = compute_deadline(self.boe_published_on, boe_period, calendar).end
-                    latest += ONE_DAY
-                return DateRange(
-                    earliest=nominal_end(self.boe_published_on, boe_period), latest=latest
-                )
+        ranges: list[DateRange] = []
+        if self.handed_over_on is not None:
+            ranges.append(DateRange.exact(self.handed_over_on))
+        address = self._address_effective()
+        if address is not None:
+            ranges.append(DateRange.exact(address))
+        if self.dev_available_on is not None:
+            dev = electronic_notification_date(
+                self.dev_available_on, self.dev_accessed_on, rejection_applies=True
+            )
+            assert dev is not None
+            unaccessed_then_boe = (
+                self.dev_accessed_on is None and self.channel is NotificationChannel.BOE
+            )
+            ranges.append(DateRange(earliest=dev, latest=None if unaccessed_then_boe else dev))
+        if self.boe_published_on is not None:
+            latest: date | None = None
+            with suppress(CalendarNotAvailableError):
+                latest = compute_deadline(self.boe_published_on, boe_period, calendar).end
+                latest += ONE_DAY
+            earliest = nominal_end(self.boe_published_on, boe_period)
+            ranges.append(DateRange(earliest=earliest, latest=latest))
+        known_latest = [r.latest for r in ranges if r.latest is not None]
+        return DateRange(
+            earliest=min(r.earliest for r in ranges),
+            latest=min(known_latest) if known_latest else None,
+        )
 
 
 class ContestedSanction(StrEnum):
@@ -195,6 +201,11 @@ class TrafficCase(_Data):
         default=None, alias="identificacion_conductor"
     )
     contested_sanction: ContestedSanction | None = Field(default=None, alias="sancion_recurrida")
+    owner_liable_offence: bool | None = Field(
+        default=None, alias="infraccion_responsabilidad_titular"
+    )
+    """La infracción es de documentación del vehículo, reconocimientos periódicos o estado de
+    conservación que afecte a la seguridad: el titular responde en todo caso (art. 82.f)."""
     speeding: bool | None = Field(default=None, alias="infraccion_velocidad")
     """Infracción por exceso de velocidad (arts. 76.a y 77.a RDL 6/2015)."""
     measured_by_instrument: bool | None = Field(default=None, alias="medida_con_cinemometro")

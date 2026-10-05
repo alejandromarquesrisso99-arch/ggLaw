@@ -108,11 +108,20 @@ def _sanction_on_identifier(case: TrafficCase) -> Check:
             CheckStatus.NOT_MET,
             "Te identificaste a ti mismo como conductor: la sanción se dirige contra ti.",
         )
+    if case.owner_liable_offence is None:
+        return missing(condition, "infraccion_responsabilidad_titular")
+    if case.owner_liable_offence:
+        return check(
+            condition,
+            CheckStatus.NOT_MET,
+            "La infracción es de documentación, reconocimientos periódicos o estado de "
+            "conservación del vehículo: de ella responde en todo caso el titular (art. 82.f).",
+        )
     return check(
         condition,
         CheckStatus.MET,
         "Se te sanciona por la infracción aunque identificaste a otra persona como conductor; "
-        "el procedimiento debía dirigirse contra ella (arts. 82.d y 93.1).",
+        "en principio, el procedimiento debió dirigirse contra ella (arts. 82.d y 93.1).",
     )
 
 

@@ -17,7 +17,7 @@ fundamento:
     knowledge: knowledge/rdl-6-2015-regimen-sancionador.md
   - norma: RDL 6/2015
     articulo: 82
-    apartado: "c, d y g"
+    apartado: "c, d, f y g"
     knowledge: knowledge/rdl-6-2015-regimen-sancionador.md
   - norma: RDL 6/2015
     articulo: 90
@@ -26,6 +26,10 @@ fundamento:
   - norma: RDL 6/2015
     articulo: 91
     knowledge: knowledge/rdl-6-2015.md
+  - norma: Ley 39/2015
+    articulo: 41
+    apartado: "7"
+    knowledge: knowledge/ley-39-2015-procedimiento.md
   - norma: Ley 39/2015
     articulo: 30
     apartado: "5"
@@ -50,9 +54,16 @@ condiciones:          # evaluadas por core/trafico/identificacion.py, nunca por 
   - id: sancion_a_quien_identifico
     descripcion: >-
       Se sanciona a quien identificó: por no identificar (art. 77.j) o por la infracción
-      original habiendo identificado a otra persona.
-    fundamento: RDL 6/2015, arts. 77.j, 82.d y 93.1
-datos_necesarios: [detencion_vehiculo, identifico_conductor, notificacion_denuncia, sancion_recurrida]
+      original habiendo identificado a otra persona, salvo que sea de las que responde en
+      todo caso el titular (documentación, reconocimientos periódicos o estado de
+      conservación del vehículo, art. 82.f).
+    fundamento: RDL 6/2015, arts. 77.j, 82.d, 82.f y 93.1
+datos_necesarios:
+  - detencion_vehiculo
+  - identifico_conductor
+  - notificacion_denuncia
+  - sancion_recurrida
+  - infraccion_responsabilidad_titular
 parametros:
   plazo_identificacion: {cantidad: 20, unidad: dias_naturales}   # art. 93.1 RDL 6/2015
   notificacion_boe: {cantidad: 20, unidad: dias_naturales}       # art. 91 RDL 6/2015
@@ -66,3 +77,5 @@ notas: |
   TODO(juridico): si se notificó en la DEV y la identificación se hizo en papel, ¿es válida?
   El art. 93.1 exige medios telemáticos pero no dice la consecuencia. Hoy da «dudoso».
   Fuente a consultar: jurisprudencia sobre el art. 93.1 RDL 6/2015.
+  PENDIENTE (revisión 2026-10-05, importante): en reposición, el art. 96.4 impide tener en
+  cuenta lo que pudo alegarse en el procedimiento; falta un dato de fase del escrito.

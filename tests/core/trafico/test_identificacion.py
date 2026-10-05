@@ -20,6 +20,7 @@ def outcome(**overrides: Any) -> Outcome:
         "identificacion_conductor": identification,
         "notificacion_denuncia": by_post(NOTIFIED),
         "sancion_recurrida": "infraccion_original",
+        "infraccion_responsabilidad_titular": False,
     }
     data.update(overrides)
     return evaluate(**data).outcome
@@ -107,3 +108,32 @@ def test_missing_sanction_type() -> None:
     )
     assert result.outcome is Outcome.MISSING_DATA
     assert result.missing == ("sancion_recurrida",)
+
+
+def test_owner_is_always_liable_for_vehicle_condition_offences() -> None:
+    # C2: art. 82.f (p. ej., inspección técnica caducada).
+    assert outcome(infraccion_responsabilidad_titular=True) is Outcome.DOES_NOT_APPLY
+    assert outcome(infraccion_responsabilidad_titular=None) is Outcome.MISSING_DATA
+    # No importa si se recurre la sanción por no identificar.
+    assert (
+        outcome(
+            sancion_recurrida="no_identificar_conductor", infraccion_responsabilidad_titular=None
+        )
+        is Outcome.APPLIES
+    )
+
+
+def test_refusal_at_home_starts_the_period_before_the_boe() -> None:
+    # C1: rechazo el 2-III y edicto el 20-III: el plazo acaba el 23-III, no a finales de abril.
+    notification = by_boe(date(2026, 3, 20), (NOTIFIED, "rechazada"))
+    late = {"fecha": date(2026, 4, 15)}
+    assert outcome(notificacion_denuncia=notification, identificacion=late) is (
+        Outcome.DOES_NOT_APPLY
+    )
+
+
+def test_unaccessed_dev_followed_by_boe_is_uncertain() -> None:
+    # Pudo haber imposibilidad técnica del acceso (art. 90.2): manda la cota del BOE.
+    notification = {**by_dev(NOTIFIED), "canal": "boe", "boe_publicacion": date(2026, 3, 20)}
+    late = {"fecha": date(2026, 4, 15)}
+    assert outcome(notificacion_denuncia=notification, identificacion=late) is Outcome.UNCERTAIN

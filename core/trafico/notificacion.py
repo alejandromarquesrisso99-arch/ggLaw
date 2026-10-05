@@ -45,10 +45,18 @@ def _dev_not_tried(case: TrafficCase, notification: Notification) -> Check:
     return check(condition, CheckStatus.NOT_MET, "No tenías Dirección Electrónica Vial.")
 
 
-def _too_few_attempts(notification: Notification) -> Check:
+def _too_few_attempts(case: TrafficCase, notification: Notification) -> Check:
     condition = "intentos_domicilio_insuficientes"
     if notification.dev_available_on is not None:
         return check(condition, CheckStatus.NOT_MET, "Se notificó primero en la DEV.")
+    if case.has_dev is None:
+        return missing(condition, "dev_asignada")
+    if case.has_dev:
+        return check(
+            condition,
+            CheckStatus.NOT_MET,
+            "No aplica: con DEV, el cauce debido era la DEV, no el domicilio (art. 90.1).",
+        )
     attempts = notification.address_attempts
     results = {attempt.result for attempt in attempts}
     if AttemptResult.REFUSED in results or AttemptResult.DELIVERED in results:
@@ -90,6 +98,15 @@ def _late_second_attempt(
     attempts = notification.address_attempts
     if notification.dev_available_on is not None or len(attempts) < 2:
         return check(condition, CheckStatus.NOT_MET, "No hay segundo intento que comprobar.")
+    if attempts[0].result is AttemptResult.UNKNOWN_ADDRESSEE:
+        return check(
+            condition,
+            CheckStatus.UNCERTAIN,
+            "El primer intento fue «desconocido»: el art. 90.3 solo obliga a repetir en tres "
+            "días si nadie se hizo cargo. No está resuelto si se aplica.",
+        )
+    if attempts[0].result is not AttemptResult.NOBODY:
+        return check(condition, CheckStatus.NOT_MET, "El primer intento no exigía repetirlo.")
     first, second = attempts[0].on, attempts[1].on
     if second == first:
         return check(
@@ -153,7 +170,7 @@ def evaluate(params: Params, case: TrafficCase, ctx: EvaluationContext) -> Evalu
         )
     defects = (
         _dev_not_tried(case, notification),
-        _too_few_attempts(notification),
+        _too_few_attempts(case, notification),
         _late_second_attempt(params, notification, ctx),
     )
     checks = (published, reviewed, *defects)

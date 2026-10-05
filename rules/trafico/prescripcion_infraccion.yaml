@@ -17,16 +17,33 @@ fundamento:
     articulo: 77
     knowledge: knowledge/rdl-6-2015-regimen-sancionador.md
   - norma: RDL 6/2015
+    articulo: 89
+    knowledge: knowledge/rdl-6-2015-regimen-sancionador.md
+  - norma: RDL 6/2015
     articulo: 90
+    knowledge: knowledge/rdl-6-2015.md
+  - norma: RDL 6/2015
+    articulo: 93
+    apartado: "1"
     knowledge: knowledge/rdl-6-2015.md
   - norma: RDL 6/2015
     articulo: 91
     knowledge: knowledge/rdl-6-2015.md
   - norma: Ley 39/2015
+    articulo: 41
+    apartado: "7"
+    knowledge: knowledge/ley-39-2015-procedimiento.md
+  - norma: Ley 39/2015
     articulo: 30
     apartado: "4 y 5"
     knowledge: knowledge/ley-39-2015.md
 condiciones:          # evaluadas por core/trafico/prescripcion.py, nunca por el LLM
+  - id: infraccion_original
+    descripcion: >-
+      Se recurre la sanción por la infracción original, cuya fecha es la de los hechos. La
+      de no identificar al conductor (art. 77.j) se comete al vencer el plazo para
+      identificar (art. 93.1): para ella el resultado es «dudoso» hasta modelarla.
+    fundamento: RDL 6/2015, arts. 77.j, 93.1 y 112.1
   - id: plazo_vencido_antes_de_interrumpirse
     descripcion: >-
       El plazo de prescripción (contado desde el mismo día de los hechos) venció antes de la
@@ -39,7 +56,13 @@ condiciones:          # evaluadas por core/trafico/prescripcion.py, nunca por el
       Se conocen todas las actuaciones que pudieron interrumpir la prescripción, porque el
       interesado ha consultado el expediente. Si no, el resultado es «dudoso».
     fundamento: RDL 6/2015, art. 112.2
-datos_necesarios: [fecha_hechos, gravedad, notificacion_denuncia, expediente_consultado, otras_actuaciones]
+datos_necesarios:
+  - fecha_hechos
+  - gravedad
+  - notificacion_denuncia
+  - sancion_recurrida
+  - expediente_consultado
+  - otras_actuaciones
 parametros:
   plazo_prescripcion:          # art. 112.1 RDL 6/2015
     leve: {cantidad: 3, unidad: meses}
@@ -60,3 +83,6 @@ notas: |
   TODO(juridico): ¿cómo se reanuda la prescripción si el procedimiento se paraliza más de un
   mes (art. 112.2, párrafo segundo): de cero o por el tiempo que restaba? No se evalúa.
   Fuente a consultar: jurisprudencia sobre el art. 112 RDL 6/2015.
+  PENDIENTE (revisión 2026-10-05, importante): «no procede» solo descarta la prescripción
+  antes de la primera interrupción; el texto debe decir que no se ha comprobado la posterior
+  por paralización (art. 112.2). Publicación en TESTRA (art. 92) no modelada.

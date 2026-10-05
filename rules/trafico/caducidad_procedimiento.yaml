@@ -88,3 +88,8 @@ notas: |
   TODO(juridico): ¿se aplica en tráfico el art. 25.2 Ley 39/2015 (paralización imputable al
   interesado)? Hoy cualquier suspensión o paralización da «dudoso».
   Fuente a consultar: jurisprudencia sobre el art. 112.3 RDL 6/2015.
+  PENDIENTE (revisión 2026-10-05, importante): `expediente_consultado` no guarda la fecha de
+  la consulta. Una consulta anterior al vencimiento no descarta una resolución dictada
+  después dentro del año: hay que comparar con esa fecha y no con hoy.
+  PENDIENTE (menor): en las infracciones del art. 93.2 (77.h, j, n-t) no cabe el procedimiento
+  abreviado, así que el pago no lo termina por el art. 94.c.

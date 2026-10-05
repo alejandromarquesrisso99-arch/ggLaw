@@ -8,9 +8,9 @@ un mes (art. 112.2, párrafo segundo), no se evalúa: ver TODO(juridico) en el Y
 from pydantic import BaseModel, ConfigDict
 
 from core.plazos import DateRange, DeadlineSpec, Timeliness, timeliness, uncertain_period_end
-from core.reglas import CheckStatus, Evaluation, EvaluationContext, all_required
+from core.reglas import Check, CheckStatus, Evaluation, EvaluationContext, all_required
 from core.trafico._util import check, fmt_range, missing
-from core.trafico.caso import Severity, TrafficCase
+from core.trafico.caso import ContestedSanction, Severity, TrafficCase
 
 
 class Params(BaseModel):
@@ -36,6 +36,24 @@ def first_interruption(case: TrafficCase, params: Params, ctx: EvaluationContext
         earliest=min(c.earliest for c in candidates),
         latest=min(known_latest) if known_latest else None,
     )
+
+
+def _original_offence(case: TrafficCase) -> Check:
+    """La fecha de los hechos solo es el día inicial si se recurre la infracción original. La
+    del art. 77.j se comete al vencer el plazo para identificar (art. 93.1), dato que el caso
+    aún no recoge."""
+    condition = "infraccion_original"
+    if case.contested_sanction is None:
+        return missing(condition, "sancion_recurrida")
+    if case.contested_sanction is ContestedSanction.FAILURE_TO_IDENTIFY:
+        return check(
+            condition,
+            CheckStatus.UNCERTAIN,
+            "La infracción por no identificar al conductor (art. 77.j) se comete al vencer el "
+            "plazo para identificar, no el día de la infracción original. ggLaw aún no calcula "
+            "su prescripción.",
+        )
+    return check(condition, CheckStatus.MET, "Se recurre la sanción por la infracción original.")
 
 
 def evaluate(params: Params, case: TrafficCase, ctx: EvaluationContext) -> Evaluation:
@@ -83,4 +101,4 @@ def evaluate(params: Params, case: TrafficCase, ctx: EvaluationContext) -> Evalu
             "(art. 112.2), como averiguaciones de tu domicilio con otras administraciones. "
             "Pide copia del expediente (art. 53.1.a Ley 39/2015) antes de alegarla.",
         )
-    return all_required([expired, known])
+    return all_required([_original_offence(case), expired, known])

@@ -51,11 +51,27 @@ def test_dev_attempted_before_boe() -> None:
     assert outcome(notification, has_dev=True) is Outcome.DOES_NOT_APPLY
 
 
-def test_unknown_dev_is_missing_only_when_it_matters() -> None:
+def test_unknown_dev_is_missing_data() -> None:
+    # Sin saber si tenía DEV no se sabe qué defecto alegar.
     timely = by_boe(PUBLISHED, (MON, "ausente"), (TUE, "ausente"))
     assert outcome(timely, has_dev=None) is Outcome.MISSING_DATA
-    # Sin ningún intento hay defecto con o sin DEV.
-    assert outcome(by_boe(PUBLISHED), has_dev=None) is Outcome.APPLIES
+    assert outcome(by_boe(PUBLISHED), has_dev=None) is Outcome.MISSING_DATA
+
+
+def test_dev_holder_is_not_also_reproached_for_address_attempts() -> None:
+    # I3: con DEV, el defecto es no usarla, no la falta de intentos en el domicilio.
+    result = evaluate(
+        notificacion_denuncia=by_boe(PUBLISHED), dev_asignada=True, expediente_consultado=True
+    )
+    statuses = {check.condition: check.status.value for check in result.checks}
+    assert result.outcome is Outcome.APPLIES
+    assert statuses["intentos_domicilio_insuficientes"] == "no_se_cumple"
+
+
+def test_late_second_attempt_after_unknown_addressee_is_uncertain() -> None:
+    # I1: el art. 90.3 solo obliga a repetir en tres días si nadie se hizo cargo.
+    notification = by_boe(PUBLISHED, (MON, "desconocido"), (date(2026, 6, 10), "ausente"))
+    assert outcome(notification) is Outcome.UNCERTAIN
 
 
 class TestSecondAttempt:

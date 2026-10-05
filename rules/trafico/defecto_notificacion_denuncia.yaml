@@ -56,3 +56,7 @@ notas: |
   intento en franja horaria distinta, receptor mayor de catorce años) o las desplaza el art.
   90.3 RDL 6/2015? No se evalúan.
   Fuente a consultar: jurisprudencia sobre los arts. 90 y 91 RDL 6/2015.
+  PENDIENTE (revisión 2026-10-05, importante): (1) sin intentos en el domicilio la regla da
+  «procede», pero el BOE directo es válido si no había domicilio conocido (arts. 91 RDL 6/2015
+  y 44 Ley 39/2015): falta un dato `domicilio_conocido`. (2) El defecto de forma solo anula si
+  causa indefensión (art. 48.2 Ley 39/2015): falta valorar el perjuicio concreto.
