@@ -1,0 +1,90 @@
+id: trafico.caducidad_procedimiento
+titulo: Caducidad del procedimiento sancionador
+ambito: trafico
+estado: borrador
+fundamento:
+  - norma: RDL 6/2015
+    articulo: 112
+    apartado: "3"
+    knowledge: knowledge/rdl-6-2015-regimen-sancionador.md
+  - norma: RDL 6/2015
+    articulo: 86
+    knowledge: knowledge/rdl-6-2015-regimen-sancionador.md
+  - norma: RDL 6/2015
+    articulo: 94
+    knowledge: knowledge/rdl-6-2015.md
+  - norma: RDL 6/2015
+    articulo: 95
+    apartado: "4"
+    knowledge: knowledge/rdl-6-2015.md
+  - norma: Ley 39/2015
+    articulo: 25
+    knowledge: knowledge/ley-39-2015-procedimiento.md
+  - norma: Ley 39/2015
+    articulo: 40
+    apartado: "4"
+    knowledge: knowledge/ley-39-2015-procedimiento.md
+  - norma: Ley 39/2015
+    articulo: 30
+    apartado: "4 y 5"
+    knowledge: knowledge/ley-39-2015.md
+condiciones:          # evaluadas por core/trafico/caducidad.py, nunca por el LLM
+  - id: sin_pago_voluntario
+    descripcion: No se pagó la multa con reducción; si se pagó, el procedimiento terminó (art. 94.c).
+    fundamento: RDL 6/2015, art. 94
+  - id: requiere_resolucion
+    descripcion: >-
+      El procedimiento debía terminar con resolución sancionadora: hubo alegaciones o el caso
+      no es de los del art. 95.4, en que la denuncia surte efecto de acto resolutorio.
+    fundamento: RDL 6/2015, art. 95.4
+  - id: sin_suspension
+    descripcion: >-
+      El procedimiento no estuvo suspendido por un proceso penal ni paralizado por causa del
+      interesado. Si lo estuvo, el resultado es «dudoso» (el descuento no está modelado).
+    fundamento: RDL 6/2015, art. 112.3 (párrafo segundo); Ley 39/2015, art. 25.2
+  - id: plazo_vencido_sin_resolucion
+    descripcion: >-
+      Pasó un año desde la iniciación (la denuncia notificada en el acto o la incoación) sin
+      que se produjera la resolución sancionadora.
+    fundamento: RDL 6/2015, arts. 86 y 112.3
+  - id: resolucion_conocida
+    descripcion: >-
+      Se sabe si hay resolución y cuándo se dictó: la tiene el interesado o ha consultado el
+      expediente. Si no, una resolución dictada y no recibida haría falsa la caducidad.
+    fundamento: RDL 6/2015, art. 112.3
+datos_necesarios:
+  - fecha_hechos
+  - notificacion_denuncia
+  - pago_voluntario
+  - alegaciones_presentadas
+  - procedimiento_suspendido
+  - gravedad
+  - detrae_puntos
+  - fecha_incoacion
+  - fecha_resolucion
+  - notificacion_resolucion
+  - expediente_consultado
+parametros:
+  plazo_caducidad: {cantidad: 1, unidad: anios}   # art. 112.3 RDL 6/2015
+  denuncia_como_acto_resolutorio:                 # art. 95.4 RDL 6/2015
+    - gravedad: leve                              # a) leves en todos los casos
+    - gravedad: grave                             # b) graves sin puntos no notificadas en el acto
+      detrae_puntos: false
+      en_el_acto: false
+    - gravedad: grave                             # c) graves notificadas en el acto
+      en_el_acto: true
+    - gravedad: muy_grave                         # c) muy graves notificadas en el acto
+      en_el_acto: true
+parrafo_tipo: null             # pendiente (tarea 6)
+notas: |
+  La caducidad de tráfico es de un año (art. 112.3 RDL 6/2015), no la de tres meses de los
+  arts. 21.3 y 25.1.b Ley 39/2015, que quedan desplazados (knowledge/ley-39-2015-procedimiento.md).
+
+  TODO(juridico): ¿el año se cuenta desde el mismo día de la iniciación o desde el siguiente,
+  y se prorroga si el último día es inhábil? Se usa el rango de todas las respuestas.
+  TODO(juridico): ¿la resolución «se produce» al dictarse o hace falta notificarla o intentar
+  notificarla dentro del año (arts. 25.1, 40.4 y 43.3 Ley 39/2015, supletorios)? Si la
+  respuesta cambia el resultado, la regla responde «dudoso».
+  TODO(juridico): ¿se aplica en tráfico el art. 25.2 Ley 39/2015 (paralización imputable al
+  interesado)? Hoy cualquier suspensión o paralización da «dudoso».
+  Fuente a consultar: jurisprudencia sobre el art. 112.3 RDL 6/2015.

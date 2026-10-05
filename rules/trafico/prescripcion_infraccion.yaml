@@ -1,0 +1,62 @@
+id: trafico.prescripcion_infraccion
+titulo: Prescripción de la infracción
+ambito: trafico
+estado: borrador
+fundamento:
+  - norma: RDL 6/2015
+    articulo: 112
+    apartado: "1 y 2"
+    knowledge: knowledge/rdl-6-2015-regimen-sancionador.md
+  - norma: RDL 6/2015
+    articulo: 75
+    knowledge: knowledge/rdl-6-2015-regimen-sancionador.md
+  - norma: RDL 6/2015
+    articulo: 76
+    knowledge: knowledge/rdl-6-2015-regimen-sancionador.md
+  - norma: RDL 6/2015
+    articulo: 77
+    knowledge: knowledge/rdl-6-2015-regimen-sancionador.md
+  - norma: RDL 6/2015
+    articulo: 90
+    knowledge: knowledge/rdl-6-2015.md
+  - norma: RDL 6/2015
+    articulo: 91
+    knowledge: knowledge/rdl-6-2015.md
+  - norma: Ley 39/2015
+    articulo: 30
+    apartado: "4 y 5"
+    knowledge: knowledge/ley-39-2015.md
+condiciones:          # evaluadas por core/trafico/prescripcion.py, nunca por el LLM
+  - id: plazo_vencido_antes_de_interrumpirse
+    descripcion: >-
+      El plazo de prescripción (contado desde el mismo día de los hechos) venció antes de la
+      primera actuación que pudo interrumpirlo: la notificación de la denuncia (desde la
+      primera actuación para notificar hasta que se entiende practicada) o cualquier otra
+      actuación del expediente.
+    fundamento: RDL 6/2015, art. 112.1 y 112.2
+  - id: actuaciones_conocidas
+    descripcion: >-
+      Se conocen todas las actuaciones que pudieron interrumpir la prescripción, porque el
+      interesado ha consultado el expediente. Si no, el resultado es «dudoso».
+    fundamento: RDL 6/2015, art. 112.2
+datos_necesarios: [fecha_hechos, gravedad, notificacion_denuncia, expediente_consultado, otras_actuaciones]
+parametros:
+  plazo_prescripcion:          # art. 112.1 RDL 6/2015
+    leve: {cantidad: 3, unidad: meses}
+    grave: {cantidad: 6, unidad: meses}
+    muy_grave: {cantidad: 6, unidad: meses}
+  notificacion_boe: {cantidad: 20, unidad: dias_naturales}   # art. 91 RDL 6/2015
+parrafo_tipo: null             # pendiente (tarea 6)
+notas: |
+  Solo evalúa el tramo entre los hechos y la primera actuación interruptiva. Si el resultado
+  depende de una duda abierta, la regla responde «dudoso» en vez de elegir una lectura.
+
+  TODO(juridico) (ya abiertos en knowledge/rdl-6-2015-regimen-sancionador.md): ¿el plazo en
+  meses incluye el día de los hechos?; ¿se aplica la prórroga del art. 30.5 Ley 39/2015 a la
+  prescripción? core.plazos.uncertain_period_end cubre todas las respuestas.
+  TODO(juridico): ¿qué momento de la notificación interrumpe: la primera actuación para
+  notificar (p. ej. un intento infructuoso en el domicilio o la publicación en el BOE) o la
+  fecha en que se entiende practicada (arts. 90.2 y 91)? Se usa el rango entre ambas.
+  TODO(juridico): ¿cómo se reanuda la prescripción si el procedimiento se paraliza más de un
+  mes (art. 112.2, párrafo segundo): de cero o por el tiempo que restaba? No se evalúa.
+  Fuente a consultar: jurisprudencia sobre el art. 112 RDL 6/2015.

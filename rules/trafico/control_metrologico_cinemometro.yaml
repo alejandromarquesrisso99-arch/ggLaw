@@ -1,0 +1,45 @@
+id: trafico.control_metrologico_cinemometro
+titulo: Control metrológico del cinemómetro no acreditado
+ambito: trafico
+estado: borrador
+fundamento:
+  - norma: RDL 6/2015
+    articulo: 83
+    apartado: "2"
+    knowledge: knowledge/rdl-6-2015.md
+  - norma: RDL 6/2015
+    articulo: 76
+    apartado: "a"
+    knowledge: knowledge/rdl-6-2015-regimen-sancionador.md
+  - norma: RDL 6/2015
+    articulo: 77
+    apartado: "a"
+    knowledge: knowledge/rdl-6-2015-regimen-sancionador.md
+  - norma: RDL 6/2015
+    articulo: 95
+    apartado: "1"
+    knowledge: knowledge/rdl-6-2015.md
+condiciones:          # evaluadas por core/trafico/cinemometro.py, nunca por el LLM
+  - id: infraccion_de_velocidad
+    descripcion: La infracción es por exceso de velocidad.
+    fundamento: RDL 6/2015, arts. 76.a y 77.a
+  - id: medida_con_instrumento
+    descripcion: La velocidad se midió con un cinemómetro.
+    fundamento: RDL 6/2015, art. 83.2
+  - id: control_metrologico_no_acreditado
+    descripcion: >-
+      Ni la denuncia ni el expediente acreditan el control metrológico del cinemómetro. Si
+      consta, el resultado es «dudoso»: ggLaw no puede valorar si estaba vigente.
+    fundamento: RDL 6/2015, art. 83.2
+datos_necesarios: [infraccion_velocidad, medida_con_cinemometro, consta_control_metrologico]
+parametros: {}
+parrafo_tipo: null             # pendiente (tarea 6)
+notas: |
+  Alcance limitado a pedir que se acredite el control metrológico (art. 83.2) y proponer la
+  prueba (art. 95.1). El escrito no debe afirmar que el aparato no estaba verificado, solo
+  que no consta.
+
+  TODO(juridico) (ya abierto en knowledge/rdl-6-2015-regimen-sancionador.md): transcribir la
+  normativa de control metrológico de los cinemómetros y el anexo IV antes de evaluar si una
+  verificación estaba vigente o aplicar márgenes de error. Sin eso, esta regla no puede pasar
+  de «borrador».

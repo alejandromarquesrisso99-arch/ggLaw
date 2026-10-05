@@ -1,0 +1,68 @@
+id: trafico.identificacion_conductor
+titulo: Conductor identificado en plazo
+ambito: trafico
+estado: borrador
+fundamento:
+  - norma: RDL 6/2015
+    articulo: 93
+    apartado: "1 (párrafo segundo)"
+    knowledge: knowledge/rdl-6-2015.md
+  - norma: RDL 6/2015
+    articulo: 11
+    apartado: "1.a"
+    knowledge: knowledge/rdl-6-2015-regimen-sancionador.md
+  - norma: RDL 6/2015
+    articulo: 77
+    apartado: "j"
+    knowledge: knowledge/rdl-6-2015-regimen-sancionador.md
+  - norma: RDL 6/2015
+    articulo: 82
+    apartado: "c, d y g"
+    knowledge: knowledge/rdl-6-2015-regimen-sancionador.md
+  - norma: RDL 6/2015
+    articulo: 90
+    apartado: "2"
+    knowledge: knowledge/rdl-6-2015.md
+  - norma: RDL 6/2015
+    articulo: 91
+    knowledge: knowledge/rdl-6-2015.md
+  - norma: Ley 39/2015
+    articulo: 30
+    apartado: "5"
+    knowledge: knowledge/ley-39-2015.md
+condiciones:          # evaluadas por core/trafico/identificacion.py, nunca por el LLM
+  - id: sin_detencion
+    descripcion: No hubo detención del vehículo.
+    fundamento: RDL 6/2015, art. 93.1 (párrafo segundo)
+  - id: identificacion_completa
+    descripcion: >-
+      Se identificó al conductor con el número de su permiso o, si no figura en el Registro
+      de Conductores e Infractores, disponiendo de copia de su autorización para conducir.
+    fundamento: RDL 6/2015, art. 11.1.a
+  - id: identificacion_en_plazo
+    descripcion: >-
+      La identificación se hizo dentro de los veinte días naturales desde la notificación de
+      la denuncia, con la prórroga del art. 30.5 Ley 39/2015 (criterio adoptado).
+    fundamento: RDL 6/2015, art. 93.1 (párrafo segundo)
+  - id: identificacion_telematica_si_dev
+    descripcion: Si se notificó en la DEV, la identificación se hizo por medios telemáticos.
+    fundamento: RDL 6/2015, art. 93.1 (párrafo segundo)
+  - id: sancion_a_quien_identifico
+    descripcion: >-
+      Se sanciona a quien identificó: por no identificar (art. 77.j) o por la infracción
+      original habiendo identificado a otra persona.
+    fundamento: RDL 6/2015, arts. 77.j, 82.d y 93.1
+datos_necesarios: [detencion_vehiculo, identifico_conductor, notificacion_denuncia, sancion_recurrida]
+parametros:
+  plazo_identificacion: {cantidad: 20, unidad: dias_naturales}   # art. 93.1 RDL 6/2015
+  notificacion_boe: {cantidad: 20, unidad: dias_naturales}       # art. 91 RDL 6/2015
+parrafo_tipo: null             # pendiente (tarea 6)
+notas: |
+  No valora si la identificación fue veraz (art. 77.j: «identificar verazmente»): la
+  Administración puede discutirlo y la regla no lo sabe.
+  No modela el conductor habitual (arts. 11.2 y 82.c), que traslada la obligación de
+  identificar.
+
+  TODO(juridico): si se notificó en la DEV y la identificación se hizo en papel, ¿es válida?
+  El art. 93.1 exige medios telemáticos pero no dice la consecuencia. Hoy da «dudoso».
+  Fuente a consultar: jurisprudencia sobre el art. 93.1 RDL 6/2015.

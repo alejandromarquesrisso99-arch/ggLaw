@@ -1,0 +1,58 @@
+id: trafico.defecto_notificacion_denuncia
+titulo: Notificación edictal de la denuncia sin los intentos previos
+ambito: trafico
+estado: borrador
+fundamento:
+  - norma: RDL 6/2015
+    articulo: 90
+    apartado: "1 y 3"
+    knowledge: knowledge/rdl-6-2015.md
+  - norma: RDL 6/2015
+    articulo: 91
+    knowledge: knowledge/rdl-6-2015.md
+  - norma: Ley 39/2015
+    articulo: 30
+    apartado: "2"
+    knowledge: knowledge/ley-39-2015.md
+  - norma: Ley 39/2015
+    articulo: 44
+    knowledge: knowledge/ley-39-2015-procedimiento.md
+condiciones:          # evaluadas por core/trafico/notificacion.py, nunca por el LLM
+  - id: notificada_en_boe
+    descripcion: La denuncia se notificó por edicto en el BOE (art. 91).
+    fundamento: RDL 6/2015, art. 91
+  - id: intentos_conocidos
+    descripcion: >-
+      Los intentos previos se conocen porque el interesado ha consultado el expediente. Si
+      no, un defecto detectado da «dudoso».
+    fundamento: RDL 6/2015, art. 90.3
+  - id: dev_no_intentada
+    descripcion: >-
+      Defecto: el denunciado tenía DEV y no consta que se intentara notificar en ella antes
+      de publicar en el BOE.
+    fundamento: RDL 6/2015, arts. 90.1 y 91
+  - id: intentos_domicilio_insuficientes
+    descripcion: >-
+      Defecto: sin DEV, se publicó en el BOE sin los dos intentos en el domicilio en que nadie
+      se hizo cargo de la notificación.
+    fundamento: RDL 6/2015, art. 90.3 (párrafo segundo) y art. 91
+  - id: segundo_intento_fuera_de_plazo
+    descripcion: >-
+      Defecto: el segundo intento no se hizo dentro de los tres días siguientes al primero.
+    fundamento: RDL 6/2015, art. 90.3 (párrafo segundo)
+datos_necesarios: [notificacion_denuncia, dev_asignada, expediente_consultado]
+parametros:
+  reintento_domicilio_dias: 3   # art. 90.3 RDL 6/2015
+parrafo_tipo: null              # pendiente (tarea 6)
+notas: |
+  Basta un defecto para que proceda, siempre que los intentos consten en el expediente.
+  No evalúa las notificaciones entregadas (el interesado la recibió) ni la de la resolución.
+
+  TODO(juridico): «dentro de los tres días siguientes» (art. 90.3): ¿hábiles (art. 30.2 Ley
+  39/2015) o naturales? Se evalúan ambas lecturas; si discrepan, «dudoso».
+  TODO(juridico): ¿exige el art. 90.3 un segundo intento si el destinatario es «desconocido»
+  en el domicilio, o basta el art. 44 Ley 39/2015? Hoy da «dudoso».
+  TODO(juridico): ¿se aplican en tráfico las exigencias del art. 42.2 Ley 39/2015 (segundo
+  intento en franja horaria distinta, receptor mayor de catorce años) o las desplaza el art.
+  90.3 RDL 6/2015? No se evalúan.
+  Fuente a consultar: jurisprudencia sobre los arts. 90 y 91 RDL 6/2015.
