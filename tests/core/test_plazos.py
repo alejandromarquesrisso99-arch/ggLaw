@@ -27,10 +27,15 @@ from pydantic import ValidationError
 
 from core.calendario import Calendar, CalendarNotAvailableError
 from core.plazos import (
+    DateRange,
     DeadlineSpec,
     DeadlineUnit,
+    Timeliness,
     compute_deadline,
+    deadline_end_range,
     electronic_notification_date,
+    timeliness,
+    uncertain_period_end,
 )
 
 YEARS = range(2026, 2030)
@@ -462,3 +467,77 @@ class TestInvariants:
             assert deadline.start == notified + timedelta(days=1), notified
             assert deadline.nominal_end == date(year, month, min(notified.day, last_day)), notified
             assert_first_business_day_on_or_after(deadline.end, deadline.nominal_end)
+
+
+class TestUncertainDates:
+    """Rangos de fechas para plazos cuyo cómputo exacto es una duda jurídica abierta
+    (prescripción y caducidad del art. 112 RDL 6/2015; notificación en el BOE, art. 91)."""
+
+    def test_exact_range(self) -> None:
+        assert DateRange.exact(date(2026, 3, 2)) == DateRange(
+            earliest=date(2026, 3, 2), latest=date(2026, 3, 2)
+        )
+
+    def test_unordered_range_is_rejected(self) -> None:
+        with pytest.raises(ValidationError):
+            DateRange(earliest=date(2026, 3, 2), latest=date(2026, 3, 1))
+
+    @pytest.mark.parametrize(
+        ("event", "expected"),
+        [
+            (DateRange.exact(date(2026, 4, 9)), Timeliness.IN_TIME),
+            (DateRange.exact(date(2026, 4, 10)), Timeliness.UNCERTAIN),
+            (DateRange.exact(date(2026, 4, 11)), Timeliness.LATE),
+            (DateRange(earliest=date(2026, 4, 1), latest=date(2026, 4, 30)), Timeliness.UNCERTAIN),
+            (DateRange(earliest=date(2026, 4, 1), latest=None), Timeliness.UNCERTAIN),
+        ],
+    )
+    def test_timeliness_only_decides_when_every_reading_agrees(
+        self, event: DateRange, expected: Timeliness
+    ) -> None:
+        last_day = DateRange(earliest=date(2026, 4, 9), latest=date(2026, 4, 10))
+        assert timeliness(event, last_day) is expected
+
+    def test_without_upper_bound_nothing_is_late(self) -> None:
+        last_day = DateRange(earliest=date(2026, 4, 9), latest=None)
+        assert timeliness(DateRange.exact(date(2027, 1, 1)), last_day) is Timeliness.UNCERTAIN
+
+    def test_period_end_on_business_day(self) -> None:
+        # Hechos el jueves 15-I-2026, tres meses: el 15-IV-2026 es miércoles.
+        end = uncertain_period_end(date(2026, 1, 15), months(3), NO_HOLIDAYS)
+        assert end == DateRange(earliest=date(2026, 4, 14), latest=date(2026, 4, 15))
+
+    def test_period_end_extended_over_easter(self) -> None:
+        # Hechos el 2-I-2026, tres meses: el 2-IV-2026 es Jueves Santo; hábil el 7-IV.
+        end = uncertain_period_end(date(2026, 1, 2), months(3), make_calendar(*EASTER_2026))
+        assert end == DateRange(earliest=date(2026, 4, 1), latest=date(2026, 4, 7))
+
+    def test_period_end_without_calendar_has_no_upper_bound(self) -> None:
+        end = uncertain_period_end(date(2029, 9, 1), years(1), NO_HOLIDAYS)
+        assert end == DateRange(earliest=date(2030, 8, 31), latest=None)
+
+    def test_period_end_rejects_business_days(self) -> None:
+        with pytest.raises(ValueError, match="hábiles"):
+            uncertain_period_end(date(2026, 1, 2), business_days(3), NO_HOLIDAYS)
+
+    def test_deadline_from_uncertain_notification(self) -> None:
+        # Notificada entre el 6-III (viernes) y el 9-III-2026: 20 días naturales.
+        notified = DateRange(earliest=date(2026, 3, 6), latest=date(2026, 3, 9))
+        end = deadline_end_range(notified, calendar_days(20), NO_HOLIDAYS)
+        assert end == DateRange(earliest=date(2026, 3, 26), latest=date(2026, 3, 30))
+
+    def test_deadline_from_open_notification_has_no_upper_bound(self) -> None:
+        notified = DateRange(earliest=date(2026, 3, 6), latest=None)
+        end = deadline_end_range(notified, calendar_days(20), NO_HOLIDAYS)
+        assert end == DateRange(earliest=date(2026, 3, 26), latest=None)
+
+    def test_deadline_without_calendar_keeps_a_lower_bound(self) -> None:
+        notified = DateRange.exact(date(2029, 12, 20))
+        assert deadline_end_range(notified, calendar_days(20), NO_HOLIDAYS) == DateRange(
+            earliest=date(2030, 1, 9), latest=None
+        )
+        # En días hábiles, la cota inferior son tantos días naturales como hábiles.
+        late_december = DateRange.exact(date(2029, 12, 28))
+        assert deadline_end_range(late_december, business_days(5), NO_HOLIDAYS) == DateRange(
+            earliest=date(2030, 1, 2), latest=None
+        )

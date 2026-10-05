@@ -12,9 +12,9 @@ import calendar as pycalendar
 from datetime import date, timedelta
 from enum import StrEnum
 
-from pydantic import BaseModel, ConfigDict, Field, PositiveInt
+from pydantic import BaseModel, ConfigDict, Field, PositiveInt, model_validator
 
-from core.calendario import Calendar
+from core.calendario import Calendar, CalendarNotAvailableError
 
 ONE_DAY = timedelta(days=1)
 
@@ -60,9 +60,8 @@ def compute_deadline(notification_date: date, spec: DeadlineSpec, calendar: Cale
     """Último día de un plazo para actuar, contado desde una notificación, publicación o
     silencio (art. 30.3 y 30.4), con la prórroga del art. 30.5.
 
-    No sirve para la prescripción (el art. 112.1 del RDL 6/2015 cuenta desde el mismo día de
-    los hechos) ni para plazos de notificación presunta como el del art. 91 del RDL 6/2015.
-    TODO(juridico): definir su cómputo (día inicial y aplicación del art. 30.5) en la tarea 5.
+    No sirve para la prescripción ni la caducidad (el art. 112 del RDL 6/2015 cuenta desde el
+    mismo día de los hechos o de la iniciación): para ellas, uncertain_period_end.
 
     Lanza CalendarNotAvailableError si el cómputo necesita un año sin calendario oficial.
     """
@@ -75,18 +74,110 @@ def compute_deadline(notification_date: date, spec: DeadlineSpec, calendar: Cale
             notification_date=notification_date, spec=spec, start=start, nominal_end=end, end=end
         )
 
-    if spec.unit is DeadlineUnit.CALENDAR_DAYS:
-        nominal_end = notification_date + timedelta(days=spec.amount)
-    else:
-        months = spec.amount * 12 if spec.unit is DeadlineUnit.YEARS else spec.amount
-        nominal_end = _same_day_months_later(notification_date, months)
+    last_day = nominal_end(notification_date, spec)
     return Deadline(
         notification_date=notification_date,
         spec=spec,
         start=notification_date + ONE_DAY,
-        nominal_end=nominal_end,
-        end=_next_business_day(nominal_end, calendar),
+        nominal_end=last_day,
+        end=_next_business_day(last_day, calendar),
     )
+
+
+def nominal_end(notification_date: date, spec: DeadlineSpec) -> date:
+    """Último día de un plazo en días naturales, meses o años (art. 30.3 y 30.4), antes de la
+    prórroga del art. 30.5. No necesita calendario."""
+    if spec.unit is DeadlineUnit.BUSINESS_DAYS:
+        raise ValueError("Un plazo en días hábiles necesita calendario: usa compute_deadline.")
+    if spec.unit is DeadlineUnit.CALENDAR_DAYS:
+        return notification_date + timedelta(days=spec.amount)
+    months = spec.amount * 12 if spec.unit is DeadlineUnit.YEARS else spec.amount
+    return _same_day_months_later(notification_date, months)
+
+
+class DateRange(BaseModel):
+    """Fecha que no se conoce con exactitud, porque depende de datos que faltan o de una duda
+    jurídica abierta: está entre `earliest` y `latest`, ambos incluidos. `latest` es None si
+    no hay cota superior (p. ej., falta el calendario oficial del año)."""
+
+    model_config = ConfigDict(frozen=True)
+
+    earliest: date
+    latest: date | None
+
+    @model_validator(mode="after")
+    def _ordered(self) -> "DateRange":
+        if self.latest is not None and self.latest < self.earliest:
+            raise ValueError("La cota superior es anterior a la inferior.")
+        return self
+
+    @classmethod
+    def exact(cls, day: date) -> "DateRange":
+        return cls(earliest=day, latest=day)
+
+
+class Timeliness(StrEnum):
+    IN_TIME = "en_plazo"
+    LATE = "fuera_de_plazo"
+    UNCERTAIN = "dudoso"
+
+
+def timeliness(event: DateRange, last_day: DateRange) -> Timeliness:
+    """¿Ocurrió `event` dentro de un plazo cuyo último día es `last_day`?
+
+    Solo responde «en plazo» o «fuera de plazo» si la respuesta es la misma para cualquier
+    fecha posible de ambos rangos. Si depende de cuál sea la real, responde «dudoso»: ggLaw no
+    resuelve una duda jurídica eligiendo la interpretación que le conviene.
+    """
+    if event.latest is not None and event.latest <= last_day.earliest:
+        return Timeliness.IN_TIME
+    if last_day.latest is not None and event.earliest > last_day.latest:
+        return Timeliness.LATE
+    return Timeliness.UNCERTAIN
+
+
+def uncertain_period_end(start_day: date, spec: DeadlineSpec, calendar: Calendar) -> DateRange:
+    """Último día de un plazo que la norma cuenta «desde» un hecho sin fijar el cómputo, como
+    la prescripción (art. 112.1 RDL 6/2015) o la caducidad (art. 112.3).
+
+    TODO(juridico) (knowledge/rdl-6-2015-regimen-sancionador.md): no está decidido si el día
+    inicial computa ni si se aplica la prórroga del art. 30.5 de la Ley 39/2015. Por eso se
+    devuelve el rango que cubre todas las respuestas:
+
+    - earliest: el día inicial computa (el plazo acaba la víspera del mismo día del mes de
+      vencimiento) y no hay prórroga.
+    - latest: art. 30.4 (acaba el mismo día del mes de vencimiento) con la prórroga del art.
+      30.5; None si no hay calendario oficial para calcularla.
+    """
+    last_day = nominal_end(start_day, spec)
+    try:
+        latest: date | None = _next_business_day(last_day, calendar)
+    except CalendarNotAvailableError:
+        latest = None
+    return DateRange(earliest=last_day - ONE_DAY, latest=latest)
+
+
+def deadline_end_range(notified: DateRange, spec: DeadlineSpec, calendar: Calendar) -> DateRange:
+    """Último día para actuar (con la prórroga del art. 30.5) cuando la fecha de notificación
+    es un rango, como en la publicación en el BOE (art. 91 RDL 6/2015).
+
+    Sin calendario oficial, la cota inferior es el último día sin prórroga (o, en días hábiles,
+    el mismo número de días naturales) y no hay cota superior.
+    """
+    try:
+        earliest = compute_deadline(notified.earliest, spec, calendar).end
+    except CalendarNotAvailableError:
+        if spec.unit is DeadlineUnit.BUSINESS_DAYS:
+            earliest = notified.earliest + timedelta(days=spec.amount)
+        else:
+            earliest = nominal_end(notified.earliest, spec)
+    latest: date | None = None
+    if notified.latest is not None:
+        try:
+            latest = compute_deadline(notified.latest, spec, calendar).end
+        except CalendarNotAvailableError:
+            latest = None
+    return DateRange(earliest=earliest, latest=latest)
 
 
 def electronic_notification_date(
