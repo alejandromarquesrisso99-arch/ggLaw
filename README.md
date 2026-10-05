@@ -23,7 +23,12 @@ Ya funciona:
 - Calendario de días inhábiles de 2026 para el Estado, Illes Balears y Palma
   (`calendars/`), con su fuente oficial. Los años sin calendario publicado no se calculan.
 
-Siguiente: reglas de defensa en tráfico, plantillas de escritos y la CLI `gglaw analizar`.
+- Cinco reglas de defensa en tráfico, en borrador (`rules/trafico/`, evaluadas en
+  `core/trafico/`): prescripción, caducidad, notificación edictal defectuosa, identificación
+  del conductor y control metrológico del cinemómetro. Si el resultado depende de una duda
+  jurídica abierta, la regla responde «dudoso» en vez de decidir.
+
+Siguiente: plantillas de escritos y la CLI `gglaw analizar`.
 
 ## Principios
 
@@ -50,7 +55,7 @@ uv run mypy core/          # tipos
 
 | Carpeta | Contenido |
 |---|---|
-| `core/` | Lógica determinista: plazos y calendarios. |
+| `core/` | Lógica determinista: plazos, calendarios y evaluación de reglas. |
 | `calendars/` | Días inhábiles por territorio y año, con su fuente. |
 | `knowledge/` | Normativa transcrita del BOE y del BOIB. |
 | `rules/` | Motivos de defensa en YAML. |
